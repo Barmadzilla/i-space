@@ -1,0 +1,31 @@
+:root {
+    --bg-gray: #F6F6F6;
+    --green: #80BC70;
+    --light-blue: #72B8F3;
+    --deep-blue: #2E8DDD;
+    --gradient: linear-gradient(to right, var(--light-blue), var(--green));
+    --gradient-reverse: linear-gradient(to left, var(--light-blue), var(--green));
+    --text-gray: #59574E;
+    --bg-green:#F2F8F1;
+    --bg-blue:#F1F8FE;
+}
+
+.text-gradient {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg-green{
+    background: var(--bg-green);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+    font-size: 39px;
+}
+
+h2 {
+    font-size: 32px;
+}
