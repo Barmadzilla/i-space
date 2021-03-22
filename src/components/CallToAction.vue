@@ -1,7 +1,7 @@
 <template>
   <div class="action">
     <div class="container">
-      <h2>{{ actionTitle }}</h2>
+      <h2 v-html="actionTitle"></h2>
       <div class="info">
         {{ msg }}
       </div>
@@ -41,7 +41,7 @@ export default {
 .action .container {
   display: grid;
   grid-gap: 2em;
-  grid-template-columns: 30% 30% auto;
+  grid-template-columns: 25% 30% auto;
 }
 
 h2 {

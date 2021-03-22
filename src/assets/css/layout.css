@@ -3,6 +3,7 @@
     max-width: 1380px;
     min-width: 1140px;
     margin: 0 auto;
+    text-align: left;
 }
 .wrap {
     overflow-x: hidden;

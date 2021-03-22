@@ -50,6 +50,15 @@
         :btn-text="'Получать приглашения'"
     />
     <business-tasks-block/>
+    <communicate-easier/>
+    <news-block/>
+    <call-to-action
+        style="margin: 0"
+        :type="'mail'"
+        :actionTitle="'Полезные статьи<br/> i-Space у вас на почте'"
+        :msg="'Оставьте email, мы будем делиться полезным контентом, лайфхаками и новостями. Без рекламы и партнерских писем.'"
+        :btn-text="'Подписаться на новости'"
+    />
   </div>
 </template>
 
@@ -69,13 +78,15 @@ import ComplexPlan from "@/components/ComplexPlan";
 import ServicesPrice from "@/components/ServicesPrice";
 import IfreeComunity from "@/components/IfreeComunity";
 import BusinessTasksBlock from "@/components/BusinessTasksBlock";
+import CommunicateEasier from "@/components/CommunicateEasier";
+import NewsBlock from "@/components/NewsBlock";
 
 
 export default {
   name: 'Home',
   components: {
     Bubble, AboutSpace, CallToAction, CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
-    ServicesPrice, IfreeComunity, BusinessTasksBlock
+    ServicesPrice, IfreeComunity, BusinessTasksBlock, CommunicateEasier, NewsBlock
   },
   data() {
     return {
