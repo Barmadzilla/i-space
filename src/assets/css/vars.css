@@ -8,6 +8,7 @@
     --text-gray: #59574E;
     --bg-green:#F2F8F1;
     --bg-blue:#F1F8FE;
+    --bg-dark:#A5BDD0;
 }
 
 .text-gradient {
@@ -28,4 +29,7 @@ h1 {
 
 h2 {
     font-size: 32px;
+}
+h3{
+    font-size: 24px;
 }

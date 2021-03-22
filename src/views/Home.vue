@@ -34,6 +34,20 @@
         :btn-text="'Получить PDF'"
     />
     <services-price/>
+    <call-to-action
+        style="margin: 0"
+        :type="'tel'"
+        :actionTitle="'Поможем решить любые задачи'"
+        :msg="'Оставьте заявку — обсудим задачи, сформируем комплекс услуг по поддержке, а срочные дела отправим в работу уже сегодня.'"
+        :btn-text="'Как мы работаем'"
+    />
+    <ifree-comunity/>
+    <call-to-action-white
+        :type="'mail'"
+        :actionTitle="'Получайте приглашения на мероприятия'"
+        :msg="'Оставьте свой email, мы будем присылать только приглашения на предстоящие мероприятия.'"
+        :btn-text="'Получать приглашения'"
+    />
   </div>
 </template>
 
@@ -42,6 +56,7 @@
 import Bubble from "@/components/bubbles/Bubble";
 import AboutSpace from "@/components/AboutSpace";
 import CallToAction from "@/components/CallToAction";
+import CallToActionWhite from "@/components/CallToActionWhite";
 import AboutClients from "@/components/AboutClients";
 import BlockLegals from "@/components/BlockLegals";
 import BlockSupport from "@/components/BlockSupport";
@@ -50,11 +65,13 @@ import BlockDevOps from "@/components/BlockDevOps";
 import TwoFrames from "@/components/TwoFrames";
 import ComplexPlan from "@/components/ComplexPlan";
 import ServicesPrice from "@/components/ServicesPrice";
+import IfreeComunity from "@/components/IfreeComunity";
 
 
 export default {
   name: 'Home',
-  components: {Bubble, AboutSpace, CallToAction, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan, ServicesPrice},
+  components: {Bubble, AboutSpace, CallToAction,CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
+    ServicesPrice, IfreeComunity},
   data() {
     return {
       bubbles: [

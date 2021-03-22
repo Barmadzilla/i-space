@@ -31,5 +31,7 @@ a.blue{
 }
 a.green{
   background: var(--green);
+}a.dark{
+  background: var(--bg-dark);
 }
 </style>

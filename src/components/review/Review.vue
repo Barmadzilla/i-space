@@ -43,6 +43,15 @@ flex-shrink: 0;
   background: url('../../assets/images/card-white-edge.svg') no-repeat;
   position: absolute;
 }
+.card.dark:before{
+  content: '';
+  bottom: 0;
+  left: -38px;
+  width: 38px;
+  height: 61px;
+  background: url('../../assets/images/card-dark-edge.svg') no-repeat;
+  position: absolute;
+}
 .card.white{
   background: white;
   border-radius: 16px 16px 16px 0;
@@ -60,6 +69,10 @@ flex-shrink: 0;
   background: var(--bg-gray);
   border-radius: 16px  0 16px 16px;
 }
+.card.dark{
+  background: var(--bg-dark);
+  border-radius: 16px 16px 16px 0;
+}
 
 p {
   font-family: 'Raleway', sans-serif;
@@ -67,5 +80,8 @@ p {
   font-size: 18px;
   color: var(--text-gray);
   opacity: 0.6;
+}
+.card.dark p{
+  opacity: 1;
 }
 </style>
