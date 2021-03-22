@@ -43,11 +43,13 @@
     />
     <ifree-comunity/>
     <call-to-action-white
+        style="margin: 0"
         :type="'mail'"
         :actionTitle="'Получайте приглашения на мероприятия'"
         :msg="'Оставьте свой email, мы будем присылать только приглашения на предстоящие мероприятия.'"
         :btn-text="'Получать приглашения'"
     />
+    <business-tasks-block/>
   </div>
 </template>
 
@@ -66,12 +68,15 @@ import TwoFrames from "@/components/TwoFrames";
 import ComplexPlan from "@/components/ComplexPlan";
 import ServicesPrice from "@/components/ServicesPrice";
 import IfreeComunity from "@/components/IfreeComunity";
+import BusinessTasksBlock from "@/components/BusinessTasksBlock";
 
 
 export default {
   name: 'Home',
-  components: {Bubble, AboutSpace, CallToAction,CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
-    ServicesPrice, IfreeComunity},
+  components: {
+    Bubble, AboutSpace, CallToAction, CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
+    ServicesPrice, IfreeComunity, BusinessTasksBlock
+  },
   data() {
     return {
       bubbles: [

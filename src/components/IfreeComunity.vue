@@ -35,6 +35,7 @@
           :img="event.img"
       />
     </div>
+    <hr/>
   </div>
 </template>
 
@@ -138,7 +139,7 @@ export default {
 
 .big {
   font-family: 'Raleway', sans-serif;
-  font-size: 40px;
+  font-size: 2.6em;
   font-weight: bold;
 }
 
@@ -160,15 +161,19 @@ export default {
   margin: 0 1em;
 }
 
-.container{
+.container {
   position: relative;
 }
+
 .events {
   display: flex;
   overflow: scroll;
   width: 100%;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
 }
 
-
+hr {
+  border-color: #A5BDD0;
+  margin-top: 2em;
+}
 </style>
