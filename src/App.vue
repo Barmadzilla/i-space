@@ -1,18 +1,20 @@
 <template>
   <Header/>
   <router-view/>
+  <Footer/>
 </template>
 
 <script>
 
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
+import Footer from "@/components/Footer";
 
 
 export default {
   name: 'Home',
   components: {
-    Header
+    Header, Footer
   }
 }
 </script>
@@ -23,6 +25,7 @@ export default {
 @import "./assets/css/layout.css";
 @import "./assets/css/vars.css";
 @import "./assets/css/fonts.css";
+
 #app {
   font-family: Circe, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
