@@ -77,11 +77,11 @@ export default {
 }
 
 h2 {
-  --bottom: bottom 5px;
+  --bottom:  5px;
   display: inline-block;
   margin: 2em auto 2em;
   position: relative;
   padding: 0 1.7em;
-  background: url("../assets/images/arrow-left-alt.svg") no-repeat left var(--bottom), url("../assets/images/arrow-right-alt.svg") no-repeat right var(--bottom);
+  background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom var(--bottom), url("../assets/images/arrow-right-alt.svg") no-repeat right bottom var(--bottom);
 }
 </style>
