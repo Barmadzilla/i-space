@@ -82,6 +82,6 @@ h2 {
   margin: 2em auto 2em;
   position: relative;
   padding: 0 1.7em;
-  background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom var(--bottom), url("../assets/images/arrow-right-alt.svg") no-repeat right bottom var(--bottom);
+  background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;
 }
 </style>
