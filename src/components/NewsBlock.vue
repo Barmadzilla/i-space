@@ -77,7 +77,6 @@ export default {
 }
 
 h2 {
-  --bottom:  5px;
   display: inline-block;
   margin: 2em auto 2em;
   position: relative;
