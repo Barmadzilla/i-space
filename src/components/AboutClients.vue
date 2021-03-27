@@ -1,16 +1,17 @@
 <template>
-  <div class="container">
-    <h2>Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span></h2>
-    <div class="clients">
-      <a v-for="client in clients" :href="client.url" :key="client.name">
-        <img :src="require(`../assets/images/clients/${client.logo}`)" alt="client.name"/>
-      </a>
+  <div :class="reverse">
+    <div class="container"><h2>Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span></h2></div>
+    <div class="container logos">
+      <div class="clients">
+        <a v-for="client in clients" :href="client.url" :key="client.name">
+          <img :src="require(`../assets/images/clients/${client.logo}`)" alt="client.name"/>
+        </a>
+      </div>
     </div>
-
-  </div>
-  <div class="wrap">
-    <div class="bubbles">
-      <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+    <div class="wrap">
+      <div class="bubbles">
+        <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+      </div>
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@ import Bubble from "@/components/bubbles/Bubble";
 
 export default {
   name: "AboutClients",
+  props: ['reverse'],
   components: {Bubble},
   data() {
     return {
@@ -43,6 +45,10 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  text-align: center;
+}
+
 img {
   margin: 2em;
   display: inline-block;
@@ -50,5 +56,19 @@ img {
 
 .bubbles {
   margin-top: 2em;
+}
+.reverse .bubbles {
+  margin-top: 2em;
+  margin-bottom:1.5em;
+}
+.reverse{
+  display: flex;
+  flex-direction: column;
+}
+.reverse .wrap{
+  order: 1;
+}
+.reverse .container.logos{
+  order: 2;
 }
 </style>

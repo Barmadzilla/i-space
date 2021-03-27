@@ -1,4 +1,5 @@
 <template>
+  <Header/>
   <div class="home">
     <h2>Как вы решаете <span class="text-gradient">сложные и скучные</span> задачи бизнеса?</h2>
     <div class="wrap">
@@ -64,6 +65,7 @@
 
 <script>
 // @ is an alias to /src
+import Header from '@/components/Header.vue'
 import Bubble from "@/components/bubbles/Bubble";
 import AboutSpace from "@/components/AboutSpace";
 import CallToAction from "@/components/CallToAction";
@@ -85,7 +87,7 @@ import NewsBlock from "@/components/NewsBlock";
 export default {
   name: 'Home',
   components: {
-    Bubble, AboutSpace, CallToAction, CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
+    Header, Bubble, AboutSpace, CallToAction, CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
     ServicesPrice, IfreeComunity, BusinessTasksBlock, CommunicateEasier, NewsBlock
   },
   data() {

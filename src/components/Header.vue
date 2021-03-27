@@ -1,22 +1,5 @@
 <template>
-  <header>
-    <div class="container">
-      <div class="logo"><img src="../assets/logo-ispace.svg" alt="iSpace логотип"></div>
-      <div id="nav">
-        <ul>
-          <li><a href="#">Как мы работаем</a></li>
-          <li><a href="#">Услуги</a></li>
-          <li><a href="#">Стоимость</a></li>
-          <li><a href="#">Клиенты</a></li>
-          <li><a href="#">О компании</a></li>
-          <li><a href="#">Консультация</a></li>
-        </ul>
-        <!--        <router-link to="/">Home</router-link>-->
-        <!--        <router-link to="/about">About</router-link>-->
-        <LocaleSwitcher/>
-      </div>
-    </div>
-  </header>
+  <navigation/>
   <div class="slide">
     <div class="container">
       <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
@@ -28,7 +11,9 @@
       <div class="bubbles">
         <Bubble>Юридическое<br>сопровождение</Bubble>
         <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
-        <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
+        <router-link to="/it-support">
+          <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
+        </router-link>
       </div>
     </div>
   </div>
@@ -42,41 +27,18 @@
 </template>
 
 <script>
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import Navigation from "@/components/Navigation";
 import Btn from "@/components/buttons/GradientButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
 import Feature from "@/components/Feature";
 
 export default {
   name: "Header",
-  components: {Feature, LocaleSwitcher, Btn, Bubble}
+  components: {Navigation, Feature, Btn, Bubble}
 }
 </script>
 
 <style scoped>
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header {
-  padding: 20px 0;
-  background: #ffffff;
-  position: relative;
-}
-
-header ul {
-  list-style: none;
-}
-
-header li {
-  display: inline-block;
-}
-
-header #nav {
-  display: flex;
-}
 
 .slide {
   background: url("../assets/images/bg/slider.svg") center / cover no-repeat, linear-gradient(to top, #E0EAE7, #F6F6F6);
@@ -87,14 +49,15 @@ header #nav {
   position: relative;
   overflow: hidden;
 }
-.slide:after{
+
+.slide:after {
   content: '';
   width: 100%;
   height: 8em;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, rgba(255,255,255,0.85),  rgba(255,255,255,0));
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
 }
 
 h1 {
@@ -121,6 +84,11 @@ h1 {
   box-sizing: border-box;
   padding: 0 10% 3.5em;
   margin: 0;
+}
+
+a .bubble {
+  color: black;
+  text-decoration: none;
 }
 
 .people {

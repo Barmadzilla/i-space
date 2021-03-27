@@ -16,7 +16,7 @@ h2 {
 }
 
 a {
-    color: #7A5EAD;
+    color: var(--deep-blue);
 }
 
 p {
