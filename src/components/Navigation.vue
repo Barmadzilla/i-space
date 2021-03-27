@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <div class="logo"><router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link>git</div>
+      <div class="logo"><router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link></div>
       <div id="nav">
         <ul>
           <li><a href="#">Как мы работаем</a></li>
