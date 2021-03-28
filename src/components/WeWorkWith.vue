@@ -86,12 +86,15 @@ export default {
 .industry {
   display: flex;
 }
-.industry img{
+
+.industry img {
   margin-right: 1.5em;
 }
-.industry h3{
+
+.industry h3 {
   margin-top: .1em;
 }
+
 .info h2 {
   margin-top: 0;
 }
