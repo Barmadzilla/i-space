@@ -24,6 +24,7 @@ export default {
   margin-right: 1em;
   margin-left: 0;
   margin-top: 0.2em;
+  flex-shrink: 0;
 }
 
 .list-item {
