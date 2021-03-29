@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="info">
-      <h2>Индустрии, с которыми мы работаем</h2>
-      <p>Работаем с компаниями из США, России, Европы и Китая. </p>
+      <h2>{{ title }}</h2>
+      <p v-html="subtitle"></p>
     </div>
     <div class="industry-grid">
       <div class="industry" v-for="(ind,i) in industry" :key="i">
@@ -19,6 +19,7 @@
 <script>
 export default {
   name: "WeWorkWith",
+  props: ['title', 'subtitle'],
   data() {
     return {
       industry: [

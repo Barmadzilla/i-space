@@ -1,8 +1,14 @@
 <template>
   <HeaderTech/>
   <div class="it-support">
-    <we-work-with/>
-    <about-clients :reverse="'reverse'"/>
+    <we-work-with :title="'Индустрии, с которыми мы работаем'"
+                  :subtitle="'Работаем с компаниями из США, России, Европы и Китая.'"
+    />
+    <about-clients :reverse="'reverse'"
+                   :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span>`'
+                   :clients="clients"
+                   :bubbles="bubbles"
+    />
     <call-to-action
         :type="'tel'"
         :actionTitle="'Соберём для вас индивидуальное предложение'"
@@ -89,6 +95,21 @@ export default {
         {title: 'Укоряем', content: 'выход програмных релизов'},
         {title: 'Повышаем', content: 'стабильность приложений'},
         {title: 'Уменьшаем ', content: 'стоимость инфраструктуры'},
+      ],
+      clients: [
+
+        {name: 'Кошелёк', logo: 'wallet.svg', url: '#'},
+        {name: 'Первый Канал', logo: 'first-tv.svg', url: '#'},
+        {name: 'Just AI', logo: 'just-ai.svg', url: '#'},
+        {name: 'Trading View', logo: 'trading-view.svg', url: '#'},
+        {name: 'Glispa', logo: 'glispa.svg', url: '#'},
+        {name: 'Embria', logo: 'embria.svg', url: '#'},
+        {name: 'i-DIGITAL', logo: 'i-digital.svg', url: '#'},
+        {name: 'Coin Keeper', logo: 'coin-keeper.svg', url: '#'},
+        {name: 'i-Free', logo: 'i-free.svg', url: '#'},
+      ],
+      bubbles: [
+        'AI', 'FinTech', 'Разработка игр', 'Облачные решения', 'Трейдинг', 'Телеком', 'FoodTech'
       ],
       team: [
         {

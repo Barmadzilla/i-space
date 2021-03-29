@@ -65,6 +65,7 @@ export default {
 .tab.active{
   color: black;
   background: url("../assets/images/white-arrow.svg") no-repeat right top;
+  min-height: 1.68em;
 }
 
 h2:first-child {

@@ -10,7 +10,9 @@
       <img class="people" src="../assets/images/header_people.png" alt="">
       <div class="bubbles">
         <Bubble>Юридическое<br>сопровождение</Bubble>
-        <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
+        <router-link to="/i-legal" class="link">
+          <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
+        </router-link>
         <router-link to="/it-support" class="link">
           <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
         </router-link>
@@ -35,7 +37,7 @@ import Feature from "@/components/Feature";
 
 export default {
   name: "Header",
-  components: {Navigation, Feature, Btn, Bubble,TransparentIconButton}
+  components: {Navigation, Feature, Btn, Bubble, TransparentIconButton}
 }
 </script>
 
@@ -88,7 +90,7 @@ h1 {
 }
 
 a.link {
-  color: black;
+  color: var(--text-gray);
   text-decoration: none;
 }
 

@@ -31,6 +31,8 @@ export default {
     logotype() {
       if (this.logo === 'it') {
         return 'logo-ispace-tech.svg'
+      } else if (this.logo === 'legal'){
+        return 'logo-ispace-legal.svg'
       } else {
         return 'logo-ispace.svg'
       }
