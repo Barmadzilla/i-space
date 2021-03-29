@@ -19,9 +19,8 @@ export default {
 
 
 <style>
-@import "./assets/css/resets.css";
-@import "./assets/css/layout.css";
 @import "./assets/css/vars.css";
+@import "./assets/css/layout.css";
 @import "./assets/css/fonts.css";
 
 #app {
