@@ -19,17 +19,3 @@
 .bg-green{
     background: var(--bg-green);
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
-}
-
-h1 {
-    font-size: 39px;
-}
-
-h2 {
-    font-size: 32px;
-}
-h3{
-    font-size: 24px;
-}

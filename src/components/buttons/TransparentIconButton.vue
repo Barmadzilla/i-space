@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" >
+  <a :href="link" :class="color">
     <img src="@/assets/images/icons/telegram.svg" alt=""><slot></slot>
   </a>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
   name: "TransparentIconButton",
-  props: ['link','icon'],
+  props: ['link','icon','color'],
 }
 </script>
 
@@ -47,7 +47,10 @@ a:before{
   display: inline-block;
   border-radius: inherit;
   /*border-image: var(--gradient);*/
-  border: 2px solid var(--green);
+  border: 2px solid var(--deep-blue);
   /*border-image-slice: 1;*/
+}
+a.green:before{
+  border-color: var(--green);
 }
 </style>

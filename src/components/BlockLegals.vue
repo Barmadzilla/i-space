@@ -11,7 +11,7 @@
       </div>
       <div class="buttons">
         <solid-button :color="'blue'">Получить консультацию</solid-button>
-        <Btn :bg="'gray'">Подробнее о юридическом сопровождении</Btn>
+        <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
       </div>
 
     </div>
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import Btn from "@/components/buttons/GradientButton";
+import TransparentButton from "@/components/buttons/TransparentButton";
 import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import SolidButton from "@/components/buttons/SolidButton";
 
 export default {
   name: "BlockLegals",
-  components: {Btn, Bubble, Review,SolidButton},
+  components: { Bubble, Review,SolidButton,TransparentButton},
   data() {
     return {
       bubbles: [

@@ -10,7 +10,7 @@
     </div>
     <div class="buttons">
       <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
-      <Btn>Получить консультацию</Btn>
+      <transparent-button>Получить консультацию</transparent-button>
     </div>
     <div class="stack">
       <strong> Технологический стек i-Space:</strong> Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
@@ -25,14 +25,15 @@
 </template>
 
 <script>
-import Btn from "@/components/buttons/GradientButton";
 import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import SolidButton from "@/components/buttons/SolidButton";
+import TransparentButton from "@/components/buttons/TransparentButton";
+
 
 export default {
   name: "BlockLegals",
-  components: {Btn, Bubble, Review, SolidButton},
+  components: {Bubble, Review, SolidButton,TransparentButton},
   data() {
     return {
       bubbles: [

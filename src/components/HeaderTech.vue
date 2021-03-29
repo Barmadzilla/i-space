@@ -12,7 +12,7 @@
         </div>
         <div class="buttons">
           <Btn :bt-style="'gradient'">Получить консультацию</Btn>
-          <Btn :icon="'telegram'">Написать в Телеграм</Btn>
+          <transparent-icon-button :icon="'telegram'">Написать в Телеграм</transparent-icon-button>
         </div>
       </div>
       <div class="person">
@@ -31,11 +31,12 @@
 <script>
 import Navigation from "@/components/Navigation";
 import Btn from "@/components/buttons/GradientButton";
+import TransparentIconButton from "@/components/buttons/TransparentIconButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
 
 export default {
   name: "HeaderTech",
-  components: {Navigation, Btn, Bubble},
+  components: {Navigation, Btn, Bubble, TransparentIconButton},
   data() {
     return {
       words: [

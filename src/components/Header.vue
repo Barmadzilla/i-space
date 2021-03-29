@@ -5,13 +5,13 @@
       <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
       <div class="buttons">
         <Btn :bt-style="'gradient'">Получить консультацию</Btn>
-        <Btn :icon="'telegram'">Написать в Телеграм</Btn>
+        <transparent-icon-button :icon="'telegram'" :color="'blue'">Написать в Телеграм</transparent-icon-button>
       </div>
       <img class="people" src="../assets/images/header_people.png" alt="">
       <div class="bubbles">
         <Bubble>Юридическое<br>сопровождение</Bubble>
         <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
-        <router-link to="/it-support">
+        <router-link to="/it-support" class="link">
           <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
         </router-link>
       </div>
@@ -29,12 +29,13 @@
 <script>
 import Navigation from "@/components/Navigation";
 import Btn from "@/components/buttons/GradientButton";
+import TransparentIconButton from "@/components/buttons/TransparentIconButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
 import Feature from "@/components/Feature";
 
 export default {
   name: "Header",
-  components: {Navigation, Feature, Btn, Bubble}
+  components: {Navigation, Feature, Btn, Bubble,TransparentIconButton}
 }
 </script>
 
@@ -86,7 +87,7 @@ h1 {
   margin: 0;
 }
 
-a .bubble {
+a.link {
   color: black;
   text-decoration: none;
 }

@@ -10,7 +10,7 @@
     </div>
     <div class="buttons">
       <solid-button :color="'green'">Подробнее о DevOps</solid-button>
-      <Btn>Получить консультацию</Btn>
+      <transparent-button>Получить консультацию</transparent-button>
     </div>
     <div class="stack">
       <strong>Используем технологии: </strong>Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL, MongoDB, MsSQL, Redis, Memcached, RabbitMq, Apache kafka, Azure Storage, Zookeeper, Consul, Prometheus, Grafana, Alertmanager.
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import Btn from "@/components/buttons/GradientButton";
 import SolidButton from "@/components/buttons/SolidButton";
+import TransparentButton from "@/components/buttons/TransparentButton";
 import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 
 export default {
   name: "BlockLegals",
-  components: {Btn, Bubble, Review, SolidButton},
+  components: { Bubble, Review, SolidButton,TransparentButton},
   data() {
     return {
       bubbles: [

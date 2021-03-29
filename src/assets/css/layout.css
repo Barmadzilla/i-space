@@ -9,11 +9,23 @@
 .wrap {
     overflow-x: hidden;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+    font-size: 39px;
+}
+
+h2 {
+    font-size: 32px;
+    margin: 2em 0 1em;
+}
+h3{
+    font-size: 24px;
+}
 body{
     font-size: 18px;
-}
-h2 {
-    margin: 2em 0 1em;
 }
 
 a {
