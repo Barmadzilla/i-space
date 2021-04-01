@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="face">
-      <img :src="require(`@/assets/images/teams/${faceFolder}/${face}`)" :alt="name">
+      <img :src="require(`../assets/images/teams/${face}`)" :alt="name">
     </div>
     <h3>{{name}}</h3>
     <p class="position">{{ position }}</p>
@@ -17,7 +17,9 @@ export default {
 </script>
 
 <style scoped>
-
+.card{
+  max-width: 310px;
+}
 .card .face{
   width: 100%;
   /*text-align: center;*/

@@ -79,25 +79,6 @@ export default {
   height: 78vh;
 }
 
-.slide {
-  background: url("../assets/images/bg/slider.svg") center / cover no-repeat, linear-gradient(to top, #E0EAE7, #F6F6F6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 500px;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide:after {
-  content: '';
-  width: 100%;
-  height: 8em;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-}
 
 h1 {
   font-size: 39px;

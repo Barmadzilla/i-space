@@ -17,7 +17,7 @@
       Redis, Ansible, Docker/Kubernetes, Last Backend
     </div>
   </div>
-  <div class="wrap">
+  <div class="container">
     <div class="bubbles">
       <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
     </div>

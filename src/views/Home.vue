@@ -2,7 +2,7 @@
   <Header/>
   <div class="home">
     <h2>Как вы решаете <span class="text-gradient">сложные и скучные</span> задачи бизнеса?</h2>
-    <div class="wrap">
+    <div class="container">
       <div class="bubbles">
         <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
@@ -14,7 +14,10 @@
         :msg="'Подхватим важные дела и начнем сегодня Оставьте заявку — обсудим задачи\, сформируем комплекс услуг\, а срочные дела отправим в работу уже сегодня.'"
         :btn-text="'Как мы работаем'"
     />
-    <about-clients/>
+    <about-clients :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span>`'
+                   :clients="clients"
+                   :bubbles="clients_bubbles"
+    />
     <block-legals/>
     <block-support/>
     <block-acountants/>
@@ -43,7 +46,7 @@
         :btn-text="'Как мы работаем'"
     />
     <ifree-comunity/>
-    <call-to-action-white
+    <call-to-action
         style="margin: 0"
         :type="'mail'"
         :actionTitle="'Получайте приглашения на мероприятия'"
@@ -69,7 +72,6 @@ import Header from '@/components/Header.vue'
 import Bubble from "@/components/bubbles/Bubble";
 import AboutSpace from "@/components/AboutSpace";
 import CallToAction from "@/components/CallToAction";
-import CallToActionWhite from "@/components/CallToActionWhite";
 import AboutClients from "@/components/AboutClients";
 import BlockLegals from "@/components/BlockLegals";
 import BlockSupport from "@/components/BlockSupport";
@@ -87,7 +89,7 @@ import NewsBlock from "@/components/NewsBlock";
 export default {
   name: 'Home',
   components: {
-    Header, Bubble, AboutSpace, CallToAction, CallToActionWhite, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
+    Header, Bubble, AboutSpace, CallToAction, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
     ServicesPrice, IfreeComunity, BusinessTasksBlock, CommunicateEasier, NewsBlock
   },
   data() {
@@ -105,7 +107,22 @@ export default {
         'Как оформить инвестиции в проект?',
         'Как получить налоговые льготы для IT компании?',
         'Как защитить бизнес от штрафов?'
-      ]
+      ],
+      clients: [
+
+        {name: 'Кошелёк', logo: 'wallet.svg', url: '#'},
+        {name: 'Первый Канал', logo: 'first-tv.svg', url: '#'},
+        {name: 'Just AI', logo: 'just-ai.svg', url: '#'},
+        {name: 'Trading View', logo: 'trading-view.svg', url: '#'},
+        {name: 'Glispa', logo: 'glispa.svg', url: '#'},
+        {name: 'Embria', logo: 'embria.svg', url: '#'},
+        {name: 'i-DIGITAL', logo: 'i-digital.svg', url: '#'},
+        {name: 'Coin Keeper', logo: 'coin-keeper.svg', url: '#'},
+        {name: 'i-Free', logo: 'i-free.svg', url: '#'},
+      ],
+      clients_bubbles: [
+        'AI', 'FinTech', 'Разработка игр', 'Облачные решения', 'Трейдинг', 'Телеком', 'FoodTech'
+      ],
     }
   }
 }

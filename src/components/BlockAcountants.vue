@@ -11,13 +11,15 @@
       </div>
       <div class="buttons">
         <solid-button :color="'blue'">Получить консультацию</solid-button>
-        <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
+        <router-link :to="'/finances'">
+          <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
+        </router-link>
       </div>
 
     </div>
-    <div class="wrap">
+    <div class="container">
       <div class="bubbles">
-        <bubble :bg="'white'"  v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+        <bubble :bg="'white'" v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
     </div>
   </div>
@@ -31,7 +33,7 @@ import TransparentButton from "@/components/buttons/TransparentButton";
 
 export default {
   name: "BlockLegals",
-  components: { Bubble, Review,SolidButton,TransparentButton},
+  components: {Bubble, Review, SolidButton, TransparentButton},
   data() {
     return {
       bubbles: [
@@ -95,7 +97,7 @@ img {
 
 .content {
   flex-shrink: 8;
-  margin:0 1em;
+  margin: 0 1em;
 }
 
 h2 {

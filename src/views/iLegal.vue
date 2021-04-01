@@ -11,6 +11,12 @@
                    :bubbles="bubbles"
     />
     <help-slider/>
+    <team-price-block/>
+    <we-do-it-right
+        :info="weDoIt.info"
+        :blocks="weDoIt.blocks"
+        :dude="'right_dude.svg'"
+    />
     <call-to-action
         style="margin-top: 0"
         :type="'mail'"
@@ -19,13 +25,12 @@
         :btn-text="'Получить консультацию'"
     />
     <team-block :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
-                :subtitle="'Команда во многом определяет успех компании. Лучший показатель качества нашей работы — повторное обращение, рекомендация друзьям и коллегам. Почти 90% новых клиентов приходят к нам по рекомендации.'"
+                :subtitle="'Вы получаете целую команду юристов - каждый с глубокой экспертизой в своей области. Все юристы имеют лучшее юридическое образование СПБГУ, МГУ. '"
                 :team="team"
-                :team-name="'support'"
+                :team-name="'ilegal'"
     />
     <business-tasks-block/>
     <best-conditions/>
-
   </div>
 </template>
 
@@ -38,6 +43,8 @@ import HelpSlider from "@/components/HelpSlider";
 import BusinessTasksBlock from "@/components/BusinessTasksBlock";
 import TeamBlock from "@/components/TeamBlock";
 import BestConditions from "@/components/BestConditions";
+import TeamPriceBlock from "@/components/TeamPriceBlock";
+import WeDoItRight from "@/components/WeDoItRight";
 
 export default {
   name: "iLegal.vue",
@@ -49,10 +56,26 @@ export default {
     HelpSlider,
     BusinessTasksBlock,
     TeamBlock,
-    BestConditions
+    BestConditions,
+    TeamPriceBlock,
+    WeDoItRight
   },
   data() {
     return {
+      weDoIt: {
+        info: {
+          title: 'Все сделаем правильно',
+          content: 'Наладим постоянную связь и возьмем дела в работу еще до подписания договора.',
+
+        },
+        blocks: [
+          {title: 'Организуем удобный формат общения', content: 'Общаемся удобными вам способами Телеграм, Ватцап, Вайбер, звонки, мэйл. Принимаем задачи 24\\7.'},
+          {
+            title: 'Подбирем специалистов с глубоким пониманием отрасли',
+            content: 'Каждый юрист специализируется в узких откраслях права и разбирается в тонкостях. Что не может сделать ни один юрист в штате.'
+          },
+        ]
+      },
       clients: [
 
         {name: 'Just AI', logo: 'just-ai.svg', url: '#'},
@@ -70,52 +93,52 @@ export default {
       ],
       team: [
         {
-          name: 'Алексей Шонин',
-          position: 'Технический директор',
-          bio: 'В IT индустрии работает 15 лет. Под его руководством были запущены сотни проектов разной направленности и сложности.',
-          face:'shonin.jpg'
+          name: 'Наталья Юркова',
+          position: 'Управляющий партнер i-Legal',
+          bio: 'M&A, международное частное право, корпоративное право, IP, «антиоффшорное» законодательство, налоговое законодательство России и Европы.',
+          face: 'yurkova.jpg'
         },
         {
-          name: 'Григорий Синеокий',
-          position: 'Руководитель HelpDesk департамента',
-          bio: 'Опыт работы в IT-сфере более 20 лет.  Имеет экспертные знания по клиентским операционным системам. ',
-          face:'sineoki.jpg'
+          name: 'Мария Ордовская',
+          position: 'Ведущий юрист',
+          bio: 'Договорное право, интеллектуальная собственность, административное право, законодательство о рекламе.',
+          face: 'ordovskaya.jpg'
         },
         {
-          name: 'Полина Белокобыльская',
-          position: 'Руководитель группы мониторинга и тех поддержки',
-          bio: 'Организует  и обеспечивает бесперебойную работу службы мониторинга и тех. поддержки.',
-          face:'belokobylskaya.jpg'
+          name: 'Анастасия Кузнецова',
+          position: 'Юрист ',
+          bio: '«Антиоффшорное» законодательство, корпоративное право  законодательство о рекламе, законодательство о связи.',
+          face: 'kuznetsova.jpg'
         },
         {
-          name: 'Юра Седов',
-          position: 'Руководитель службы системного администрирования',
-          bio: 'Microsoft Certified Professional. Экспертные знания в Powershell. Большой внедрения методологии ITIL. ',
-          face:'sedov.jpg'
+          name: 'Айлана Утнасунова',
+          position: 'Ведущий юрист',
+          bio: 'M&A, IP, «антиоффшорное» законодательство, корпоративное право  законодательство о рекламе,  о связи.',
+          face: 'utnasunova.jpg'
         },
         {
-          name: 'Александр Калошин',
-          position: 'Co-founder компании Last.Backend',
-          bio: '12 лет занимается проектированием высоконагруженных облачных платформ и инфраструктур',
-          face:'kaloshin.jpg'
+          name: 'Анна Иванова',
+          position: 'Ведущий юрист',
+          bio: 'Международное частное право, IP, налоговое право, корпоративное право, законодательство о национальной платежной системе РФ,  о рекламе.',
+          face: 'ivanova.jpg'
         },
         {
-          name: 'Макс Игнатьев',
-          position: 'Ведущий DevOps специалист',
-          bio: 'Больше 10 лет опыта в Devops.  Работает над сложными проектами в области комерческой разработки. ',
-          face:'ignatev.jpg'
+          name: 'Владимир Тараканов',
+          position: 'Юрист',
+          bio: 'Договорное право, интеллектуальная собственность, административное право, законодательство о рекламе.',
+          face: 'tarakanov.jpg'
         },
         {
-          name: 'Константин Пастор',
-          position: 'Co-founder компании Last.Backend',
-          bio: 'Программист, архитектор, Devops инженер. ',
-          face:'pastor.jpg'
+          name: 'Айлана Утнасунова',
+          position: 'Юрист',
+          bio: 'M&A, IP,  поддержка иностранных компаний, «антиоффшорное» з-во, корпоративное право,  законодательство о рекламе,  о связи.',
+          face: 'utnacunova.jpg'
         },
         {
-          name: 'Бельская Наталья ',
-          position: 'linux - администратор',
-          bio: 'Отвечает за работу второй линии поддержки.',
-          face:'belskaya.jpg'
+          name: 'Вячеслав Тамулевичюс',
+          position: 'Младший юрист',
+          bio: 'Административное право, интеллектуальная собственность, законодательство о рекламе.',
+          face: 'tamulevichus.jpg'
         },
       ]
     }

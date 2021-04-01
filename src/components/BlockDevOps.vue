@@ -10,13 +10,16 @@
     </div>
     <div class="buttons">
       <solid-button :color="'green'">Подробнее о DevOps</solid-button>
-      <transparent-button>Получить консультацию</transparent-button>
+      <router-link :to="'/it-support'">
+        <transparent-button>Получить консультацию</transparent-button>
+      </router-link>
     </div>
     <div class="stack">
-      <strong>Используем технологии: </strong>Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL, MongoDB, MsSQL, Redis, Memcached, RabbitMq, Apache kafka, Azure Storage, Zookeeper, Consul, Prometheus, Grafana, Alertmanager.
+      <strong>Используем технологии: </strong>Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL,
+      MongoDB, MsSQL, Redis, Memcached, RabbitMq, Apache kafka, Azure Storage, Zookeeper, Consul, Prometheus, Grafana, Alertmanager.
     </div>
   </div>
-  <div class="wrap">
+  <div class="container">
     <div class="bubbles">
       <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
     </div>
@@ -31,7 +34,7 @@ import Review from "@/components/review/Review";
 
 export default {
   name: "BlockLegals",
-  components: { Bubble, Review, SolidButton,TransparentButton},
+  components: {Bubble, Review, SolidButton, TransparentButton},
   data() {
     return {
       bubbles: [
@@ -120,6 +123,7 @@ h2 {
   justify-content: flex-start;
   display: flex;
 }
+
 .stack {
   text-align: left;
   font-size: 25px;

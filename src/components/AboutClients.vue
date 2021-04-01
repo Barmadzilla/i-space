@@ -8,7 +8,7 @@
         </a>
       </div>
     </div>
-    <div class="wrap">
+    <div class="container">
       <div class="bubbles">
         <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.clients{
+  text-align: center;
+}
 h2 {
   text-align: center;
 }
@@ -42,6 +45,7 @@ img {
 
 .bubbles {
   margin-top: 2em;
+  justify-content: center;
 }
 .reverse .bubbles {
   margin-top: 2em;
@@ -56,5 +60,6 @@ img {
 }
 .reverse .container.logos{
   order: 2;
+  margin-bottom: 3em;
 }
 </style>

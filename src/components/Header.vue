@@ -7,11 +7,15 @@
         <Btn :bt-style="'gradient'">Получить консультацию</Btn>
         <transparent-icon-button :icon="'telegram'" :color="'blue'">Написать в Телеграм</transparent-icon-button>
       </div>
-      <img class="people" src="../assets/images/header_people.png" alt="">
+      <div class="people-container">
+        <img class="people" src="../assets/images/header_people.png" alt="">
+      </div>
       <div class="bubbles">
-        <Bubble>Юридическое<br>сопровождение</Bubble>
-        <router-link to="/i-legal" class="link">
+        <router-link to="/finances" class="link">
           <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
+        </router-link>
+        <router-link to="/i-legal" class="link">
+          <Bubble>Юридическое<br>сопровождение</Bubble>
         </router-link>
         <router-link to="/it-support" class="link">
           <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
@@ -43,31 +47,11 @@ export default {
 
 <style scoped>
 
-.slide {
-  background: url("../assets/images/bg/slider.svg") center / cover no-repeat, linear-gradient(to top, #E0EAE7, #F6F6F6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 500px;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide:after {
-  content: '';
-  width: 100%;
-  height: 8em;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
-}
-
 h1 {
   font-size: 39px;
   width: 81vw;
   max-width: 690px;
-  margin: 2.5em auto 0;
+  margin: 2em auto 0;
 }
 
 .buttons {
@@ -94,6 +78,14 @@ a.link {
   text-decoration: none;
 }
 
+.people-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  object-fit: contain;
+}
+
 .people {
   position: relative;
   bottom: -7em;
@@ -101,14 +93,15 @@ a.link {
   width: 90%;
 }
 
+
 .features .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .features {
-  padding: 4em 0;
+  padding: 2.5em 0 1em;
   margin-top: -4em;
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);

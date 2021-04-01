@@ -11,11 +11,12 @@
       </div>
       <div class="buttons">
         <solid-button :color="'blue'">Получить консультацию</solid-button>
-        <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
+        <router-link :to="'/i-legal'">
+          <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
+        </router-link>
       </div>
-
     </div>
-    <div class="wrap">
+    <div class="container">
       <div class="bubbles">
         <bubble :bg="'white'"  v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>

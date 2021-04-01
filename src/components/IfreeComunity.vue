@@ -35,7 +35,6 @@
           :img="event.img"
       />
     </div>
-    <hr/>
   </div>
 </template>
 

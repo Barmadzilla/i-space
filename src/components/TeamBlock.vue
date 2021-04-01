@@ -4,13 +4,13 @@
       <h2 v-html="title"></h2>
       <p>{{ subtitle }}</p>
     </div>
-    <div class="team">
-      <team-mate-card v-for="(mate,i) in team" :key="i"
-                      :name="mate.name"
-                      :bio="mate.bio"
-                      :face="mate.face"
-                      :position="mate.position"
-                      :face-folder="teamName"
+    <div class="team" :class="items">
+      <team-mate-card
+          v-for="(mate,i) in team" :key="i"
+          :name="mate.name"
+          :bio="mate.bio"
+          :face="`${teamName}/${mate.face}`"
+          :position="mate.position"
       />
     </div>
   </div>
@@ -22,7 +22,16 @@ import TeamMateCard from "@/components/TeamMateCard";
 export default {
   name: "TeamBlock",
   props: ['title', 'subtitle', 'team', 'teamName'],
-  components: {TeamMateCard}
+  components: {TeamMateCard},
+  data() {
+    return {
+      items: {
+        one: this.team.length === 1,
+        two: this.team.length === 2,
+        tree: this.team.length === 3
+      }
+    }
+  }
 }
 </script>
 
@@ -35,6 +44,19 @@ export default {
   display: grid;
   grid-gap: 3em;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.team.one {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.team.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.team.tree {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {

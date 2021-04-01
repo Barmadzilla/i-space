@@ -14,10 +14,11 @@ export default {
 .bubble{
   background: var(--bg-gray);
   border-radius: 48px;
-  padding: 15px 30px;
+  padding: .7em 1em;
   display: inline-block;
   margin: 0.6em;
-  font-size: 18px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 .bubble.white{
   background: white;

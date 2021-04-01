@@ -2,7 +2,7 @@
 <div class="plan-table">
   <table-header :data="header"/>
   <table-row v-for="(row,i) in rows" :data="row" :key="i"/>
-  <p class="all">Все услуги и цены</p>
+
 </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .plan-table{
   --grid:3fr repeat(3,1fr);
-  padding-bottom: 3em;
+  padding-bottom: 0;
 }
 .plan-table .header,
 .plan-table .row{
@@ -31,10 +31,5 @@ export default {
 }
 .plan-table .row:nth-child(odd){
   background: white;
-}
-.all{
-  font-size: 25px;
-  text-align: center;
-  padding: 2em;
 }
 </style>

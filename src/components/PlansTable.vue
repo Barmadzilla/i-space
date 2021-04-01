@@ -14,6 +14,7 @@
           :rows="table.rows"
           :footer="table.footer"/>
     </div>
+    <p class="all">Все услуги и цены</p>
   </div>
 </template>
 
@@ -77,5 +78,10 @@ export default {
 .info p {
   font-size: 25px;
   font-weight: 300;
+}
+.all{
+  font-size: 25px;
+  text-align: center;
+  padding: 2em;
 }
 </style>

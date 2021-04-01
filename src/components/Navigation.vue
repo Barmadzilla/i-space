@@ -1,7 +1,9 @@
 <template>
   <header>
     <div class="container">
-      <div class="logo"><router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link></div>
+      <div class="logo">
+        <router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link>
+      </div>
       <div id="nav">
         <ul>
           <li><a href="#">Как мы работаем</a></li>
@@ -31,8 +33,10 @@ export default {
     logotype() {
       if (this.logo === 'it') {
         return 'logo-ispace-tech.svg'
-      } else if (this.logo === 'legal'){
+      } else if (this.logo === 'legal') {
         return 'logo-ispace-legal.svg'
+      } else if (this.logo === 'finances') {
+        return 'logo-ispace-finances.svg'
       } else {
         return 'logo-ispace.svg'
       }
@@ -50,8 +54,13 @@ header .container {
 
 header {
   padding: 20px 0;
-  background: #ffffff;
-  position: relative;
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
 }
 
 header ul {
