@@ -1,8 +1,8 @@
 <template>
+<div name="top"></div>
   <router-view/>
   <Footer/>
 </template>
-
 <script>
 
 // @ is an alias to /src
@@ -12,12 +12,10 @@ import Footer from "@/components/Footer";
 export default {
   name: 'Home',
   components: {
-     Footer
+    Footer
   }
 }
 </script>
-
-
 
 
 <style>

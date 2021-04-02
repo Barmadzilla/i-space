@@ -7,7 +7,9 @@
         <p>Организуем кадровое делопроизводство в компании:</p>
         <list-item-play v-for="(item, i) in list" :key="i">{{ item }}</list-item-play>
       </div>
-      <WhiteButton>Получить консультацию</WhiteButton>
+      <router-link :to="'/finances'">
+        <WhiteButton>Подробнее</WhiteButton>
+      </router-link>
     </div>
     <div class="frame">
       <div>
@@ -16,7 +18,9 @@
         <p>Подберём подходящий офис, проведём переговоры, оформим договор аренды, закупим мебель и даже сделаем ремонт, если это необходимо.</p>
         <p>Наймём офис-менеджера, возьмём на себя обеспечение офиса и обеспечим консьерж-сервис для сотрудников.</p>
       </div>
-      <WhiteButton>Получить консультацию</WhiteButton>
+      <router-link :to="'/offices'">
+        <WhiteButton>Подробнее</WhiteButton>
+      </router-link>
     </div>
   </div>
 </template>
@@ -81,9 +85,17 @@ export default {
 }
 
 .frame .btn a {
-  width: 100%;
   margin-right: 0;
   justify-content: center;
 
+}
+
+.frame a,
+.frame .btn {
+  width: 100%;
+}
+
+a {
+  width: 100%;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer id="footer">
     <div class="container">
       <h2>Давайте обсудим <span class="text-gradient">ваши задачи</span></h2>
       <p class="subtitle">Оставьте заявку, чтобы получить консультацию и расчёт стоимости </p>

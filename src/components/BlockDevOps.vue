@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+
+
     <div class="info">
       <div class="content">
         <h2>DevOps и <br><span class="text-gradient">облачные решения</span></h2>
@@ -9,10 +11,10 @@
       <img src="../assets/images/pro_devops.svg" alt="">
     </div>
     <div class="buttons">
-      <solid-button :color="'green'">Подробнее о DevOps</solid-button>
       <router-link :to="'/it-support'">
-        <transparent-button>Получить консультацию</transparent-button>
+        <solid-button :color="'green'">Подробнее о DevOps</solid-button>
       </router-link>
+      <transparent-button>Получить консультацию</transparent-button>
     </div>
     <div class="stack">
       <strong>Используем технологии: </strong>Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL,

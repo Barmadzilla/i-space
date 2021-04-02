@@ -9,7 +9,9 @@
       <img src="../assets/images/pro_it.svg" alt="">
     </div>
     <div class="buttons">
-      <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
+      <router-link :to="'/it-support'">
+        <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
+      </router-link>
       <transparent-button>Получить консультацию</transparent-button>
     </div>
     <div class="stack">
@@ -33,7 +35,7 @@ import TransparentButton from "@/components/buttons/TransparentButton";
 
 export default {
   name: "BlockLegals",
-  components: {Bubble, Review, SolidButton,TransparentButton},
+  components: {Bubble, Review, SolidButton, TransparentButton},
   data() {
     return {
       bubbles: [
@@ -114,6 +116,7 @@ h2 {
   justify-content: flex-start;
   display: flex;
 }
+
 .stack {
   text-align: left;
   font-size: 25px;

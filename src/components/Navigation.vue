@@ -6,8 +6,25 @@
       </div>
       <div id="nav">
         <ul>
-          <li><a href="#">Как мы работаем</a></li>
-          <li><a href="#">Услуги</a></li>
+          <li><router-link :to="'#footer'">Как мы работаем</router-link></li>
+          <li><a href="#" @click.prevent="open = !open" class="sub" :class="classObj">Услуги</a>
+            <transition name="fade">
+              <ul v-if="open" @mouseleave="open = false">
+                <li>
+                  <router-link :to="'/i-legal'">Юридическое сопровождение</router-link>
+                </li>
+                <li>
+                  <router-link :to="'/finances'">Фиансовый учет</router-link>
+                </li>
+                <li>
+                  <router-link :to="'/it-support'">IT поддержка</router-link>
+                </li>
+                <li>
+                  <router-link :to="'/offices'">Офис менеджмент</router-link>
+                </li>
+              </ul>
+            </transition>
+          </li>
           <li><a href="#">Стоимость</a></li>
           <li><a href="#">Клиенты</a></li>
           <li><a href="#">О компании</a></li>
@@ -29,6 +46,11 @@ export default {
   name: "Navigation",
   components: {LocaleSwitcher},
   props: ['logo'],
+  data() {
+    return {
+      open: false
+    }
+  },
   computed: {
     logotype() {
       if (this.logo === 'it') {
@@ -39,6 +61,11 @@ export default {
         return 'logo-ispace-finances.svg'
       } else {
         return 'logo-ispace.svg'
+      }
+    },
+    classObj() {
+      return {
+        active: !!this.open
       }
     }
   }
@@ -69,10 +96,75 @@ header ul {
 
 header li {
   display: inline-block;
+  position: relative;
 }
 
 header #nav {
   display: flex;
+}
+
+header li ul {
+  padding: 1.2em;
+  position: absolute;
+  left: 1em;
+  top: 2em;
+  border-radius: 8px;
+  background: var(--bg-gray);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+header li ul li {
+  margin-left: 0;
+  margin-bottom: .5em;
+  display: list-item;
+}
+
+header li ul li:last-child {
+  margin-bottom: 0;
+}
+
+header li ul a {
+  white-space: nowrap;
+  color: #949494;
+  margin-left: 0;
+}
+
+a.sub {
+  padding-right: 1em;
+  position: relative;
+}
+a.sub:after{
+  content: '';
+  background: url("../assets/images/sub-arr.svg") no-repeat center;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 0;
+  top: 37%;
+  transition: transform 200ms;
+  transform: rotate(-90deg);
+}
+a.sub.active:after{
+  transform: rotate(0);
+}
+
+header li ul a:hover {
+  color: #000;
+}
+
+.fade-enter-active {
+  transition: all 150ms ease;
+}
+
+.fade-leave-active {
+  transition: all 350ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-1em);
 }
 
 </style>

@@ -10,10 +10,10 @@
         <review :bg="'white'" :data="reviews" class="reviews"/>
       </div>
       <div class="buttons">
-        <solid-button :color="'blue'">Получить консультацию</solid-button>
         <router-link :to="'/finances'">
-          <transparent-button :color="'blue'">Подробнее о юридическом сопровождении</transparent-button>
+          <solid-button :color="'blue'">Подробнее о юридическом сопровождении</solid-button>
         </router-link>
+        <transparent-button :color="'blue'">Получить консультацию</transparent-button>
       </div>
 
     </div>
