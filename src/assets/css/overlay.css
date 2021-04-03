@@ -1,0 +1,65 @@
+#overlay{
+    font-family: 'Circe', sans-serif;
+}
+#overlay .bg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.70);
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+}
+#overlay .card{
+    padding: 2em;
+    background: white;
+    box-shadow: 10px 4px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    max-width: 580px;
+    width: 100%;
+    min-width: 490px;
+    position: relative;
+}
+#overlay h2{
+    margin: 0 0 0.7em;
+}
+#overlay p{
+    margin-bottom: 1em;
+}
+#overlay input{
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid var(--light-blue);
+    padding: .8em .8em;
+    font-size: 22px;
+    color: black;
+    margin-bottom: 1em;
+}
+#overlay input::placeholder{
+    color: var(--light-blue);
+}
+#overlay .btn{
+    width: 100%;
+}
+#overlay small{
+    font-size: .8em;
+    text-align: center;
+    display: block;
+    margin-top: 1em;
+}
+#overlay small a {
+    color: black;
+}
+#overlay .close{
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+#overlay .btn:hover{
+    background: var(--bg-gray);
+}

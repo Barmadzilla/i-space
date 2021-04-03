@@ -39,7 +39,7 @@ h2 {
 }
 
 img {
-  margin: 2em;
+  margin: 1em 2em;
   display: inline-block;
 }
 

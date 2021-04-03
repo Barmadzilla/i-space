@@ -9,7 +9,7 @@
           <input type="text" placeholder="Название компании">
           <input type="text" placeholder="Электронная почта">
           <input type="tel" placeholder="+7 (999) 999-99-99">
-          <input type="submit" value="Получить консультацию и расчет стоимости">
+          <gradient-bg-button>Получить консультацию и расчет стоимости</gradient-bg-button>
           <p>Нажимая на кнопку, вы даете согласие на обработку персональных данных</p>
         </form>
         <div class="steps">
@@ -25,8 +25,11 @@
 </template>
 
 <script>
+import GradientBgButton from "@/components/buttons/GradientBgButton";
+
 export default {
   name: "Footer",
+  components: {GradientBgButton},
   data() {
     return {
       steps: [
@@ -40,6 +43,11 @@ export default {
 </script>
 
 <style scoped>
+.btn{
+  width: 93%;
+  margin: 1.5em 0 0.5em;
+  box-sizing: border-box;
+}
 footer {
   background: #000;
   padding: 3em 0;
@@ -93,10 +101,12 @@ input {
 input::placeholder {
   color: #A5BDD0;
 }
-input[type="tel"]{
+
+input[type="tel"] {
   font-size: 25px;
 }
-input[type="submit"]{
+
+input[type="submit"] {
   border-radius: 8px;
   background: var(--gradient);
   color: white;
@@ -105,7 +115,8 @@ input[type="submit"]{
   font-size: 20px;
   margin-top: 1.5em;
 }
-form p{
+
+form p {
   color: #A5BDD0;
   font-size: 14px;
 }

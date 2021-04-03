@@ -28,10 +28,19 @@ a {
   z-index: 1;
   border: 2px solid var(--green);
   color: var(--green);
+  transition: all 150ms;
+  cursor: pointer;
 }
 a.blue{
   border-color: var(--deep-blue);
   color: var(--deep-blue);
+}
+a.blue:hover{
+  background: var(--deep-blue);
+}
+a:hover{
+  color: white;
+  background: var(--green);
 }
 
 </style>

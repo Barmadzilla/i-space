@@ -4,7 +4,7 @@
       <h2>Общайтесь с клиентами проще</h2>
       <p>Постройте прочные отношения с клиентами во всех каналах связи с помощью простой платформы. Подтверждайте регистрацию клиентов, оповещайте их о спецпредложениях и
         повышайте продажи.</p>
-      <outline-button :color="'blue'">Подробнее о рассылках</outline-button>
+      <transparent-button :color="'blue'">Подробнее о рассылках</transparent-button>
     </div>
     <div class="icons">
       <div class="icon" v-for="(item,i) in icons" :key="i">
@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import OutlineButton from "@/components/buttons/OutlineButton";
+import TransparentButton from "@/components/buttons/TransparentButton";
 
 export default {
   name: "CommunicateEasier",
-  components: {OutlineButton},
+  components: { TransparentButton},
   data() {
     return {
       icons: [

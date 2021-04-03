@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "WhiteButton",
+  name: "GradientBgButton",
   props: ['link'],
 }
 </script>
@@ -22,15 +22,15 @@ a {
   border-radius: 8px;
   font-weight: 700;
   text-decoration: none;
-  margin-right: 1em;
+
   border: 1px solid transparent;
   position: relative;
   z-index: 1;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
   box-sizing: border-box;
   font-size: 20px;
   width: 100%;
+  transition: all 150ms;
 }
 .btn{
   background: white;
@@ -38,11 +38,13 @@ a {
   text-align: center;
   display: inline-block;
   cursor: pointer;
+  margin-right: 1em;
 }
 a:hover{
-  color: white;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: 1px 3px 3px rgba(0,0,0,0.20);
 }
 
 </style>

@@ -2,23 +2,30 @@
   <div class="bg">
     <div class="container">
       <div class="navigation">
-        <h2>Поможем решить любые задачи</h2>
+        <h2>{{ title }}</h2>
         <div class="tabs">
-          <div class="tab">Непрерывная интеграция, доставка и развертывание </div>
-          <div class="tab">Перевод инфраструктуры в оркестратор на базе облачного провайдера  </div>
-          <div class="tab active">Мониторинг инфраструктуры </div>
-          <div class="tab">Восстановление инфраструктуры </div>
-          <div class="tab">Работы по улучшению и модернизации инфраструктуры </div>
+          <div class="tab"
+               @click="currentSlide = i"
+               :class="{active: currentSlide===i }"
+               v-for="(slide,i) in data"
+               :key="i">
+            {{ slide.title }}
+          </div>
         </div>
       </div>
       <div class="content">
-        <h2>Наша экспертиза </h2>
-        <p>Каждый день решаем ваши задачи не зависимо от их количества, размера и особенностей вашего бизнеса </p>
-        <hr>
-        <h2>Непрерывная интеграция, доставка и разверстывание</h2>
-        <list-item-play>Подготовка инфраструктуры для конвейеров CI/ CD</list-item-play>
-        <list-item-play>Создание конвейеров для интеграции, доставки и развертывания приложений</list-item-play>
-        <transparent-button class="btn">Интересно! Хочу подробностей!</transparent-button>
+        <div class="sticky">
+          <h2>{{ content.title }}</h2>
+          <p>{{ content.subtitle }}</p>
+          <hr>
+          <transition name="anim">
+            <div class="slide-content" v-if="getSlide">
+              <h2>{{ getSlide.title }}</h2>
+              <list-item-play v-for="(item,i) in getSlide.content.list" :key="i">{{ item }}</list-item-play>
+            </div>
+          </transition>
+          <transparent-button class="btn">Интересно! Хочу подробностей!</transparent-button>
+        </div>
       </div>
     </div>
   </div>
@@ -29,9 +36,57 @@ import ListItemPlay from "@/components/lists/ListItemPlay";
 import TransparentButton from "@/components/buttons/TransparentButton";
 
 export default {
-  name: "HelpSlider", components: {ListItemPlay, TransparentButton},
+  name: "HelpSlider",
+  components: {ListItemPlay, TransparentButton},
+  props: ['title', 'data'],
   data() {
-    return {}
+    return {
+      currentSlide: 0,
+      content: {
+        title: 'Наша экспертиза',
+        subtitle: 'Каждый день решаем ваши задачи не зависимо от их количества, размера и особенностей вашего бизнеса'
+      },
+      slides: [
+        {
+          title: 'Непрерывная интеграция, доставка и развертывание',
+          content: {
+            list: [
+              'Подготовка инфраструктуры для конвейеров CI/ CD',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+            ],
+          }
+        },
+        {
+          title: 'Непрерывная интеграция, доставка и развертывание 88',
+          content: {
+            list: [
+              'Подготовка инфраструктуры для конвейеров CI/ CD2',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+            ],
+          }
+        },
+        {
+          title: 'Непрерывная интеграция, доставка и развертывание 3',
+          content: {
+            list: [
+              'Подготовка инфраструктуры для конвейеров CI/ CD3',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+            ],
+          }
+        },
+      ]
+    }
+  },
+  computed: {
+    getSlide() {
+      return this.data[this.currentSlide]
+    }
   }
 }
 </script>
@@ -46,7 +101,8 @@ export default {
   color: white;
   width: 45%;
 }
-.tabs{
+
+.tabs {
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -54,18 +110,31 @@ export default {
   margin-top: 2em;
   font-size: 25px;
 }
-.tab{
-  margin: 1em 0;
-  padding-right: 3em;
-}
-.btn{
+
+.btn {
   width: 100%;
   margin-top: 1em;
+
 }
-.tab.active{
+
+
+.tab {
+  margin: 0.7em 0;
+  padding-right: 3em;
+  padding-left: 0;
+  cursor: pointer;
+  transition: all 200ms;
+  background: url("../assets/images/white-arrow.svg") no-repeat right -2em top;
+  border-left: 0 solid black;
+}
+
+.tab.active {
   color: black;
   background: url("../assets/images/white-arrow.svg") no-repeat right top;
   min-height: 1.68em;
+  padding-left: 1em;
+  border-left: 3px solid black;
+
 }
 
 h2:first-child {
@@ -95,8 +164,24 @@ h2:first-child {
   height: 100%;
   z-index: -1;
 }
-hr{
+
+
+hr {
   margin: 3em 0;
   border-color: var(--bg-dark);
+}
+
+.anim-enter-active {
+  transition: all 150ms ease;
+}
+
+.anim-leave-active {
+  transition: all 350ms ease;
+}
+
+.anim-enter-from,
+.anim-leave-to {
+  opacity: 0;
+  transform: translatex(-1em);
 }
 </style>

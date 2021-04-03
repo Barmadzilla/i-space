@@ -23,17 +23,21 @@
       </router-link>
     </div>
   </div>
+
 </template>
 
 <script>
 import ListItemPlay from "@/components/lists/ListItemPlay";
 import WhiteButton from "@/components/buttons/WhiteButton";
 
+
+
 export default {
   name: "TwoFrames",
   components: {ListItemPlay, WhiteButton},
   data() {
     return {
+      modal:false,
       list: [
         'приём, увольнение, отпуска, переводы',
         'трудовые договоры и книжки, личные дела и карточки',
@@ -51,7 +55,8 @@ export default {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto;
-  grid-gap: 2em;
+  grid-gap: 3em;
+  margin: 4em 0;
 }
 
 .frame:first-child {

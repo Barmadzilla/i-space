@@ -11,8 +11,8 @@
           </div>
         </div>
         <div class="buttons">
-          <Btn :bt-style="'gradient'">Получить консультацию</Btn>
-          <transparent-icon-button :icon="'telegram'">Написать в Телеграм</transparent-icon-button>
+          <gradient-bg-button @click="modal = true">Получить консультацию</gradient-bg-button>
+          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
         </div>
       </div>
       <div class="person">
@@ -25,20 +25,35 @@
     <div class="features">
     </div>
   </div>
-
+  <teleport to="#overlay">
+    <Overlay v-if="modal">
+      <modal-telegram
+          :title="'Узнайте условия партнёрской системы i-Space'"
+          :subtitle="'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'">
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 
 <script>
 import Navigation from "@/components/Navigation";
-import Btn from "@/components/buttons/GradientButton";
+import GradientBgButton from "@/components/buttons/GradientBgButton";
 import TransparentIconButton from "@/components/buttons/TransparentIconButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
+import Overlay from "@/components/Overlay";
+import ModalClose from "@/components/ModalClose";
+import ModalTelegram from "@/components/ModalTelegram";
 
 export default {
   name: "HeaderTech",
-  components: {Navigation, Btn, Bubble, TransparentIconButton},
+  components: {
+    Navigation, GradientBgButton, Bubble, TransparentIconButton,
+    Overlay, ModalClose, ModalTelegram
+  },
   data() {
     return {
+      modal:false,
       words: [
         {
           title: 'Автоматизизация',
@@ -57,6 +72,15 @@ export default {
           content: 'Поддержка и администрирование  24/7/365.'
         }
       ]
+    }
+  },
+  watch: {
+    modal() {
+      if (this.modal) {
+        document.documentElement.style.overflow = 'hidden'
+      } else {
+        document.documentElement.removeAttribute('style')
+      }
     }
   }
 }
