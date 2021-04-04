@@ -21,7 +21,7 @@
       </div>
       <div class="buttons">
         <solid-button :color="'blue'">Получить консультацию</solid-button>
-        <transparent-icon-button icon="'telegram'" :color="'blue'">Написать в Телеграм</transparent-icon-button>
+        <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
       </div>
       <div class="quotes">
         <quote v-for="(quote,i) in quotes" :key="i"

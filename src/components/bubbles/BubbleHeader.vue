@@ -14,7 +14,7 @@ export default {
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);
   border-radius: 61px;
-  padding: 20px 40px;
+  padding: 15px 35px;
   display: inline-flex;
   align-items: center;
   max-width: 270px;

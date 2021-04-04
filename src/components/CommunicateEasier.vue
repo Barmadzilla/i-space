@@ -41,7 +41,7 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 3em;
   align-items: flex-start;
-  padding: 3em 0;
+  padding: 3em ;
 }
 
 p {

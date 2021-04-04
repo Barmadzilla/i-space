@@ -118,7 +118,7 @@ export default {
 
 .container {
   text-align: left;
-  padding: 3em 0;
+  padding: 3em;
 }
 
 .info {
@@ -151,5 +151,16 @@ export default {
 img {
   margin-bottom: -3.8em;
   height: calc(350px + 2em);
+}
+h2{
+  margin-top: 1em;
+}
+@media (max-width: 1280px) {
+  .reviews{
+    width: 40%;
+  }
+  .info{
+    width: 60%;
+  }
 }
 </style>

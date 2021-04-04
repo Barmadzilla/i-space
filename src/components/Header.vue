@@ -60,7 +60,17 @@ export default {
   },
   data() {
     return {
-      modal: false
+      modal: false,
+      // pageTitle: "i-Legal"
+    }
+  },
+  methods: {
+    setTitle() {
+      let docTitle = document.querySelector('head title')
+      let text = document.querySelector('head title').innerText
+      if (this.pageTitle) {
+        return docTitle.innerText = `${text} - ${this.pageTitle}`
+      }
     }
   },
   watch: {
@@ -71,6 +81,9 @@ export default {
         document.documentElement.removeAttribute('style')
       }
     }
+  },
+  mounted() {
+    this.setTitle()
   }
 }
 </script>
@@ -82,6 +95,7 @@ h1 {
   width: 81vw;
   max-width: 690px;
   margin: 2em auto 0;
+  text-align: center;
 }
 
 .buttons {
@@ -135,5 +149,20 @@ a.link {
   margin-top: -4em;
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1280px) {
+  .people{
+    bottom: -4em;
+    margin-top: -3.5em;
+    width: 80%;
+  }
+  h1  {
+    font-size: 35px;
+    margin: 1em auto 0;
+  }
+  .bubbles{
+    bottom: 2em;
+  }
 }
 </style>

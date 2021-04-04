@@ -8,16 +8,17 @@
       <review :bg="'gray'" :data="reviews" class="reviews"/>
       <img src="../assets/images/pro_it.svg" alt="">
     </div>
+    <div class="stack">
+      <strong> Технологический стек i-Space:</strong> Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
+      Redis, Ansible, Docker/Kubernetes, Last Backend
+    </div>
     <div class="buttons">
       <router-link :to="'/it-support'">
         <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
       </router-link>
       <transparent-button>Получить консультацию</transparent-button>
     </div>
-    <div class="stack">
-      <strong> Технологический стек i-Space:</strong> Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
-      Redis, Ansible, Docker/Kubernetes, Last Backend
-    </div>
+
   </div>
   <div class="container">
     <div class="bubbles">
@@ -119,7 +120,7 @@ h2 {
 
 .stack {
   text-align: left;
-  font-size: 25px;
+  font-size: 20px;
   margin: 1.2em 0;
 }
 </style>

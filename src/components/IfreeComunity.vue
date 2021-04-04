@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="clients">
-    <img v-for="(client,i) in clients" :key="i" :src="require(`@/assets/images/clients/${client.img}`)" :alt="client.alt">
+    <img class="client" v-for="(client,i) in clients" :key="i" :src="require(`@/assets/images/clients/${client.img}`)" :alt="client.alt">
   </div>
   <div class="container">
     <h2>Приходите на наши мероприятия</h2>
@@ -107,7 +107,7 @@ export default {
 
 <style scoped>
 .container {
-  padding: 3em 0;
+  padding: 3em;
   text-align: left;
 }
 
@@ -148,16 +148,18 @@ export default {
 }
 
 .clients {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  grid-gap: 2em;
+  place-items: center;
   height: 80px;
   padding: 1em 3em 0;
   margin-bottom: -2em;
+
 }
 
-.clients img {
-  margin: 0 1em;
+.clients img.client {
+  max-width: 100%;
 }
 
 .container {
