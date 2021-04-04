@@ -11,7 +11,7 @@
       <img src="../assets/images/pro_devops.svg" alt="">
     </div>
     <div class="stack">
-      <strong>Используем технологии: </strong>Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL,
+      Используем технологии: Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL,
       MongoDB, MsSQL, Redis, Memcached, RabbitMq, Apache kafka, Azure Storage, Zookeeper, Consul, Prometheus, Grafana, Alertmanager.
     </div>
     <div class="buttons">
@@ -129,7 +129,7 @@ h2 {
 
 .stack {
   text-align: left;
-  font-size: 20px;
+  font-size: 15px;
   margin: 1.2em 0;
 }
 </style>

@@ -1,23 +1,28 @@
 @import "./resets.css";
 @import "./overlay.css";
+
 .container {
     padding: 0 3em;
     max-width: 1380px;
     min-width: 1140px;
     margin: 0 auto;
     text-align: left;
+    height: inherit;
 }
+
 .slide {
+    --padding: calc(83px + 2em);
     background: url("../images/bg/slider.svg") center / cover no-repeat, linear-gradient(to top, #E0EAE7, #F6F6F6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
-    max-height: 1024px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    min-height: calc(760px + var(--padding));
+    max-height: calc(950px + var(--padding));
     position: relative;
     overflow: hidden;
-    height: 90vh;
-    padding-top: 5em;
+    /*height: calc(100vh + var(--padding));*/
+    box-sizing: border-box;
+    padding-top: var(--padding);
 }
 
 .slide:after {
@@ -29,9 +34,11 @@
     left: 0;
     background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
 }
+
 .wrap {
     overflow-x: hidden;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', sans-serif;
 }
@@ -44,10 +51,12 @@ h2 {
     font-size: 32px;
     margin: 2em 0 1em;
 }
-h3{
+
+h3 {
     font-size: 24px;
 }
-body{
+
+body {
     font-size: 18px;
 }
 

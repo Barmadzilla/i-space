@@ -2,10 +2,12 @@
   <navigation/>
   <div class="slide">
     <div class="container">
-      <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
-      <div class="buttons">
-        <GradientBgButton @click="modal = true">Получить консультацию</GradientBgButton>
-        <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
+      <div class="header">
+        <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
+        <div class="buttons">
+          <GradientBgButton @click="modal = true">Получить консультацию</GradientBgButton>
+          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
+        </div>
       </div>
       <div class="people-container">
         <img class="people" src="../assets/images/header_people.png" alt="">
@@ -94,7 +96,7 @@ h1 {
   font-size: 39px;
   width: 81vw;
   max-width: 690px;
-  margin: 2em auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -132,9 +134,10 @@ a.link {
 
 .people {
   position: relative;
-  bottom: -7em;
-  margin-top: -4em;
-  width: 90%;
+  bottom: -3em;
+  margin-top: -2em;
+  width: 80%;
+  transition: width 150ms;
 }
 
 
@@ -152,16 +155,15 @@ a.link {
 }
 
 @media (max-width: 1280px) {
-  .people{
-    bottom: -4em;
-    margin-top: -3.5em;
-    width: 80%;
+  .people {
+    width: 90%;
   }
-  h1  {
+
+  h1 {
     font-size: 35px;
-    margin: 1em auto 0;
   }
-  .bubbles{
+
+  .bubbles {
     bottom: 2em;
   }
 }

@@ -9,7 +9,7 @@
       <img src="../assets/images/pro_it.svg" alt="">
     </div>
     <div class="stack">
-      <strong> Технологический стек i-Space:</strong> Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
+      Технологический стек i-Space: Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
       Redis, Ansible, Docker/Kubernetes, Last Backend
     </div>
     <div class="buttons">
@@ -120,7 +120,7 @@ h2 {
 
 .stack {
   text-align: left;
-  font-size: 20px;
+  font-size: 15px;
   margin: 1.2em 0;
 }
 </style>
