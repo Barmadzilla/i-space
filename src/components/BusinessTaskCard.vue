@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <img v-if="logo" :src="require(`@/assets/images/clients/${logo}`)" :alt="tittle">
-    <h4 v-else>Кейс под NDA</h4>
+    <img v-if="logo && logo!=='nda'" :src="require(`@/assets/images/clients/${logo}`)" :alt="tittle">
+    <h4 v-if="logo==='nda'">Кейс под NDA</h4>
     <h3>{{ tittle }}</h3>
     <p v-html="content"></p>
   </div>
@@ -25,7 +25,8 @@ export default {
 img {
   margin: 0 0 1.5em;
 }
-h4{
+
+h4 {
   margin-bottom: 1em;
   color: var(--bg-dark);
 }
