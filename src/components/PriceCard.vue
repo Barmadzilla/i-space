@@ -2,7 +2,7 @@
   <div class="card">
     <div>
       <h3>{{ title }}</h3>
-      <div class="price">от {{ price }} ₽/мес</div>
+      <div class="price">от {{ price }}</div>
       <p class="top-note" v-if="topNote">{{ topNote }}</p>
       <div class="list" v-if="list">
         <check-list-item
@@ -16,17 +16,33 @@
     <router-link v-if="link" :to="link">
       <solid-button :color="'dark'">Посмотреть все услуги и цены</solid-button>
     </router-link>
+   <solid-button v-else :color="'dark'" @click="modal = true">Обсудить услуги и цены</solid-button>
   </div>
+  <teleport to="#overlay">
+    <overlay v-if="modal">
+      <modal-telegram>
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </overlay>
+  </teleport>
 </template>
 
 <script>
 import CheckListItem from "@/components/lists/CheckListItem";
 import SolidButton from "@/components/buttons/SolidButton";
+import Overlay from "@/components/Overlay";
+import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/ModalClose";
 
 export default {
   name: "PriceCard",
-  components: {CheckListItem, SolidButton},
-  props: ['list', 'title', 'price', 'topNote', 'bottomNote', 'link']
+  components: {ModalClose, ModalTelegram, Overlay, CheckListItem, SolidButton},
+  props: ['list', 'title', 'price', 'topNote', 'bottomNote', 'link'],
+  data() {
+    return {
+      modal: false
+    }
+  }
 }
 </script>
 
