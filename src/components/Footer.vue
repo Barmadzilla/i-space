@@ -4,14 +4,21 @@
       <h2>Давайте обсудим <span class="text-gradient">ваши задачи</span></h2>
       <p class="subtitle">Оставьте заявку, чтобы получить консультацию и расчёт стоимости </p>
       <div class="columns">
-        <form action="">
-          <input type="text" placeholder="Ваше имя">
-          <input type="text" placeholder="Название компании">
-          <input type="text" placeholder="Электронная почта">
-          <input type="tel" placeholder="+7 (999) 999-99-99">
-          <gradient-bg-button>Получить консультацию и расчет стоимости</gradient-bg-button>
-          <p><router-link :to="{name:'Privacy',params:{section:'top'}}">Нажимая на кнопку, вы даете согласие на обработку персональных данных</router-link></p>
+        <form action="" v-if="!submitted">
+          <input type="text" v-model="name" :placeholder="placeholder.name" required pattern="{,2}$">
+          <input type="text" v-model="company" :placeholder="placeholder.company">
+          <input type="email" v-model="email" :placeholder="placeholder.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <input type="tel" v-model="phone" :placeholder="placeholder.phone" required @keypress.enter="sendData">
+          <gradient-bg-button :class="{'disabled' : !valid}" @click="sendData">Получить консультацию и расчет стоимости</gradient-bg-button>
+          <small>Отправляя заявку, вы принимаете
+            условия<br>
+            <router-link :to="{name:'Privacy',params:{section:'top'}}">соглашения и обработки персональных данных</router-link>
+          </small>
         </form>
+        <div class="msg" v-if="submitted">
+          <h2>Уважаемый {{ senderName }},</h2>
+          <p>Мы уже получили Ваш запрос. <br> В ближайшие время наш менеджер свяжется с вами. Спасибо!</p>
+        </div>
         <div class="steps">
           <div class="step" v-for="(step,i) in steps" :key="i">
             <h3>{{ step.title }}</h3>
@@ -26,17 +33,67 @@
 
 <script>
 import GradientBgButton from "@/components/buttons/GradientBgButton";
-
+const axios = require('axios')
 export default {
   name: "Footer",
   components: {GradientBgButton},
+  computed: {
+    valid() {
+      return !!this.name && !!this.phone && !!this.email
+    }
+  },
   data() {
     return {
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      placeholder: {
+        name: 'Ваше имя',
+        email: 'Ваш емейл',
+        company:'Ваша Компания',
+        phone: '+7(999) 999 99 99'
+      },
+      errored: Boolean,
+      loading: Boolean,
+      results: '',
+      senderName: String,
+      submitted: false,
       steps: [
         {title: 'Оставьте заявку', description: 'Оставьте заявку или <br/>напишите  нам в телеграм'},
         {title: 'Консультация и расчет', description: 'Обсудим ваши текущие задачи, оценим<br/> риски, соберем комплекс подходящих<br/> услуг и рассчитаем стоимость.'},
         {title: 'Начало работы', description: 'Подписываем договор, знакомим<br/> с вашим менеджером, создаём чат<br/> и начинаем работу в тот же день.'},
       ]
+    }
+  },
+  methods: {
+    sendData() {
+      return this.valid && this.submitForm()
+    },
+    submitForm() {
+      const formData = new FormData();
+      let httpHeaders = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      };
+      this.message = "\nСвяжитесь со мной\n" +
+          "😀 " + this.name + " из "+ this.company + "\n" +
+          "📧 " + this.email + "\n" +
+          "📱 " + this.phone + "\n\n" +
+          "C нетерпением жду вашего ответа.";
+      formData.append('msg', this.message);
+      formData.append('type', this.$router.currentRoute['_rawValue'].path);
+      axios.post('send.php', formData, httpHeaders)
+          .then(response => {
+            this.results = response.data
+          })
+          .finally(() => {
+            this.loading = false
+          });
+      this.senderName = this.name;
+      this.loading = true;
+      this.submitted = true
     }
   }
 }
