@@ -3,7 +3,7 @@
   <div class="slide">
     <div class="container">
       <div class="header">
-        <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
+        <h1>Аутсорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
         <div class="buttons">
           <GradientBgButton @click="modal = true">Получить консультацию</GradientBgButton>
           <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
