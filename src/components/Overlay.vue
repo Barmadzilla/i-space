@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: "Overlay"
+  name: "Overlay",
+  mounted() {
+    setTimeout(() => document.documentElement.style.overflow = 'hidden', 100)
+  },
+  unmounted() {
+    document.documentElement.removeAttribute('style')
+  }
 }
 </script>
 

@@ -33,7 +33,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/iLegal.vue')
     },
     {
-        path: '/finances/',
+        path: '/finances',
         name: 'Finances',
         component: Finances,
     },

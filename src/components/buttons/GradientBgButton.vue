@@ -22,7 +22,6 @@ a {
   border-radius: 8px;
   font-weight: 700;
   text-decoration: none;
-
   border: 1px solid transparent;
   position: relative;
   z-index: 1;
@@ -31,6 +30,7 @@ a {
   font-size: 20px;
   width: 100%;
   transition: all 150ms;
+  opacity: 1;
 }
 .btn{
   background: white;
@@ -40,11 +40,18 @@ a {
   cursor: pointer;
   margin-right: 1em;
 }
-a:hover{
+.btn.disabled a{
+  opacity: .5;
+}
 
+.btn a:hover{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   box-shadow: 1px 3px 3px rgba(0,0,0,0.20);
 }
-
+.btn.disabled a:hover{
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  box-shadow: none;
+}
 </style>

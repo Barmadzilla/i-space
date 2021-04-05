@@ -40,6 +40,9 @@
     color: black;
     margin-bottom: 1em;
 }
+#overlay input:valid{
+    border-color: lawngreen;
+}
 #overlay input::placeholder{
     color: var(--light-blue);
 }
