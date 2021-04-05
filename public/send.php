@@ -6,7 +6,7 @@
  * Date: 2021-01-12
  * Time: 18:37
  */
-
+$chat = false;
 //Общий чат
 $main_chat = '-1001428416215';
 //Выбираем канал
@@ -52,7 +52,9 @@ $data = array(
 //Отправляем в профильный чат
 file_get_contents( "https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query( $data ) );
 //Меняем чат айди на айди общего канала
-$data['chat_id'] = $chat;
-$data['text']    = $message;
+if ( $chat ) {
+	$data['chat_id'] = $chat;
+	$data['text']    = $message;
 //Отправляем
-file_get_contents( "https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query( $data ) );
+	file_get_contents( "https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query( $data ) );
+}

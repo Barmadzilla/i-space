@@ -2,7 +2,7 @@
   <div class="card">
     <slot></slot>
     <pre v-show="false">Pth: {{ $router.currentRoute['_rawValue'].path }}</pre>
-    {{ results }}
+    <pre v-show="false">{{ results }}</pre>
     <form action="" v-if="!submitted">
       <h2>{{ setHeader.title }}</h2>
       <p>{{ setHeader.subtitle }}</p>
