@@ -13,8 +13,8 @@ export default {
 
 <style scoped>
 .bubble {
-  background: rgba(255, 255, 255, 0.70);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 1);
+  /*backdrop-filter: blur(10px);*/
   border-radius: 61px;
   padding: 15px 35px;
   display: inline-flex;
@@ -22,6 +22,12 @@ export default {
   max-width: 270px;
   text-align: left;
   user-select: none;
+}
+@supports (backdrop-filter: none) {
+  .bubble {
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .bubble img {

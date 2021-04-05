@@ -140,8 +140,15 @@ a.link {
 .features {
   padding: 2.5em 0 1em;
   margin-top: -4em;
-  background: rgba(255, 255, 255, 0.70);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255,1);
+  /*backdrop-filter: blur(10px);*/
+}
+
+@supports (backdrop-filter: none) {
+  .features {
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(10px);
+  }
 }
 
 @media (max-width: 1280px) {

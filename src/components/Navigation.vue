@@ -112,13 +112,19 @@ header .container {
 
 header {
   padding: 20px 0;
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 1);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
+}
+
+@supports (backdrop-filter: none) {
+  .header {
+    background: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(10px);
+  }
 }
 
 header ul {

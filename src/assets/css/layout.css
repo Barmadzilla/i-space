@@ -23,6 +23,7 @@
     /*height: calc(100vh + var(--padding));*/
     box-sizing: border-box;
     padding-top: var(--padding);
+    z-index: -1;
 }
 
 .slide:after {
