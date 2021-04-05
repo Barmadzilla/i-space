@@ -13,10 +13,10 @@
       Redis, Ansible, Docker/Kubernetes, Last Backend
     </div>
     <div class="buttons">
-      <router-link :to="'/it-support'">
+      <router-link :to="{ name: 'It Support'}">
         <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
       </router-link>
-      <transparent-button>Получить консультацию</transparent-button>
+      <transparent-button @click="modal = true">Получить консультацию</transparent-button>
     </div>
 
   </div>
@@ -25,6 +25,15 @@
       <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
     </div>
   </div>
+  <teleport to="#overlay">
+    <Overlay v-if="modal">
+      <modal-telegram
+          :title="'Узнайте условия партнёрской системы i-Space'"
+          :subtitle="'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'">
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 
 <script>
@@ -32,13 +41,18 @@ import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import SolidButton from "@/components/buttons/SolidButton";
 import TransparentButton from "@/components/buttons/TransparentButton";
+import Overlay from "@/components/Overlay";
+import ModalClose from "@/components/ModalClose";
+import ModalTelegram from "@/components/ModalTelegram";
 
 
 export default {
   name: "BlockLegals",
-  components: {Bubble, Review, SolidButton, TransparentButton},
+  components: {Bubble, Review, SolidButton, TransparentButton,
+    Overlay, ModalClose, ModalTelegram},
   data() {
     return {
+      modal: false,
       bubbles: [
         'HelpDesk',
         'Мониторинг ИТ-систем',
@@ -64,7 +78,16 @@ export default {
         }
       ]
     }
-  }
+  },
+  watch: {
+    modal() {
+      if (this.modal) {
+        document.documentElement.style.overflow = 'hidden'
+      } else {
+        document.documentElement.removeAttribute('style')
+      }
+    }
+  },
 
 }
 </script>

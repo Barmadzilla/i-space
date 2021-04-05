@@ -10,10 +10,10 @@
         <review :bg="'white'" :data="reviews" class="reviews"/>
       </div>
       <div class="buttons">
-        <router-link :to="'/finances'">
+        <router-link :to="{ name: 'Finances'}">
           <solid-button :color="'blue'">Подробнее о юридическом сопровождении</solid-button>
         </router-link>
-        <transparent-button :color="'blue'">Получить консультацию</transparent-button>
+        <transparent-button :color="'blue'" @click="modal = true">Получить консультацию</transparent-button>
       </div>
 
     </div>
@@ -23,6 +23,15 @@
       </div>
     </div>
   </div>
+  <teleport to="#overlay">
+    <Overlay v-if="modal">
+      <modal-telegram
+          :title="'Узнайте условия партнёрской системы i-Space'"
+          :subtitle="'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'">
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 
 <script>
@@ -30,12 +39,17 @@ import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import SolidButton from "@/components/buttons/SolidButton";
 import TransparentButton from "@/components/buttons/TransparentButton";
+import Overlay from "@/components/Overlay";
+import ModalClose from "@/components/ModalClose";
+import ModalTelegram from "@/components/ModalTelegram";
 
 export default {
   name: "BlockLegals",
-  components: {Bubble, Review, SolidButton, TransparentButton},
+  components: {Bubble, Review, SolidButton, TransparentButton,
+    Overlay, ModalClose, ModalTelegram},
   data() {
     return {
+      modal: false,
       bubbles: [
         'Бухгалтерский учёт',
         'Расчёт заработных плат',
@@ -61,7 +75,16 @@ export default {
         }
       ]
     }
-  }
+  },
+  watch: {
+    modal() {
+      if (this.modal) {
+        document.documentElement.style.overflow = 'hidden'
+      } else {
+        document.documentElement.removeAttribute('style')
+      }
+    }
+  },
 
 }
 </script>

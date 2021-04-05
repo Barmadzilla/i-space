@@ -6,20 +6,20 @@
         <h1>Аутисорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
         <div class="buttons">
           <GradientBgButton @click="modal = true">Получить консультацию</GradientBgButton>
-          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
+          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
         </div>
       </div>
       <div class="people-container">
         <img class="people" src="../assets/images/header_people.png" alt="">
       </div>
       <div class="bubbles">
-        <router-link to="/finances" class="link">
+        <router-link :to="{ name: 'Finances'}" class="link">
           <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
         </router-link>
-        <router-link to="/i-legal" class="link">
+        <router-link :to="{ name: 'i-Legal'}" class="link">
           <Bubble>Юридическое<br>сопровождение</Bubble>
         </router-link>
-        <router-link to="/it-support" class="link">
+        <router-link :to="{ name: 'It Support'}" class="link">
           <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
         </router-link>
       </div>

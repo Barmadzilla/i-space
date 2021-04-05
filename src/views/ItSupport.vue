@@ -4,15 +4,15 @@
     <we-work-with :title="'Индустрии, с которыми мы работаем'"
                   :subtitle="'Работаем с компаниями из США, России, Европы и Китая.'"
     />
-    <about-clients :reverse="'reverse'"
-                   :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span>`'
-                   :clients="clients"
-                   :bubbles="bubbles"
+    <about-clients
+        id="clients"
+        :reverse="'reverse'"
+        :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрии</span>`'
+        :clients="clients"
+        :bubbles="bubbles"
     />
-    <plans-table/>
+    <plans-table id="price"/>
     <call-to-action
-        style="margin-top: 0"
-        :type="'mail'"
         :actionTitle="'Соберём для вас индивидуальное предложение'"
         :msg="'Проанализируем ваши задачи, подскажем оптимальную структуру и обеспечим организацию пространств для решения всех ваших задач под ключ.'"
         :btn-text="'Получить консультацию'"
@@ -36,18 +36,18 @@
     <help-desk-services/>
     <help-desk-constructor/>
     <call-to-action
-        style="margin-top: 0"
-        :type="'mail'"
         :actionTitle="'Соберём для вас индивидуальное предложение'"
         :msg="'Проанализируем ваши задачи, подскажем оптимальную структуру и обеспечим организацию пространств для решения всех ваших задач под ключ.'"
         :btn-text="'Получить консультацию'"
     />
-    <team-block :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
-                :subtitle="'Команда во многом определяет успех компании. Лучший показатель качества нашей работы — повторное обращение, рекомендация друзьям и коллегам. Почти 90% новых клиентов приходят к нам по рекомендации.'"
-                :team="team"
-                :team-name="'support'"
+    <team-block
+        id="team"
+        :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
+        :subtitle="'Команда во многом определяет успех компании. Лучший показатель качества нашей работы — повторное обращение, рекомендация друзьям и коллегам. Почти 90% новых клиентов приходят к нам по рекомендации.'"
+        :team="team"
+        :team-name="'support'"
     />
-    <business-tasks-block/>
+    <business-tasks-block id="cases" :cases="cases"/>
     <best-conditions/>
 
   </div>
@@ -82,6 +82,19 @@ export default {
     HelpDeskConstructor,
     TeamBlock,
     BestConditions
+  },
+  methods: {
+    toSection(section) {
+      if (section) {
+        let target = document.getElementById(section).getBoundingClientRect().top
+        target && window.scrollTo(target - 80, 0)
+      } else {
+        window.scrollTo(0, 0)
+      }
+    }
+  },
+  mounted() {
+    this.toSection(this.section)
   },
   data() {
     return {
@@ -163,51 +176,82 @@ export default {
           name: 'Алексей Шонин',
           position: 'Технический директор',
           bio: 'В IT индустрии работает 15 лет. Под его руководством были запущены сотни проектов разной направленности и сложности.',
-          face:'shonin.jpg'
+          face: 'shonin.jpg'
         },
         {
           name: 'Григорий Синеокий',
           position: 'Руководитель HelpDesk департамента',
           bio: 'Опыт работы в IT-сфере более 20 лет.  Имеет экспертные знания по клиентским операционным системам. ',
-          face:'sineoki.jpg'
+          face: 'sineoki.jpg'
         },
         {
           name: 'Полина Белокобыльская',
           position: 'Руководитель группы мониторинга и тех поддержки',
           bio: 'Организует  и обеспечивает бесперебойную работу службы мониторинга и тех. поддержки.',
-          face:'belokobylskaya.jpg'
+          face: 'belokobylskaya.jpg'
         },
         {
           name: 'Юра Седов',
           position: 'Руководитель службы системного администрирования',
           bio: 'Microsoft Certified Professional. Экспертные знания в Powershell. Большой внедрения методологии ITIL. ',
-          face:'sedov.jpg'
+          face: 'sedov.jpg'
         },
         {
           name: 'Александр Калошин',
           position: 'Co-founder компании Last.Backend',
           bio: '12 лет занимается проектированием высоконагруженных облачных платформ и инфраструктур',
-          face:'kaloshin.jpg'
+          face: 'kaloshin.jpg'
         },
         {
           name: 'Макс Игнатьев',
           position: 'Ведущий DevOps специалист',
           bio: 'Больше 10 лет опыта в Devops.  Работает над сложными проектами в области комерческой разработки. ',
-          face:'ignatev.jpg'
+          face: 'ignatev.jpg'
         },
         {
           name: 'Константин Пастор',
           position: 'Co-founder компании Last.Backend',
           bio: 'Программист, архитектор, Devops инженер. ',
-          face:'pastor.jpg'
+          face: 'pastor.jpg'
         },
         {
           name: 'Бельская Наталья ',
           position: 'linux - администратор',
           bio: 'Отвечает за работу второй линии поддержки.',
-          face:'belskaya.jpg'
+          face: 'belskaya.jpg'
         },
-      ]
+      ],
+      cases: {
+        current: {
+          case: {
+            logo: 'i-digital.svg',
+            tittle: 'Миграция Production инфраструктуры в облако сэкономила 40% затрат',
+            content: 'Мигрировали Production инфраструктуру  из дата-центра в облако с минимальными даунтаймами. Выгода: Отсутствие даунтаймов у облачного провайдера, уменьшение ежемесячных расходов на 40%'
+          },
+          review: {
+            face: '',
+            name: 'Сергей Коротких',
+            status: 'Технический директор i-Digital',
+            content: [
+              'Долгие годы мы взаимовыгодно сотрудничаем с командой i-Space.Tech и очень довольны качеством их работы. ',
+            ]
+          }
+        },
+        tasks: [
+          {
+            logo: 'nalunch.svg',
+            tittle: 'Построение Failover кластера приложений (IIS) и  кластера баз данных AlwaysON на MSSQL 2019',
+            content:
+                'Из за высокой нагрузки постоянно падал основной сервис. Осуществили переезд на bare-metal сервера. Построили отказоустойчивый кластер AlwaysON для бэкенд БД и FailoverIIS кластер для фронтэнда.<br>Результат: Отсутствие падений из - за недостатка производительности. Отказоустойчивость.'
+          },
+          {
+            logo: '',
+            tittle: 'Внедрение отказоустойчивого Hyper-V кластера c SAN инфраструктурой',
+            content:
+                'Отсутствовала виртуальная инфраструктура. Внедрили  Private Cloud на базе Hyper-V Core под управлением Microsoft System Center Virtual Machine Manager.<br>Результат: отказоустойчивость '
+          }
+        ]
+      }
     }
   }
 }

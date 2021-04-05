@@ -7,21 +7,23 @@
         <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
     </div>
-    <about-space/>
+    <about-space id="about"/>
     <call-to-action
         :actionTitle="'Подхватим важные дела и начнем сегодня'"
         :msg="'Оставьте заявку — обсудим задачи, сформируем комплекс услуг, а срочные дела отправим в работу уже сегодня.'"
         :btn-text="'Как мы работаем'"
     />
-    <about-clients :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрий</span>`'
-                   :clients="clients"
-                   :bubbles="clients_bubbles"
+    <about-clients
+        id="clients"
+        :title='`Клиенты i-Space — <span class="text-gradient">лидеры IT-индустрии</span>`'
+        :clients="clients"
+        :bubbles="clients_bubbles"
     />
     <block-legals/>
     <block-support/>
     <block-acountants/>
     <block-dev-ops/>
-    <two-frames/>
+    <two-frames id="test"/>
     <call-to-action
         :actionTitle="'Получите полный список услуг с ценами'"
         :msg="'Оставьте свой email, пришлём PDF с полным прайс-листом и описанием комплексных пакетов ежемесячного обслуживания.'"
@@ -29,15 +31,16 @@
     />
     <complex-plan/>
     <call-to-action
+        v-if="hide"
         :actionTitle="'Фиксированные цены и простые пакеты услуг'"
         :msg="'Оставьте свой email, пришлём PDF с полным прайс-листом и описанием комплексных пакетов ежемесячного обслуживания.'"
         :btn-text="'Получить PDF'"
     />
-    <services-price/>
+    <services-price id="price"/>
     <call-to-action
         :actionTitle="'Поможем решить любые задачи'"
         :msg="'Оставьте заявку — обсудим задачи, сформируем комплекс услуг по поддержке, а срочные дела отправим в работу уже сегодня.'"
-        :btn-text="'Как мы работаем'"
+        :btn-text="'обсудить задачи'"
     />
     <ifree-comunity/>
     <call-to-action
@@ -45,9 +48,9 @@
         :msg="'Оставьте свой email, мы будем присылать только приглашения на предстоящие мероприятия.'"
         :btn-text="'Получать приглашения'"
     />
-    <business-tasks-block/>
+    <business-tasks-block :cases="cases"/>
     <communicate-easier/>
-    <news-block/>
+    <news-block v-show="hide"/>
     <call-to-action
         :actionTitle="'Полезные статьи<br/> i-Space у вас на почте'"
         :msg="'Оставьте email, мы будем делиться полезным контентом, лайфхаками и новостями. Без рекламы и партнерских писем.'"
@@ -82,8 +85,10 @@ export default {
     Header, Bubble, AboutSpace, CallToAction, AboutClients, BlockLegals, BlockSupport, BlockAcountants, BlockDevOps, TwoFrames, ComplexPlan,
     ServicesPrice, IfreeComunity, BusinessTasksBlock, CommunicateEasier, NewsBlock
   },
+
   data() {
     return {
+      hide: false,
       bubbles: [
         'Где найти время на развитие продукта?',
         'Как наладить IT-поддержку в компании?',
@@ -113,6 +118,36 @@ export default {
       clients_bubbles: [
         'AI', 'FinTech', 'Разработка игр', 'Облачные решения', 'Трейдинг', 'Телеком', 'FoodTech'
       ],
+      cases:{
+        current:{
+          case:{
+            logo: 'just-ai.svg',
+            tittle: 'Организовали комплексную финансовую, юридическую и IT-поддержку бизнеса',
+            content: 'Продукт очень быстро растёт и у компании нет возможности выращивать с нуля собственную сервисную инфраструктуру и непрофильные подразделения бизнеса. Чтобы закрыть все потребности бизнеса, а вдобавок учесть выход компании на международный рынок — мы подхватили все финансовые и юридические дела компании, а вместе с этим обеспечили поддержки IT-инфраструктуры компании.'
+          },
+          review:{
+            face:'petrov.jpg',
+            name:'Кирилл Петров',
+            status:'основатель Just AI',
+            content:[
+              'Мы полностью доверяем нашим партнерам из i-Space и благодарны им за профессионализм, индивидуальный подход и эффективное решение наших бизнес-задач! Приведу лишь один из множества примеров позитивного эффекта от работы i-Space:',
+              'Благодаря юридической поддержке i-Space мы провели несколько успешных M&A сделок в рекордно сжатые сроки и на выгодных для нас условиях.',
+            ]
+          }
+        },
+        tasks: [
+          {
+            logo: 'wallet.svg',
+            tittle: 'Взяли на себя все сервисные процессы бизнеса и экономим 35% затрат компании',
+            content: 'Мы подхватили все сервисные функции крупнейшего fintech стартапа в России. Это позволяет не только экономить, но и инвестировать в развитие главных компетенций продукта.'
+          },
+          {
+            logo: 'trading-view.svg',
+            tittle: 'Открыли офис в Петербурге под ключ: от помещения до рекрутинга команды',
+            content: 'Подобрали помещение, оформили аренду, сделали ремонт, набрали и подготовили к работе команду из 35 человек для Питерского подразделения международной компании.'
+          }
+        ]
+      }
     }
   }
 }

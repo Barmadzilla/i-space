@@ -13,7 +13,7 @@
         </div>
         <div class="buttons">
           <gradient-bg-button @click="modal = true">Получить консультацию</gradient-bg-button>
-          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
+          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
         </div>
       </div>
       <div class="person">
@@ -61,16 +61,16 @@ export default {
           content: 'Сами подсказываем фаундерам, что требует внимания и доработки'
         },
         {
-          title: 'Всегда онлайн',
-          content: 'Всегда на связи. Отвечаем емко, четко и по делу. '
+          title: '10 000+ задач ',
+          content: 'Помогли решить своим клиентам'
         },
         {
-          title: 'Юристы в сфере IT',
+          title: '15 лет в бизнесе',
           content: 'Понимаем процессов разработки, бизнес моделей, монетизации сервисов'
         },
         {
-          title: 'Опыт и экспертиза',
-          content: 'Не по наслышке знаем бизнес процессы IT компаний от сид раунда до раунда С'
+          title: 'Более 20 M&A сделок',
+          content: 'От сид раунда до раунда Д сопроводили'
         }
       ]
     }

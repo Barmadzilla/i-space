@@ -12,7 +12,7 @@
         </div>
         <div class="buttons">
           <gradient-bg-button @click="modal = true">Получить консультацию</gradient-bg-button>
-          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@barmadzilla'">Написать в Телеграм</transparent-icon-button>
+          <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
         </div>
       </div>
       <div class="person">

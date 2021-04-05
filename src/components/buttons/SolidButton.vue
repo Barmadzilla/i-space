@@ -13,6 +13,7 @@ export default {
       return {
         green: this.color === 'green',
         blue: this.color === 'blue',
+        dark: this.color === 'dark',
         'hover-white': this.hover === 'white'
       }
     }

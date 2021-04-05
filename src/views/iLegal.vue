@@ -5,31 +5,33 @@
         :title="'Индустрии, с которыми мы работаем'"
         :subtitle="'Закрываем все юридические и смежные вопросы. Работаем <br> с компаниями в разных точках мира: в США, России, Европе, Китае, Кипре.'"
     />
-    <about-clients :reverse="'reverse'"
-                   :title='`Наши клиенты — <span class="text-gradient">лидеры IT-индустрий</span>`'
-                   :clients="clients"
-                   :bubbles="bubbles"
+    <about-clients
+        id="clients"
+        :reverse="'reverse'"
+        :title='`Наши клиенты — <span class="text-gradient">лидеры IT-индустрии</span>`'
+        :clients="clients"
+        :bubbles="bubbles"
     />
     <help-slider :title="helpSlides.title" :data="helpSlides.slides"/>
-    <team-price-block/>
+    <team-price-block id="price"/>
     <we-do-it-right
         :info="weDoIt.info"
         :blocks="weDoIt.blocks"
         :dude="'right_dude.svg'"
     />
     <call-to-action
-        style="margin-top: 0"
-        :type="'mail'"
         :actionTitle="'Соберём для вас индивидуальное предложение'"
         :msg="'Проанализируем ваши задачи, подскажем оптимальную структуру и обеспечим организацию пространств для решения всех ваших задач под ключ.'"
         :btn-text="'Получить консультацию'"
     />
-    <team-block :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
-                :subtitle="'Вы получаете целую команду юристов - каждый с глубокой экспертизой в своей области. Все юристы имеют лучшее юридическое образование СПБГУ, МГУ. '"
-                :team="team"
-                :team-name="'ilegal'"
+    <team-block
+        id="team"
+        :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
+        :subtitle="'Вы получаете целую команду юристов - каждый с глубокой экспертизой в своей области. Все юристы имеют лучшее юридическое образование СПБГУ, МГУ. '"
+        :team="team"
+        :team-name="'ilegal'"
     />
-    <business-tasks-block/>
+    <business-tasks-block id="cases" :cases="cases"/>
     <best-conditions/>
   </div>
 </template>
@@ -59,6 +61,19 @@ export default {
     BestConditions,
     TeamPriceBlock,
     WeDoItRight
+  },
+  methods: {
+    toSection(section) {
+      if (section) {
+        let target = document.getElementById(section).getBoundingClientRect().top
+        target && window.scrollTo(target - 80, 0)
+      } else {
+        window.scrollTo(0, 0)
+      }
+    }
+  },
+  mounted() {
+    this.toSection(this.section)
   },
   data() {
     return {
@@ -283,7 +298,38 @@ export default {
           bio: 'Административное право, интеллектуальная собственность, законодательство о рекламе.',
           face: 'tamulevichus.jpg'
         },
-      ]
+      ],
+      cases:{
+        current:{
+          case:{
+            logo: 'wallet.svg',
+            tittle: 'Кошелек сэкономил 35% затрат, отдавая на аутсорс i-Space все сервисные функции',
+            content: 'Крупнейший финтех стартап в России аутсорсит компании i-Space все сервисные функции. Это позволяет не только экономить на операционных затратах, но и инвестировать время и деньги в развитие главных компетенций продукта.'
+          },
+          review:{
+            face:'',
+            name:'Филипп Шубин',
+            status:'гендиректор Кошелек',
+            content:[
+              'С командой i-Legal мы работаем давно. За это время нам требовалась поддержка самых разных проектов, связанных с разработкой NFС-сервисов для банков, транспорта и ритейла. ',
+              'i-Legal с нуля разработал для нас ряд сложных схем взаимодейтствия с участниками рынка и полностью обеспечивает юридическое сопровождение нашей деятельности.',
+            ]
+          }
+        },
+        tasks: [
+          {
+            logo: '',
+            tittle: 'Минизация рисков с SEC',
+            content:
+                'Устранили неоднозначность в толковании токена, выпускаемого в рамках компьютерной игры. Снизили риск возможных претензий со стороны SEC и других государственных органов'
+          },
+          {
+            logo: '',
+            tittle: 'Разделение прав собственности',
+            content: 'Помогли разделить единый объект интеллектуального права между совладельцами бизнеса по разным территориям. Создали взаимные обратные лицензии с территориальным правом на продукт'
+          }
+        ]
+      }
     }
   }
 }

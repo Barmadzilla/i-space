@@ -3,7 +3,7 @@
     <div>
       <h3>{{ title }}</h3>
       <div class="price">от {{ price }} ₽/мес</div>
-      <p class="top-note"  v-if="topNote">{{ topNote }}</p>
+      <p class="top-note" v-if="topNote">{{ topNote }}</p>
       <div class="list" v-if="list">
         <check-list-item
             v-for="(item,i) in list"
@@ -13,7 +13,9 @@
       </div>
       <p class="bottom-note" v-if="bottomNote">{{ bottomNote }}</p>
     </div>
-    <solid-button color="dark">Посмотреть все услуги и цены</solid-button>
+    <router-link v-if="link" :to="link">
+      <solid-button :color="'dark'">Посмотреть все услуги и цены</solid-button>
+    </router-link>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ import SolidButton from "@/components/buttons/SolidButton";
 export default {
   name: "PriceCard",
   components: {CheckListItem, SolidButton},
-  props: ['list', 'title', 'price', 'topNote', 'bottomNote']
+  props: ['list', 'title', 'price', 'topNote', 'bottomNote', 'link']
 }
 </script>
 
@@ -53,11 +55,13 @@ export default {
 .list {
   margin: 1em 0 1.5em 0;
 }
-.top-note{
+
+.top-note {
   font-size: 25px;
 }
-.bottom-note{
-  font-family: 'Raleway',sans-serif;
+
+.bottom-note {
+  font-family: 'Raleway', sans-serif;
   margin: 3em 0 1em;
   font-style: italic;
   font-weight: 400;

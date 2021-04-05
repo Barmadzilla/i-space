@@ -10,18 +10,27 @@
         <review :bg="'white'" :data="reviews" class="reviews"/>
       </div>
       <div class="buttons">
-        <router-link :to="'/i-legal#top'">
+        <router-link :to="{ name: 'i-Legal'}">
           <solid-button :color="'blue'">Подробнее о юридическом сопровождении</solid-button>
         </router-link>
-        <transparent-button :color="'blue'">Получить консультацию</transparent-button>
+        <transparent-button :color="'blue'" @click="modal = true">Получить консультацию</transparent-button>
       </div>
     </div>
     <div class="container">
       <div class="bubbles">
-        <bubble :bg="'white'"  v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+        <bubble :bg="'white'" v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
     </div>
   </div>
+  <teleport to="#overlay">
+    <Overlay v-if="modal">
+      <modal-telegram
+          :title="'Узнайте условия партнёрской системы i-Space'"
+          :subtitle="'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'">
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 
 <script>
@@ -29,12 +38,20 @@ import TransparentButton from "@/components/buttons/TransparentButton";
 import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import SolidButton from "@/components/buttons/SolidButton";
+import Overlay from "@/components/Overlay";
+import ModalClose from "@/components/ModalClose";
+import ModalTelegram from "@/components/ModalTelegram";
+
 
 export default {
   name: "BlockLegals",
-  components: { Bubble, Review,SolidButton,TransparentButton},
+  components: {
+    Bubble, Review, SolidButton, TransparentButton,
+    Overlay, ModalClose, ModalTelegram
+  },
   data() {
     return {
+      modal: false,
       bubbles: [
         'Корпоративное право',
         'Шаблоны документов и договоров',
@@ -63,7 +80,16 @@ export default {
         }
       ]
     }
-  }
+  },
+  watch: {
+    modal() {
+      if (this.modal) {
+        document.documentElement.style.overflow = 'hidden'
+      } else {
+        document.documentElement.removeAttribute('style')
+      }
+    }
+  },
 
 }
 </script>
@@ -99,7 +125,7 @@ img {
 
 .content {
   flex-shrink: 8;
-  margin:0 1em;
+  margin: 0 1em;
 }
 
 h2 {

@@ -20,6 +20,7 @@
             :price="data.price"
             :bottom-note="data.bottomNote"
             :top-note="data.topNote"
+            :link="data.link"
         />
       </div>
     </div>
@@ -49,20 +50,26 @@ export default {
       priceList: [
         {
           title: 'Юридическое сопровождение',
-          price: '15000',
+          price: '15 000',
           list: [
-            'М&A сделки – от&nbsp;<strong>50 000 ₽</strong>',
-            'Структурирование бизнеса – от&nbsp;<strong>40 000 ₽</strong>',
-            'Штатное расписание и должностные инструкции',
-            'IP, очистка и оформление прав – от&nbsp;<strong>10 000 ₽</strong>',
+            'M&A сопровождение – от&nbsp;<strong>99 000 ₽</strong>',
+            'Структурирование бизнеса зарубежом – от&nbsp;<strong>40 000 ₽</strong>',
             'GDPR, персональные данные – от&nbsp;<strong>50 000 ₽</strong>',
             'Юридическая упаковка стартапов – от&nbsp;<strong>20 000 ₽</strong>',
-            '1 час работы юриста – от&nbsp;<strong>2500 ₽</strong>',
-            'выдача справок и консультации по трудовому кодексу',
-            'Выгодные пакеты часов со скидкой',
+            'Аудит вашего актива на предмет рисков – от&nbsp;<strong>20 000 ₽</strong>',
+            'Оформление торгового знака – от&nbsp;<strong>15 000 ₽</strong>',
+            'Оформление интеллектуальной собственности – от&nbsp;<strong>50 000 ₽</strong>',
+            '1 час работы юриста – от&nbsp;<strong>2 500 ₽</strong>',
+            'Регистрация ПО в реестрах РФ и за рубежом – от&nbsp;<strong>15 000 ₽</strong>',
           ],
-          topNote:'',
-          bottomNote:'',
+          topNote: '',
+          bottomNote: '',
+          link: {
+            name: 'i-Legal',
+            params: {
+              section: 'price'
+            }
+          }
 
         },
         {
@@ -77,24 +84,32 @@ export default {
             'Обслуживание и поддержка систем мониторинга ',
             'Хранение данных мониторинга, логов и бэкапов'
           ],
-          bottomNote:'В подписку включено: 1 кластер K8s (2 окружения), пайплайн  на 3-5 сервисов, 1 кластер СУБД и настройка Gitlab.'
+          bottomNote: 'В подписку включено: 1 кластер K8s (2 окружения), пайплайн  на 3-5 сервисов, 1 кластер СУБД и настройка Gitlab.',
+          link: {
+            name: 'It Support',
+            params: {section: 'price'}
+          }
         },
         {
           title: 'Поддержка IT инфрастуктуры',
-          price: '7000',
+          price: '7 000',
           list: [
             'HelpDesk обслуживание 1 компьютера – от&nbsp;<strong>800 ₽/место</strong>',
             'Сопровождение 1 сервера – от&nbsp;<strong>2000 ₽/мес</strong>',
             'Базовый мониторинг 1 сервера – от&nbsp;<strong>1000 ₽/мес.</strong>',
-            'GDPR, персональные данные – от&nbsp;<strong> 50 000 ₽</strong>',
+            'Пакет (5 часов СА,  2 сервера) – от&nbsp;<strong> 19 000 ₽/мес.</strong>',
             'Услуги системного администратора – от&nbsp;<strong> 1600 ₽/час</strong>',
           ],
-          topNote:'',
-          bottomNote:'',
+          topNote: '',
+          bottomNote: '',
+          link: {
+            name: 'It Support',
+            params: {section: 'price'}
+          }
         },
         {
           title: 'Бухгалтерия, Финансы и Кадры',
-          price: '5000',
+          price: '5 000',
           list: [
             'Расчет ЗП на 1 сотрудника – от&nbsp;<strong>700 ₽/час</strong>',
             'Казначейство и валютный контроль – от&nbsp;<strong>100 ₽ за платеж</strong>',
@@ -102,8 +117,12 @@ export default {
             'Управленческий учет – от&nbsp;<strong> 3000 ₽/мес.</strong>',
             'Финансовый консалтинг – от&nbsp;<strong> 1600 ₽/час</strong>',
           ],
-          topNote:'',
-          bottomNote:'',
+          topNote: '',
+          bottomNote: '',
+          link: {
+            name: 'Finances',
+            params: {section: 'price'}
+          }
         }
       ]
     }
@@ -143,23 +162,28 @@ export default {
   font-size: 25px;
   font-weight: 300;
 }
-.content{
+
+.content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
+
 img {
   margin-bottom: -3.8em;
   height: calc(350px + 2em);
 }
-h2{
+
+h2 {
   margin-top: 1em;
 }
+
 @media (max-width: 1280px) {
-  .reviews{
+  .reviews {
     width: 40%;
   }
-  .info{
+
+  .info {
     width: 60%;
   }
 }

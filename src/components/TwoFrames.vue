@@ -8,7 +8,7 @@
         <list-item-play v-for="(item, i) in list" :key="i">{{ item }}</list-item-play>
       </div>
       <router-link :to="'/finances'">
-        <WhiteButton>Подробнее</WhiteButton>
+        <transparent-button>Подробнее</transparent-button>
       </router-link>
     </div>
     <div class="frame">
@@ -19,7 +19,7 @@
         <p>Наймём офис-менеджера, возьмём на себя обеспечение офиса и обеспечим консьерж-сервис для сотрудников.</p>
       </div>
       <router-link :to="'/offices'">
-        <WhiteButton>Подробнее</WhiteButton>
+        <transparent-button :color="'blue'">Подробнее</transparent-button>
       </router-link>
     </div>
   </div>
@@ -28,13 +28,13 @@
 
 <script>
 import ListItemPlay from "@/components/lists/ListItemPlay";
-import WhiteButton from "@/components/buttons/WhiteButton";
+import TransparentButton from "@/components/buttons/TransparentButton";
 
 
 
 export default {
   name: "TwoFrames",
-  components: {ListItemPlay, WhiteButton},
+  components: {TransparentButton, ListItemPlay},
   data() {
     return {
       modal:false,

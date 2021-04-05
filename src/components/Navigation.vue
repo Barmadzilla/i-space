@@ -6,7 +6,6 @@
       </div>
       <div id="nav">
         <ul>
-          <li><router-link :to="'#footer'">Как мы работаем</router-link></li>
           <li><a href="#" @click.prevent="open = !open" class="sub" :class="classObj">Услуги</a>
             <transition name="fade">
               <ul v-if="open" @mouseleave="open = false">
@@ -25,15 +24,13 @@
               </ul>
             </transition>
           </li>
-          <li><a href="#">Стоимость</a></li>
-          <li><a href="#">Клиенты</a></li>
-          <li><a href="#">О компании</a></li>
-          <li><a href="#">Консультация</a></li>
+          <li><a href="#" @click.prevent="toSection('price')">Тарифы</a></li>
+          <li><a href="#" @click.prevent="toSection('clients')">Клиенты</a></li>
+          <li v-if="$route.path==='/'"><a href="#" @click.prevent="toSection('about')">О компании</a></li>
+          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('cases')">Кейсы</a></li>
+          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('team')">Команда</a></li>
         </ul>
-        <!--        <router-link to="/">Home</router-link>-->
-        <!--        <router-link to="/about">About</router-link>-->
-        <!--        <router-link to="/it-support">IT</router-link>-->
-        <LocaleSwitcher/>
+        <LocaleSwitcher v-show="false"/>
       </div>
     </div>
   </header>
@@ -46,6 +43,40 @@ export default {
   name: "Navigation",
   components: {LocaleSwitcher},
   props: ['logo'],
+  methods: {
+    toSection(section) {
+      let params
+      if (section) {
+        params = section
+      } else {
+        params = this.$route.params.section
+      }
+      if (params) {
+        let target = document.getElementById(`${params}`)
+        let currentY = window.pageYOffset
+        // console.log(target)
+        target = target.getBoundingClientRect().top
+        // console.log(target)
+        // console.log(currentY)
+        let destination = currentY >= 0 ? target + currentY - 85 : target - 85
+        // console.log(destination)
+
+        window.scrollTo({
+          top: destination,
+          behavior: "smooth"
+        })
+      } else {
+        window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            }
+        )
+      }
+    }
+  },
+  mounted() {
+    setTimeout(this.toSection, 40)
+  },
   data() {
     return {
       open: false
@@ -134,7 +165,8 @@ a.sub {
   padding-right: 1em;
   position: relative;
 }
-a.sub:after{
+
+a.sub:after {
   content: '';
   background: url("../assets/images/sub-arr.svg") no-repeat center;
   width: 10px;
@@ -145,7 +177,8 @@ a.sub:after{
   transition: transform 200ms;
   transform: rotate(-90deg);
 }
-a.sub.active:after{
+
+a.sub.active:after {
   transform: rotate(0);
 }
 

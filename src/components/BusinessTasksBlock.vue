@@ -2,39 +2,38 @@
   <div class="bg">
     <div class="container">
       <h2>Решаем <span class="text-gradient">конкретные задачи</span> бизнеса</h2>
-      <div class="content">
-        <div class="card big">
-          <div class="columns">
+      <div class="content" v-if="cases">
+        <div class="card big" v-if="cases.current">
+          <div class="columns" >
             <business-task-card
-                :logo="current.logo"
-                :tittle="current.tittle"
-                :content="current.content"
+                :logo="cases.current.case.logo"
+                :tittle="cases.current.case.tittle"
+                :content="cases.current.case.content"
             />
             <div class="vertical-line"></div>
             <div class="review">
               <div class="header">
-                <div class="face">
-                  <img src="../assets/images/faces/petrov.jpg" alt="">
+                <div class="face" v-if="cases.current.review.face">
+                  <img  :src="require(`@/assets/images/faces/${cases.current.review.face}`)" alt="">
                 </div>
-                <div class="name">Кирилл Петров,<br/>основатель Just AI</div>
+                <div class="name">{{ cases.current.review.name }},<br/>{{cases.current.review.status}}</div>
 
               </div>
               <div class="review-content">
-                <p> Мы полностью доверяем нашим партнерам из i-Space и благодарны им за профессионализм, индивидуальный подход и эффективное решение наших бизнес-задач!
-                  Приведу лишь один из множества примеров позитивного эффекта от работы i-Space:</p>
-                <p>Благодаря юридической поддержке i-Space мы провели несколько успешных M&A сделок в рекордно сжатые сроки и на выгодных для нас условиях.</p>
+                <p v-for="(p,i) in cases.current.review.content" v-html="p" :key="i"></p>
               </div>
             </div>
           </div>
         </div>
         <business-task-card
-            v-for="(item,i) in tasks"
+            v-for="(item,i) in cases.tasks"
             :key="i"
             :logo="item.logo"
             :tittle="item.tittle"
             :content="item.content"
         />
       </div>
+      <div v-else>NO Cases!!!</div>
     </div>
   </div>
 </template>
@@ -44,26 +43,11 @@ import BusinessTaskCard from "@/components/BusinessTaskCard";
 
 export default {
   name: "BusinessTasksBlock",
+  props:['cases'],
   components: {BusinessTaskCard},
   data() {
     return {
-      current: {
-        logo: 'just-ai.svg',
-        tittle: 'Организовали комплексную финансовую, юридическую и IT-поддержку бизнеса',
-        content: 'Продукт очень быстро растёт и у компании нет возможности выращивать с нуля собственную сервисную инфраструктуру и непрофильные подразделения бизнеса. Чтобы закрыть все потребности бизнеса, а вдобавок учесть выход компании на международный рынок — мы подхватили все финансовые и юридические дела компании, а вместе с этим обеспечили поддержки IT-инфраструктуры компании.'
-      },
-      tasks: [
-        {
-          logo: 'wallet.svg',
-          tittle: 'Взяли на себя все сервисные процессы бизнеса и экономим 35% затрат компании',
-          content: 'Мы подхватили все сервисные функции крупнейшего fintech стартапа в России. Это позволяет не только экономить, но и инвестировать в развитие главных компетенций продукта.'
-        },
-        {
-          logo: 'trading-view.svg',
-          tittle: 'Открыли офис в Петербурге под ключ: от помещения до рекрутинга команды',
-          content: 'Подобрали помещение, оформили аренду, сделали ремонт, набрали и подготовили к работе команду из 35 человек для Питерского подразделения международной компании.'
-        }
-      ]
+
     }
   }
 }
@@ -84,7 +68,7 @@ h2 {
   margin: 2em auto 1em;
   position: relative;
   padding: 0 1.7em;
-  background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;
+  /*background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;*/
 }
 
 .content {

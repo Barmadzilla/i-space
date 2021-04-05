@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer">
+  <footer id="footer" name="footer">
     <div class="container">
       <h2>Давайте обсудим <span class="text-gradient">ваши задачи</span></h2>
       <p class="subtitle">Оставьте заявку, чтобы получить консультацию и расчёт стоимости </p>
@@ -10,7 +10,7 @@
           <input type="text" placeholder="Электронная почта">
           <input type="tel" placeholder="+7 (999) 999-99-99">
           <gradient-bg-button>Получить консультацию и расчет стоимости</gradient-bg-button>
-          <p>Нажимая на кнопку, вы даете согласие на обработку персональных данных</p>
+          <p><router-link :to="{name:'Privacy',params:{section:'top'}}">Нажимая на кнопку, вы даете согласие на обработку персональных данных</router-link></p>
         </form>
         <div class="steps">
           <div class="step" v-for="(step,i) in steps" :key="i">
@@ -59,9 +59,10 @@ h3 {
   font-family: 'Circle', sans-serif;
 }
 
-p {
+p ,a{
   color: white;
 }
+
 
 .subtitle {
   font-size: 25px;

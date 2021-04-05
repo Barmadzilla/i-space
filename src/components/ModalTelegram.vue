@@ -9,7 +9,8 @@
       <input type="tel" v-model="phone" :placeholder="placeholder.phone">
     </form>
     <gradient-bg-button>Узнать подробности!</gradient-bg-button>
-    <small>Отправляя заявку, вы принимаете условия<br><a href="#">соглашения и обработки персональных данных</a></small>
+    <small>Отправляя заявку, вы принимаете
+      условия<br><router-link :to="{name:'Privacy',params:{section:'top'}}">соглашения и обработки персональных данных</router-link></small>
 
   </div>
 </template>
@@ -32,6 +33,12 @@ export default {
         phone: '+7(999) 999 99 99'
       }
     }
+  },
+  mounted() {
+    document.documentElement.style.overflow = 'hidden'
+  },
+  unmounted(){
+    document.documentElement.removeAttribute('style')
   }
 }
 </script>
