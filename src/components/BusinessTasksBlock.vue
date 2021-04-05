@@ -14,7 +14,7 @@
             <div class="review">
               <div class="header">
                 <div class="face" v-if="cases.current.review.face">
-                  <img  :src="require(`@/assets/images/faces/${cases.current.review.face}`)" alt="">
+                  <img :src="require(`@/assets/images/faces/${cases.current.review.face}`)" alt="">
                 </div>
                 <div class="name">{{ cases.current.review.name }},<br/>{{cases.current.review.status}}</div>
 

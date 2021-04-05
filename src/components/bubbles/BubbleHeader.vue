@@ -1,6 +1,8 @@
 <template>
-  <div class="bubble"><slot></slot>
-    <img :src="require(`@/assets/images/tiny_arrow.svg`)" alt=""></div>
+  <div class="bubble">
+    <slot></slot>
+    <img :src="require(`@/assets/images/tiny_arrow.svg`)" alt="">
+  </div>
 </template>
 
 <script>
@@ -10,7 +12,7 @@ export default {
 </script>
 
 <style scoped>
-.bubble{
+.bubble {
   background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(10px);
   border-radius: 61px;
@@ -19,9 +21,10 @@ export default {
   align-items: center;
   max-width: 270px;
   text-align: left;
-
+  user-select: none;
 }
-.bubble img{
+
+.bubble img {
   margin-left: 1.5em;
 }
 </style>

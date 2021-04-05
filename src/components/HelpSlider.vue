@@ -24,23 +24,34 @@
               <list-item-play v-for="(item,i) in getSlide.content.list" :key="i">{{ item }}</list-item-play>
             </div>
           </transition>
-          <transparent-button class="btn">Интересно! Хочу подробностей!</transparent-button>
+          <transparent-button class="btn" @click="modal = true">Интересно! Хочу подробностей!</transparent-button>
         </div>
       </div>
     </div>
   </div>
+  <teleport to="#overlay">
+    <Overlay v-if="modal">
+      <modal-telegram>
+        <modal-close @click="modal = false"></modal-close>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 
 <script>
 import ListItemPlay from "@/components/lists/ListItemPlay";
 import TransparentButton from "@/components/buttons/TransparentButton";
+import Overlay from "@/components/Overlay";
+import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/ModalClose";
 
 export default {
   name: "HelpSlider",
-  components: {ListItemPlay, TransparentButton},
+  components: {ModalClose, ModalTelegram, Overlay, ListItemPlay, TransparentButton},
   props: ['title', 'data'],
   data() {
     return {
+      modal:false,
       currentSlide: 0,
       content: {
         title: 'Наша экспертиза',

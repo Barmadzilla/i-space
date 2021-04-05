@@ -6,20 +6,32 @@
         <p>Партнёрская система i-Space позволяет зарабатывать вместе с нами. Приводите клиентов, получайте комиссию и эксклюзивные условия на услуги i-Space.</p>
       </div>
       <list-item-play v-for="(item,i) in list" :key="i">{{ item }}</list-item-play>
-      <solid-button :color="'green'">Подробнее о партнёрской системе</solid-button>
+
+      <solid-button :color="'green'" @click="modal = true">Подробнее о партнёрской системе</solid-button>
     </div>
     <img class="art" src="@/assets/images/best-conditions-dudes.svg">
   </div>
+  <teleport to="#overlay">
+    <Overlay v-if="modal" >
+      <modal-telegram :type="'referral'">
+        <modal-close @click="modal = false"/>
+      </modal-telegram>
+    </Overlay>
+  </teleport>
 </template>
 <script>
 import ListItemPlay from "@/components/lists/ListItemPlay";
 import SolidButton from "@/components/buttons/SolidButton";
+import Overlay from "@/components/Overlay";
+import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/ModalClose";
 
 export default {
   name: "BestConditions",
-  components: {ListItemPlay, SolidButton},
+  components: {ModalClose, ModalTelegram, Overlay, ListItemPlay, SolidButton},
   data() {
     return {
+      modal: false,
       list: [
         'Инвесторам',
         'Акселераторам',

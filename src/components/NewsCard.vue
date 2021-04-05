@@ -36,15 +36,6 @@ export default {
     return {
       modal: false
     }
-  },
-  watch: {
-    modal() {
-      if (this.modal) {
-        document.documentElement.style.overflow = 'hidden'
-      } else {
-        document.documentElement.removeAttribute('style')
-      }
-    }
   }
 }
 </script>

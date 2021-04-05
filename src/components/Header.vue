@@ -34,9 +34,7 @@
   </div>
   <teleport to="#overlay">
     <Overlay v-if="modal">
-      <modal-telegram
-          :title="'Узнайте условия партнёрской системы i-Space'"
-          :subtitle="'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'">
+      <modal-telegram>
         <modal-close @click="modal = false"/>
       </modal-telegram>
     </Overlay>
@@ -75,15 +73,6 @@ export default {
       }
     }
   },
-  watch: {
-    modal() {
-      if (this.modal) {
-        document.documentElement.style.overflow = 'hidden'
-      } else {
-        document.documentElement.removeAttribute('style')
-      }
-    }
-  },
   mounted() {
     this.setTitle()
   }
@@ -111,12 +100,13 @@ h1 {
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: 3em;
+  bottom: 6em;
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10% 3.5em;
+  padding: 0 10% 0;
   margin: 0;
+  z-index: 3;
 }
 
 a.link {
