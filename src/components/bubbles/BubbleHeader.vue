@@ -1,13 +1,14 @@
 <template>
   <div class="bubble">
     <slot></slot>
-    <img :src="require(`@/assets/images/tiny_arrow.svg`)" alt="">
+    <img v-if="img" :src="require(`@/assets/images/tiny_arrow.svg`)" alt="">
   </div>
 </template>
 
 <script>
 export default {
-  name: "BubbleHeader"
+  name: "BubbleHeader",
+  props:['img']
 }
 </script>
 

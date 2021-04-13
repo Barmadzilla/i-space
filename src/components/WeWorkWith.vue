@@ -35,7 +35,7 @@ export default {
         },
         {
           title: 'Разработчики ПО',
-          content: 'инхаус и Аутсорсинг',
+          content: 'инхаус и аутсорсинг',
           icon: 'soft-devs.svg',
         },
         {

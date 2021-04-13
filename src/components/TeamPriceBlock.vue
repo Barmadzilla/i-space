@@ -5,7 +5,7 @@
         <div class="info">
           <div>
             <h2><span class="text-gradient">Инвестируйте в результат,<br></span> а не потраченное время юристов</h2>
-            <p>Подберите наиболее подходящий для вас тарифный план: тематические пакетные предложения, удобная подписочная модель или проектная оплата.  </p>
+            <p>Подберите наиболее подходящий для вас тарифный план: тематические пакетные предложения, удобная подписочная модель или проектная оплата. </p>
           </div>
           <img src="../assets/images/ilegal-dude.svg" alt="">
         </div>
@@ -30,7 +30,7 @@ import PriceCard from "@/components/PriceCard";
 
 export default {
   name: "TeamPriceBlock",
-  components: { PriceCard},
+  components: {PriceCard},
   data() {
     return {
       priceList: [
@@ -89,6 +89,10 @@ export default {
   max-width: unset;
 }
 
+.container {
+  padding: 3em;
+}
+
 .header {
   display: flex;
   align-items: flex-start;
@@ -100,11 +104,13 @@ export default {
   font-size: 25px;
   font-weight: 300;
 }
-.content{
+
+.content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 }
+
 img {
   margin-bottom: -1.8em;
   height: calc(350px + 2em);

@@ -2,12 +2,12 @@
   <div class="container">
     <div class="info">
       <h2 v-html="title"></h2>
-      <p v-html="subtitle"></p>
+      <div class="sub" v-html="subtitle"></div>
     </div>
     <div class="industry-grid">
       <div class="industry" v-for="(ind,i) in industry" :key="i">
         <img :src="require(`@/assets/images/icons/${ind.icon}`)">
-          <p>{{ ind.content }}</p>
+        <p>{{ ind.content }}</p>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
     return {
       industry: [
         {
-          content: 'Оформим визу, поможем получить паспортом или загран паспортом',
+          content: 'Оформим визу, поможем получить паспорт или загранпаспорт',
           icon: 'fin-tech.svg',
         },
         {
@@ -59,6 +59,10 @@ export default {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.content p {
+
+}
+
 .industry {
   display: flex;
   padding: 0 2em;
@@ -72,12 +76,5 @@ export default {
   margin-top: .1em;
 }
 
-.info h2 {
-  margin-top: 0;
-}
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
-}
 </style>

@@ -4,7 +4,7 @@
     <div class="container">
       <div>
         <h1>Офисы под ключ<br/>
-          Консьерж Сервис для сотрудников </h1>
+          Консьерж–Сервис для сотрудников </h1>
         <div class="words">
           <div class="word" v-for="(word,i) in words" :key="i">
             <h3>{{ word.title }}</h3>
@@ -56,12 +56,12 @@ export default {
       modal:false,
       words: [
         {
-          title: 'Консьерж сервис',
+          title: 'Консьерж–сервис',
           content: 'Практичная программа лояльности для сотрудников'
         },
         {
-          title: 'Офисы под ключ',
-          content: 'Организуем офис под ключ в СПб'
+          title: 'Офисы “под ключ”',
+          content: 'Организуем любой офис “под ключ” в Петербурге'
         },
         {
           title: 'Внедрим инновации',
@@ -109,16 +109,15 @@ h1 {
 
 .bubbles {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   position: absolute;
   bottom: 5em;
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10% 3.5em;
+  padding: 0 0 3.5em;
   margin: 0;
 }
-
 .bubble {
   max-width: 282px;
 }

@@ -24,6 +24,8 @@ if ( $_POST['type'] == '/i-legal' ) {
 	$chat = '-1001193390521';
 } elseif ( $_POST['type'] == '/' ) {
 	$subj = 'Данные c Главной страницы';
+} elseif ( $_POST['type'] == 'subscribe' ) {
+	$subj = 'Подписка';
 }
 
 $message = $_POST['msg'];

@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .container {
-  padding: 3em 0;
+  padding: 3em;
 }
 
 .team {

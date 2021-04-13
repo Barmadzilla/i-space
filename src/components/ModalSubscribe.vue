@@ -7,33 +7,29 @@
       <h2>{{ setHeader.title }}</h2>
       <p>{{ setHeader.subtitle }}</p>
       <input type="text" v-model="name" :placeholder="placeholder.name" required pattern="{,2}$">
-      <input type="email" v-model="email" :placeholder="placeholder.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-      <input type="tel" v-model="phone" :placeholder="placeholder.phone" required @keypress.enter="sendData">
-      <gradient-bg-button :class="{'disabled' : !valid}" @click="sendData">Узнать подробности!</gradient-bg-button>
-      <small>Отправляя заявку, вы принимаете
-        условия<br>
+      <input type="email" v-model="email" :placeholder="placeholder.email" required @keypress.enter="sendData" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+      <gradient-bg-button :class="{'disabled' : !valid}" @click="sendData">Подписаться!</gradient-bg-button>
+      <small>Отправляя заявку, вы принимаете условия<br>
         <router-link :to="{name:'Privacy',params:{section:'top'}}">соглашения и обработки персональных данных</router-link>
       </small>
     </form>
     <div class="msg" v-if="submitted">
       <h2>{{ senderName }},</h2>
-      <p>Мы уже получили Ваш запрос. <br> В ближайшие время наш менеджер свяжется с вами. Спасибо!</p>
+      <p>Мы уже получили Ваш запрос. <br> В ближайшие время вы получите письмо с уведомлением о подписке. Спасибо!</p>
     </div>
   </div>
 </template>
 
 <script>
 import GradientBgButton from "@/components/buttons/GradientBgButton"
-
 const axios = require('axios')
-
 export default {
-  name: "ModalTelegram",
+  name: "ModalSubscribe",
   props: ['title', 'subtitle', 'type'],
   components: {GradientBgButton},
   computed: {
     valid() {
-      return !!this.name && !!this.phone && !!this.email
+      return !!this.name && !!this.email
     },
     setHeader() {
       let header = Object
@@ -89,13 +85,11 @@ export default {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       };
-      this.message = "\nСвяжитесь со мной\n" +
+      this.message = `\nХочу подписатся на ${this.type}\n` +
           "😀 " + this.name + "\n" +
-          "📧 " + this.email + "\n" +
-          "📱 " + this.phone + "\n\n" +
-          "C нетерпением жду вашего ответа.";
+          "📧 " + this.email + "\n"
       formData.append('msg', this.message);
-      formData.append('type', this.$router.currentRoute['_rawValue'].path);
+      formData.append('type', 'subscribe');
       axios.post('send.php', formData, httpHeaders)
           .then(response => {
             this.results = response.data
@@ -108,6 +102,7 @@ export default {
       this.submitted = true
     }
   }
+
 }
 </script>
 

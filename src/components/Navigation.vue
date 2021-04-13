@@ -13,13 +13,13 @@
                   <router-link :to="'/i-legal'">Юридическое сопровождение</router-link>
                 </li>
                 <li>
-                  <router-link :to="'/finances'">Фиансовый учет</router-link>
+                  <router-link :to="'/finances'">Финансовый учет</router-link>
                 </li>
                 <li>
                   <router-link :to="'/it-support'">IT поддержка</router-link>
                 </li>
                 <li>
-                  <router-link :to="'/offices'">Офис менеджмент</router-link>
+                  <router-link :to="'/offices'">Офисный менеджмент</router-link>
                 </li>
               </ul>
             </transition>
@@ -121,7 +121,7 @@ header {
 }
 
 @supports (backdrop-filter: none) {
-  .header {
+  header {
     background: rgba(255, 255, 255, 0.70);
     backdrop-filter: blur(10px);
   }

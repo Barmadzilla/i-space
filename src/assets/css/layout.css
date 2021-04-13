@@ -59,13 +59,31 @@ h3 {
 body {
     font-size: 18px;
 }
-
+small{
+    font-size: 0.8em;
+}
 a {
     color: var(--deep-blue);
 }
 
 p {
     color: var(--text-gray);
+}
+.single p{
+    margin-bottom: 1em;
+}
+.info h2 {
+    margin-top: 0;
+}
+
+.info p {
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+.info .list-item p{
+    font-size: unset;
+    font-weight: unset;
 }
 
 .bubbles {

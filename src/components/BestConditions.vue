@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
 .container{
-  padding: 0 0 3em;
+  padding: 3em;
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(2,1fr);

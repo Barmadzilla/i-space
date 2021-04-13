@@ -119,20 +119,18 @@ export default {
   height: fit-content;
   justify-content: space-between;
   margin-top: 2em;
-  font-size: 25px;
+  font-size: 21px;
 }
 
 .btn {
   width: 100%;
   margin-top: 1em;
-
 }
 
 
 .tab {
-  margin: 0.7em 0;
-  padding-right: 3em;
-  padding-left: 0;
+  margin: 0.4em 0;
+  padding: 5px 3em 0 0;
   cursor: pointer;
   transition: all 200ms;
   background: url("../assets/images/white-arrow.svg") no-repeat right -2em top;
@@ -153,7 +151,7 @@ h2:first-child {
 }
 
 .container {
-  padding: 4em 0;
+  padding: 4em 3em;
   display: flex;
 }
 

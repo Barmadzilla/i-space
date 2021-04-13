@@ -6,7 +6,8 @@
       <h3>{{ title }}</h3>
       <div class="content" v-html="content"></div>
     </div>
-    <transparent-button v-if="btn" @click="modal = true">{{ btn }}</transparent-button>
+    <transparent-button v-if="type === 'modal'"  @click="modal = true">{{ btnTitle }}</transparent-button>
+    <slot></slot>
   </div>
   <teleport to="#overlay">
     <Overlay v-if="modal">
@@ -29,7 +30,7 @@ export default {
     Overlay, ModalClose, ModalTelegram,
     TransparentButton
   },
-  props: ['title', 'img', 'date', 'content', 'btn'],
+  props: ['title', 'img', 'date', 'content', 'btnTitle', 'type', 'link'],
   data() {
     return {
       modal: false
@@ -51,9 +52,13 @@ export default {
 a {
   justify-self: flex-end;
   margin: 1em 0 0;
-}img{
-   width: 100%;
- }
+  width: 100%;
+}
+
+
+img {
+  width: 100%;
+}
 
 h3 {
   font-size: 24px;
@@ -66,5 +71,10 @@ h3 {
   font-size: 14px;
   font-family: 'Raleway', sans-serif;
   margin: 1.5em 0;
+}
+
+.card .content small {
+  font-size: 13px;
+  color: red;
 }
 </style>

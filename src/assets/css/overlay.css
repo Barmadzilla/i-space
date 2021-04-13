@@ -45,6 +45,7 @@
 }
 #overlay input::placeholder{
     color: var(--light-blue);
+    font-weight: lighter;
 }
 #overlay .btn{
     width: 100%;

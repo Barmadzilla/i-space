@@ -14,13 +14,13 @@
       </div>
       <div class="bubbles">
         <router-link :to="{ name: 'Finances'}" class="link">
-          <Bubble>Бухгалтерия,<br> финансы и кадры</Bubble>
+          <Bubble :img="true">Бухгалтерия,<br> финансы и кадры</Bubble>
         </router-link>
         <router-link :to="{ name: 'i-Legal'}" class="link">
-          <Bubble>Юридическое<br>сопровождение</Bubble>
+          <Bubble :img="true">Юридическое<br>сопровождение</Bubble>
         </router-link>
         <router-link :to="{ name: 'It Support'}" class="link">
-          <Bubble>Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
+          <Bubble :img="true">Поддержка DevOps<br> и IT-инфраструктуры</Bubble>
         </router-link>
       </div>
     </div>

@@ -2,8 +2,8 @@
   <div class="bg">
     <div class="container">
       <div class="info">
-        <h2>Соберите свой <span class="text-gradient">консьерж сервис!</span></h2>
-        <p>Подберите для себя максимально подходящий тариф. </p>
+        <h2>Соберите свой <span class="text-gradient">консьерж–сервис!</span></h2>
+        <p>Подберите для себя максимально подходящий тариф</p>
       </div>
       <div class="plans">
         <conserje-plan-card

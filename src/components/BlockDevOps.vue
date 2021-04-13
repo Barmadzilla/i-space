@@ -10,7 +10,7 @@
       <review :bg="'gray'" :data="reviews" class="reviews"/>
       <img src="../assets/images/pro_devops.svg" alt="">
     </div>
-    <div class="stack">
+    <div class="stack" v-show="false">
       Используем технологии: Yandex cloud, Asure MS, Digital Ocean, AWS, Google Platform, Kubernetes, Openshift, Postgresql, Clickhouse, ArangoDB, MySQL,
       MongoDB, MsSQL, Redis, Memcached, RabbitMq, Apache kafka, Azure Storage, Zookeeper, Consul, Prometheus, Grafana, Alertmanager.
     </div>
@@ -20,7 +20,6 @@
       </router-link>
       <transparent-button @click="modal = true">Получить консультацию</transparent-button>
     </div>
-
   </div>
   <div class="container">
     <div class="bubbles">
@@ -117,7 +116,7 @@ img {
 }
 
 .buttons {
-  margin: 3em 0;
+  margin: 0 0 3em ;
 }
 
 .bg-gray {

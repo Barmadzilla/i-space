@@ -8,7 +8,7 @@
       <review :bg="'gray'" :data="reviews" class="reviews"/>
       <img src="../assets/images/pro_it.svg" alt="">
     </div>
-    <div class="stack">
+    <div class="stack"  v-show="false">
       Технологический стек i-Space: Unix, Ubuntu, Win, KVM, Ceph, MongoDB, PostgreSQL, Puppet, Elasticsearch, Logstash, Kibana, ZABBIX, MySQL, Azure, CentOS,
       Redis, Ansible, Docker/Kubernetes, Last Backend
     </div>
@@ -108,7 +108,7 @@ img {
 }
 
 .buttons {
-  margin: 3em 0;
+  margin:0 0 3em ;
 }
 
 .bg-gray {

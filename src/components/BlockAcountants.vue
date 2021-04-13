@@ -11,7 +11,7 @@
       </div>
       <div class="buttons">
         <router-link :to="{ name: 'Finances'}">
-          <solid-button :color="'blue'">Подробнее о юридическом сопровождении</solid-button>
+          <solid-button :color="'blue'">Подробнее о финансовом сопровождении</solid-button>
         </router-link>
         <transparent-button :color="'blue'" @click="modal = true">Получить консультацию</transparent-button>
       </div>

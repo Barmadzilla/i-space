@@ -107,13 +107,13 @@ h1 {
 
 .bubbles {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   position: absolute;
   bottom: 5em;
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 10% 3.5em;
+  padding: 0 0 3.5em;
   margin: 0;
 }
 

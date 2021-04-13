@@ -5,12 +5,15 @@
       <div class="info">
         {{ msg }}
       </div>
-        <solid-button :color="'blue'" :hover="'white'" @click="modal = true">{{ btnText }}</solid-button>
+      <solid-button :color="'blue'" :hover="'white'" @click="modal = true">{{ btnText }}</solid-button>
     </div>
   </div>
   <teleport to="#overlay">
     <Overlay v-if="modal">
-      <modal-telegram>
+      <modal-subscribe v-if="type==='subscribe'" :title="formCredits[0]" :subtitle="formCredits[1]" :type="formCredits[2]">
+        <modal-close @click="modal = false"/>
+      </modal-subscribe>
+      <modal-telegram v-else>
         <modal-close @click="modal = false"/>
       </modal-telegram>
     </Overlay>
@@ -23,11 +26,12 @@ import Overlay from "@/components/Overlay";
 import ModalClose from "@/components/ModalClose";
 import ModalTelegram from "@/components/ModalTelegram";
 import SolidButton from "@/components/buttons/SolidButton";
+import ModalSubscribe from "@/components/ModalSubscribe";
 
 export default {
   name: "CallToAction",
-  props: ['btnText', 'type', 'actionTitle', 'msg'],
-  components: {ModalTelegram, SolidButton, Overlay, ModalClose},
+  props: ['btnText', 'type', 'actionTitle', 'msg', 'formCredits'],
+  components: {ModalSubscribe, ModalTelegram, SolidButton, Overlay, ModalClose},
   data() {
     return {
       modal: false
@@ -98,7 +102,8 @@ input[type='submit'] {
   color: white;
   width: min-content;
 }
-a{
+
+a {
   margin: 0;
   justify-self: flex-end;
   align-self: stretch;
