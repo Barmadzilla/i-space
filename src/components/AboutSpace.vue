@@ -22,10 +22,7 @@
         <div class="info">
           <h2 v-html="processes.title"></h2>
           <div>
-            <div v-for="(process ,i) in processes.processes" :key="i" class="process-info">
-              <img src="../assets/images/icons/list_arrow.svg" alt="">
-              <p>{{ process }}</p>
-            </div>
+            <list-item-play v-for="(process ,i) in processes.processes" :key="i" >{{ process }}</list-item-play>
           </div>
         </div>
       </div>
@@ -34,8 +31,10 @@
 </template>
 
 <script>
+import ListItemPlay from "@/components/lists/ListItemPlay";
 export default {
   name: "AboutSpace",
+  components: {ListItemPlay},
   data() {
     return {
       title: 'Сотни компетенций <br/>в <span class="text-gradient">одной команде</span>',
@@ -64,7 +63,7 @@ export default {
         },
       ],
       processes: {
-        title: '<span class="text-gradient">Упрощаем</span><br/> рабочие процессы',
+        title: '<span class="text-gradient">Упрощаем</span> рабочие процессы',
         processes: [
           'Все коммуникации в едином информационном пространстве. Здесь вы, менеджер и специалисты по направлениям.',
           'При необходимости - прямой доступ к конкретному специалисту без "испорченного телефона".',
