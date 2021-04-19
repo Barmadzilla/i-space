@@ -115,4 +115,10 @@ export default {
 h3 {
   margin-bottom: 2em;
 }
+
+@media (max-width: 1280px) {
+  .price{
+    font-size: 70px;
+  }
+}
 </style>

@@ -90,4 +90,11 @@ a.bggray:before{
 img {
   margin: -0.4em 1em -0.4em 0;
 }
+
+@media (max-width: 1024px) {
+  a{
+    font-size: 16px;
+    padding: 12px 30px 11px;
+  }
+}
 </style>

@@ -33,4 +33,9 @@ export default {
   margin-bottom: 1.5em;
 
 }
+@media (max-width: 1280px) {
+  .list-item{
+    margin-bottom: 0.8em;
+  }
+}
 </style>

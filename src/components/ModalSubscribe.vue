@@ -4,8 +4,8 @@
     <pre v-show="false">Pth: {{ $router.currentRoute['_rawValue'].path }}</pre>
     <pre v-show="false">{{ results }}</pre>
     <form action="" v-if="!submitted">
-      <h2>{{ setHeader.title }}</h2>
-      <p>{{ setHeader.subtitle }}</p>
+      <h2>{{ title }}</h2>
+      <p>{{ subtitle }}</p>
       <input type="text" v-model="name" :placeholder="placeholder.name" required pattern="{,2}$">
       <input type="email" v-model="email" :placeholder="placeholder.email" required @keypress.enter="sendData" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
       <gradient-bg-button :class="{'disabled' : !valid}" @click="sendData">Подписаться!</gradient-bg-button>
@@ -22,6 +22,7 @@
 
 <script>
 import GradientBgButton from "@/components/buttons/GradientBgButton"
+
 const axios = require('axios')
 export default {
   name: "ModalSubscribe",
@@ -31,31 +32,6 @@ export default {
     valid() {
       return !!this.name && !!this.email
     },
-    setHeader() {
-      let header = Object
-      let def = {
-        title: 'Будем рады вам помочь! ',
-        subtitle: 'Оставьте заявку — обсудим задачи, сформируем комплекс услуг, а срочные дела отправим в работу уже сегодня.'
-      }
-      if (this.type) {
-        if (this.type === 'referral') {
-          header.title = 'Узнайте условия партнёрской системы i-Space'
-          header.subtitle = 'Оставьте заявку, чтобы обсудить партнёрские условия и стать партнёром i-Space'
-        } else {
-          header = def
-        }
-      } else {
-        if (this.title || this.subtitle) {
-          header.title = this.title
-          header.subtitle = this.subtitle
-        } else {
-          header = def
-        }
-
-
-      }
-      return header
-    }
   },
   data() {
     return {

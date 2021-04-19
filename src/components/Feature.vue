@@ -30,8 +30,15 @@ img {
 }
 
 p {
-  font-size: 18px;
   text-align: left;
   margin-left: 1em;
+}
+@media (max-width: 1024px) {
+  p{
+    font-size: 15px;
+  }
+  .feature {
+    margin-left: 2em;
+  }
 }
 </style>

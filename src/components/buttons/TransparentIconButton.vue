@@ -1,6 +1,6 @@
 <template>
   <a :href="link" :class="color">
-    <svg id="icon" width="24" height="24" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" v-html="setIcon"></svg>
+    <svg id="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" v-html="setIcon"></svg>
     <slot></slot>
   </a>
 </template>
@@ -28,7 +28,8 @@ export default {
 
 <style scoped>
 svg#icon {
-  fill: var(--light-blue) ;
+  fill: var(--light-blue);
+
 }
 
 a {
@@ -52,6 +53,8 @@ a svg {
   position: absolute;
   top: calc(50% - 13px);
   left: 30px;
+  height: 24px;
+
 }
 
 a:before {
@@ -87,5 +90,19 @@ a:hover::before {
 
 a:hover svg#icon {
   fill: white;
+}
+
+@media (max-width: 1024px) {
+  a {
+    font-size: 16px;
+    padding: 12px 30px 11px calc(30px + 11px * 2);
+  }
+
+  a svg {
+    height: 20px;
+    top: calc(50% - 11px);
+    left: 19px;
+  }
+
 }
 </style>

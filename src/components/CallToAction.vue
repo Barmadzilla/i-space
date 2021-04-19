@@ -10,7 +10,10 @@
   </div>
   <teleport to="#overlay">
     <Overlay v-if="modal">
-      <modal-subscribe v-if="type==='subscribe'" :title="formCredits[0]" :subtitle="formCredits[1]" :type="formCredits[2]">
+      <modal-subscribe v-if="type==='subscribe'"
+                       :title="formCredits[0]"
+                       :subtitle="formCredits[1]"
+                       :type="formCredits[2]">
         <modal-close @click="modal = false"/>
       </modal-subscribe>
       <modal-telegram v-else>
@@ -109,5 +112,23 @@ a {
   align-self: stretch;
   display: grid;
   align-items: center;
+}
+@media (max-width: 1280px) {
+  h2 {
+    font-size: 28px;
+  }
+  .info{
+    line-height: 1.5;
+    font-size: 16px;
+  }
+}
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 24px;
+  }
+  .info{
+    line-height: 1.4;
+    font-size: 15px;
+  }
 }
 </style>

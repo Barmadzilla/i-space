@@ -85,10 +85,6 @@ export default {
   align-items: flex-start;
 }
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
-}
 
 .reviews {
 }

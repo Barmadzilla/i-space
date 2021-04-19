@@ -23,4 +23,10 @@ export default {
 .bubble.white{
   background: white;
 }
+
+@media (max-width: 1024px) {
+  .bubble{
+    font-size: 13px;
+  }
+}
 </style>

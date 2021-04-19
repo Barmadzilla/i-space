@@ -92,11 +92,6 @@ export default {
   align-items: flex-start;
 }
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
-}
-
 .reviews {
 }
 
@@ -134,5 +129,10 @@ h2 {
   text-align: left;
   font-size: 15px;
   margin: 1.2em 0;
+}
+@media (max-width: 1280px) {
+  .buttons {
+    margin: 3em 0 ;
+  }
 }
 </style>

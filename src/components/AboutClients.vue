@@ -62,4 +62,20 @@ img {
   order: 2;
   margin-bottom: 3em;
 }
+
+@media (max-width: 1280px) {
+  img {
+    max-width: 180px;
+    max-height: 50px;
+    width: 100%;
+    margin: 1em 2em;
+  }
+}@media (max-width: 1280px) {
+  img {
+    max-width: 140px;
+    max-height: 40px;
+    width: 100%;
+    margin: 0.5em 1em;
+  }
+}
 </style>

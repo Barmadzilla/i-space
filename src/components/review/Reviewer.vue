@@ -24,4 +24,9 @@ export default {
 img {
   margin-right: 1em;
 }
+@media (max-width: 1024px) {
+  .name,.credits{
+    font-size: 14px;
+  }
+}
 </style>

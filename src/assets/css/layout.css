@@ -110,9 +110,26 @@ header a {
         min-width: unset;
         box-sizing: border-box;
     }
+    h3{
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+    }
+    .info p {
+        font-size: 20px;
+        margin-bottom: 1em;
+    }
+    .info .list-item p{
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: 26px;
+    }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
     .container {
         max-width: 1023px;
         width: 100%;
@@ -121,6 +138,11 @@ header a {
 
     p {
         font-size: 14px;
+    }
+
+    .slide{
+        min-height: calc(660px + var(--padding));
+        max-height: calc(950px + var(--padding));
     }
 }
 
@@ -136,4 +158,5 @@ header a {
         max-width: unset;
         width: 100%;
     }
+
 }

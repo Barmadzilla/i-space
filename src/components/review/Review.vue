@@ -30,11 +30,12 @@ export default {
   width: 420px;
   text-align: left;
   position: relative;
-flex-shrink: 0;
+  flex-shrink: 0;
   padding: 30px;
   box-sizing: border-box;
 }
-.card.white:before{
+
+.card.white:before {
   content: '';
   bottom: 0;
   left: -38px;
@@ -43,7 +44,8 @@ flex-shrink: 0;
   background: url('../../assets/images/card-white-edge.svg') no-repeat;
   position: absolute;
 }
-.card.dark:before{
+
+.card.dark:before {
   content: '';
   bottom: 0;
   left: -38px;
@@ -52,11 +54,13 @@ flex-shrink: 0;
   background: url('../../assets/images/card-dark-edge.svg') no-repeat;
   position: absolute;
 }
-.card.white{
+
+.card.white {
   background: white;
   border-radius: 16px 16px 16px 0;
 }
-.card.gray:before{
+
+.card.gray:before {
   content: '';
   top: 0;
   right: -38px;
@@ -65,11 +69,13 @@ flex-shrink: 0;
   background: url('../../assets/images/card-gray-edge.svg') no-repeat;
   position: absolute;
 }
-.card.gray{
+
+.card.gray {
   background: var(--bg-gray);
-  border-radius: 16px  0 16px 16px;
+  border-radius: 16px 0 16px 16px;
 }
-.card.dark{
+
+.card.dark {
   background: var(--bg-dark);
   border-radius: 16px 16px 16px 0;
 }
@@ -81,7 +87,23 @@ p {
   color: var(--text-gray);
   opacity: 0.6;
 }
-.card.dark p{
+
+.card.dark p {
   opacity: 1;
+}
+
+@media (max-width: 1280px) {
+
+}
+
+@media (max-width: 1024px) {
+  .card {
+    max-width: 34%;
+    width: 100%;
+  }
+  p{
+    font-size: 14px;
+  }
+
 }
 </style>

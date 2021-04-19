@@ -13,8 +13,10 @@
     "core-js": "^3.6.5",
     "debug": "^4.3.1",
     "smoothscroll-polyfill": "^0.4.4",
+    "typed.js": "^2.0.12",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

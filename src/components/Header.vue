@@ -3,7 +3,7 @@
   <div class="slide">
     <div class="container">
       <div class="header">
-        <h1>Аутсорсинг бизнес-процессов с глубокой экспертизой в сфере IT</h1>
+        <h1>Аутсорсинг <span class="retype"></span> <br>с глубокой экспертизой в сфере IT</h1>
         <div class="buttons">
           <GradientBgButton @click="modal = true">Получить консультацию</GradientBgButton>
           <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
@@ -51,12 +51,11 @@ import Overlay from "@/components/Overlay";
 import ModalClose from "@/components/ModalClose";
 import ModalTelegram from "@/components/ModalTelegram";
 
-
 export default {
   name: "Header",
   components: {
     Navigation, Feature, Bubble, TransparentIconButton, GradientBgButton,
-    Overlay, ModalClose, ModalTelegram
+    Overlay, ModalClose, ModalTelegram,
   },
   data() {
     return {
@@ -71,10 +70,32 @@ export default {
       if (this.pageTitle) {
         return docTitle.innerText = `${text} - ${this.pageTitle}`
       }
+    },
+    tw(el, char) {
+      el.innerText += char
+    },
+    test(el, char) {
+      setTimeout(function tick() {
+        el.innerText += char
+        setTimeout(tick, 50); // (*)
+      }, 50);
+    },
+    loop(el, text, i) {
+      let that = this;
+      if (i < text.length) {
+        el.innerText += text[i]
+        i++
+        setTimeout(() => that.loop(), 1000)
+      }
     }
   },
   mounted() {
     this.setTitle()
+    let el = document.querySelector('.retype')
+    let text = 'бизнес-процессов'
+    el.innerText += text
+    // let i = 0
+    // this.loop(el, text, i)
   }
 }
 </script>
@@ -140,7 +161,7 @@ a.link {
 .features {
   padding: 2.5em 0 1em;
   margin-top: -4em;
-  background: rgba(255, 255, 255,1);
+  background: rgba(255, 255, 255, 1);
   /*backdrop-filter: blur(10px);*/
 }
 
@@ -160,8 +181,11 @@ a.link {
     font-size: 35px;
   }
 
-  .bubbles {
-    bottom: 2em;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 30px;
   }
 }
 </style>

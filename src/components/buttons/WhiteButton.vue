@@ -45,4 +45,10 @@ a:hover{
   -webkit-text-fill-color: unset;
 }
 
+@media (max-width: 1024px) {
+  a{
+    font-size: 16px;
+    padding: 12px 30px 11px;
+  }
+}
 </style>

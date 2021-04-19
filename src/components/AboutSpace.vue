@@ -93,7 +93,6 @@ export default {
 }
 
 h2 {
-  font-size: 32px;
   margin-top: 0;
 }
 
@@ -143,6 +142,40 @@ h3 {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.5em;
+
+}
+@media (max-width: 1280px) {
+  .about .container {
+    background: url("../assets/images/bg/dotted_arrow.svg") no-repeat left 1.6em top 12em / 90%;
+  }
+
+}
+@media (max-width: 1024px) {
+h2 {
+  font-size: unset;
+}
+  .process img {
+    width: 46%;
+    margin-right: 3em;
+  }
+  .process {
+    margin-top: 4em;
+  }
+  .pro img{
+    width: 100%;
+  }
+  h3{
+    font-size: 18px;
+  }
+  .cloud img {
+    width: 259px;
+  }
+  .wrap{
+    margin-bottom: 4em;
+  }
+  .about .container {
+    background: url("../assets/images/bg/dotted_arrow.svg") no-repeat left 1.6em top 7em / 90%;
+  }
 
 }
 </style>

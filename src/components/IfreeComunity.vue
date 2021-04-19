@@ -124,10 +124,6 @@ export default {
   text-align: left;
 }
 
-.info p {
-  font-size: 25px;
-  margin-bottom: 1em;
-}
 
 .list-item {
   margin-bottom: 0.7em;
@@ -195,5 +191,13 @@ a.btn {
   width: 100%;
   margin-right: 0;
   margin-top: 1em;
+}
+@media (max-width: 1280px) {
+  .big{
+    font-size: 2em;
+  }
+  .small{
+    font-size: 0.8em;
+  }
 }
 </style>

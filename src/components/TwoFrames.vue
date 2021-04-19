@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="container">
     <div class="frame">
       <div>
         <img src="@/assets/images/hr-managment.svg" alt="">
@@ -51,12 +51,12 @@ export default {
 </script>
 
 <style scoped>
-.content {
+.container {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto;
   grid-gap: 3em;
-  margin: 4em 0;
+  padding: 3em;
 }
 
 .frame:first-child {
@@ -102,5 +102,13 @@ export default {
 
 a {
   width: 100%;
+}
+@media (max-width: 1024px) {
+  .container {
+    grid-gap: 1em;
+  }
+  .frame{
+    padding: 1.8em;
+  }
 }
 </style>
