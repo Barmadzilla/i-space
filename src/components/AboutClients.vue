@@ -72,7 +72,6 @@ img {
   }
 }@media (max-width: 1280px) {
   img {
-    max-width: 140px;
     max-height: 40px;
     width: 100%;
     margin: 0.5em 1em;

@@ -27,7 +27,8 @@ export default {
 }
 .card .face img{
   border-radius: 50%;
-  width: 90%;
+  width: 80%;
+  max-width: 240px;
 }
 .position{
   font-size: 14px;

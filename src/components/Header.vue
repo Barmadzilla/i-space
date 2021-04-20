@@ -101,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  padding: 6em 3em 0;
+}
 
 h1 {
   font-size: 39px;
@@ -126,8 +129,9 @@ h1 {
   width: 100%;
   box-sizing: border-box;
   padding: 0 10% 0;
-  margin: 0;
+  margin: 0 auto;
   z-index: 3;
+  min-width: 1024px;
 }
 
 a.link {
@@ -156,6 +160,7 @@ a.link {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 0 ;
 }
 
 .features {
@@ -167,7 +172,7 @@ a.link {
 
 @supports (backdrop-filter: none) {
   .features {
-    background: rgba(255, 255, 255, 0.70);
+    background: linear-gradient(rgba(255, 255, 255, 0.30) , rgba(255, 255, 255, 1));
     backdrop-filter: blur(10px);
   }
 }
@@ -176,13 +181,16 @@ a.link {
   .people {
     width: 90%;
   }
-
   h1 {
     font-size: 35px;
   }
 
 }
-
+@media (max-width: 1140px) {
+  h1 {
+    font-size: 30px;
+  }
+}
 @media (max-width: 1024px) {
   h1 {
     font-size: 30px;

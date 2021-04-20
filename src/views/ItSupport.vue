@@ -105,15 +105,15 @@ export default {
       ],
       clients: [
 
-        {name: 'Кошелёк', logo: 'wallet.svg', url: '#'},
-        {name: 'Первый Канал', logo: 'first-tv.svg', url: '#'},
         {name: 'Just AI', logo: 'just-ai.svg', url: '#'},
-        {name: 'Trading View', logo: 'trading-view.svg', url: '#'},
-        {name: 'Glispa', logo: 'glispa.svg', url: '#'},
-        {name: 'Embria', logo: 'embria.svg', url: '#'},
-        {name: 'i-DIGITAL', logo: 'i-digital.svg', url: '#'},
-        {name: 'Coin Keeper', logo: 'coin-keeper.svg', url: '#'},
+        {name: 'Data Solution', logo: 'data-solution.svg', url: '#'},
+        {name: 'Первый Канал', logo: 'first-tv.svg', url: '#'},
+        {name: 'Крокус Консалтинг', logo: 'crocus.svg', url: '#'},
         {name: 'i-Free', logo: 'i-free.svg', url: '#'},
+        {name: 'На Ланч', logo: 'nalunch.svg', url: '#'},
+        {name: 'Coin Keeper', logo: 'coin-keeper.svg', url: '#'},
+        {name: 'Кошелёк', logo: 'wallet.svg', url: '#'},
+        {name: 'HeroCraft', logo: 'herocraft.svg', url: '#'},
       ],
       bubbles: [
         'AI', 'FinTech', 'Разработка игр', 'Облачные решения', 'Трейдинг', 'Телеком', 'FoodTech'

@@ -56,7 +56,6 @@ export default {
 <style scoped>
 .bg {
   background: var(--bg-blue);
-  padding-top: 3em;
 }
 
 .card {
@@ -68,15 +67,19 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 3em;
 }
-.cloud-container{
+
+.cloud-container {
   width: 40%;
 }
+
 img {
   position: relative;
-  bottom: -4em;
+  bottom: -6em;
   right: -5em;
 }
+
 .cloud {
   padding: 2em;
   background: white;
@@ -94,5 +97,26 @@ img {
   left: 0;
   bottom: -38px;
   background: url("../assets/images/cloud-after.svg") no-repeat;
+}
+
+@media (max-width: 1140px) {
+  .cloud {
+    margin-left: 3em;
+    font-size: 17px;
+  }
+
+  img {
+    max-width: 25em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cloud {
+    margin-left: 2em;
+    font-size: 15px;
+  }
+  img {
+    max-width: 23em;
+  }
 }
 </style>

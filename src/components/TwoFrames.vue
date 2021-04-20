@@ -103,7 +103,15 @@ export default {
 a {
   width: 100%;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1140px){
+  .frame{
+    padding: 2.4em;
+  }
+}
+  @media (max-width: 1024px) {
+    .frame{
+      padding: 2em;
+    }
   .container {
     grid-gap: 1em;
   }

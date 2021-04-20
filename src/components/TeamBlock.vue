@@ -60,12 +60,7 @@ export default {
 }
 
 .card {
-  min-width: 250px;
   width: 100%;
-}
-
-.info p {
-  font-size: 25px;
 }
 
 .info {
@@ -78,6 +73,25 @@ h2 {
   margin: 0 auto 2em;
   position: relative;
   padding: 0 1.7em;
-  background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;
+  /*background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;*/
+}
+@media (max-width: 1140px) {
+  .team{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card{
+    min-width: unset;
+    width: 85%;
+  }
+}
+@media (max-width: 1024px) {
+  .team {
+    grid-gap: 2em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card {
+
+  }
+
 }
 </style>

@@ -46,10 +46,6 @@ export default {
   margin-top: 0;
 }
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
-}
 
 p {
   margin-bottom: 2em;
@@ -58,5 +54,6 @@ p {
 img {
   flex-shrink: 0;
   margin-left: 2em;
+  max-width: 45%;
 }
 </style>

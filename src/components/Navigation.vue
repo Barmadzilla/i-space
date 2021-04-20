@@ -205,5 +205,10 @@ header li ul a:hover {
   opacity: 0;
   transform: translateY(-1em);
 }
+@media (max-width: 1140px) {
+  header{
+    padding: 15px 0;
+  }
+}
 
 </style>

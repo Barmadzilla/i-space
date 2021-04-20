@@ -18,9 +18,9 @@
       </div>
       <div class="person">
         <img src="../assets/images/faces/gorlina.png" alt="Елена Юманова">
-        <div class="bubbles">
-          <Bubble>Юлия Горлина<br>Администратор i-Space</Bubble>
-        </div>
+      </div>
+      <div class="bubbles">
+        <Bubble>Юлия Горлина<br>Администратор i-Space</Bubble>
       </div>
     </div>
     <div class="features">
@@ -82,22 +82,28 @@ export default {
   text-align: left;
   display: grid;
   grid-template-columns: auto 38%;
+  position: relative;
+  padding: 7em 3em 8em;
 }
 
 .person {
-  text-align: right;
   position: relative;
-  padding-top: 3em;
+
 }
 
 .person img {
-  height: 78vh;
+  height: 80vh;
+  min-height: 640px;
+  max-height: 690px;
+  position: absolute;
+  right: -6em;
+  top: 0;
 }
 
 
 h1 {
   font-size: 39px;
-  margin: 2.5em 0 1em;
+  margin: 1em 0;
 }
 
 .buttons {
@@ -111,12 +117,10 @@ h1 {
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  bottom: 5em;
-  left: 0;
+  bottom: 4.5em;
+  right: 3em;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 0 3.5em;
-  margin: 0;
 }
 .bubble {
   max-width: 282px;
@@ -124,10 +128,10 @@ h1 {
 
 .features {
   height: 6em;
-  background: rgba(255, 255, 255, 0.70);
+  background: linear-gradient(rgba(255, 255, 255, 0.50) , rgba(255, 255, 255, 1));
   backdrop-filter: blur(10px);
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 100%;
 }
@@ -136,5 +140,10 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2em;
+}
+@media (max-width: 1140px) {
+  h1 {
+    font-size: 30px;
+  }
 }
 </style>

@@ -35,7 +35,7 @@ export default {
   margin-left: 1.5em;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1140px) {
   .bubble{
     padding: 10px 25px;
     font-size: 15px;

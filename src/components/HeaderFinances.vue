@@ -136,4 +136,10 @@ h1 {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2em;
 }
+@media (max-width: 1140px) {
+  h1 {
+    font-size: 30px;
+    margin: 2em 0 1em;
+  }
+}
 </style>

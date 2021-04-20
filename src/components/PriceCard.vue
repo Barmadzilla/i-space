@@ -83,4 +83,13 @@ export default {
   font-weight: 400;
   font-size: 18px;
 }
+@media (max-width: 1140px) {
+  .top-note {
+    font-size: 19px;
+  }
+
+  .bottom-note {
+    font-size: 16px;
+  }
+}
 </style>

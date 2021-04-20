@@ -86,6 +86,7 @@ export default {
 
 .industry {
   display: flex;
+  align-items: flex-start;
 }
 
 .industry img {
@@ -100,8 +101,9 @@ export default {
   margin-top: 0;
 }
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
+@media (max-width: 1140px) {
+  .industry img {
+    width: 2.8em;
+  }
 }
 </style>

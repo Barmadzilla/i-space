@@ -98,10 +98,6 @@ export default {
   margin-top: 0 ;
 }
 
-.info p {
-  font-size: 25px;
-}
-
 .plans {
   display: grid;
   grid-gap: 2em;
@@ -112,5 +108,10 @@ export default {
   font-size: 25px;
   text-align: center;
   padding: 2em 0 0;
+}
+@media (max-width: 1140px) {
+  .info{
+    width: 30%;
+  }
 }
 </style>

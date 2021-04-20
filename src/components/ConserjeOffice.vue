@@ -75,6 +75,10 @@ export default {
 .industry h3 {
   margin-top: .1em;
 }
-
+@media (max-width: 1140px) {
+  .industry img {
+    width: 2.8em;
+  }
+}
 
 </style>

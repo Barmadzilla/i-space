@@ -112,6 +112,9 @@ export default {
   color: white;
   width: 45%;
 }
+.navigation h2 {
+  margin-right: 1em;
+}
 
 .tabs {
   display: flex;
@@ -140,7 +143,7 @@ export default {
 .tab.active {
   color: black;
   background: url("../assets/images/white-arrow.svg") no-repeat right top;
-  min-height: 1.68em;
+  min-height: 2em;
   padding-left: 1em;
   border-left: 3px solid black;
 
@@ -192,5 +195,29 @@ hr {
 .anim-leave-to {
   opacity: 0;
   transform: translatex(-1em);
+}
+.sticky{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+@media (max-width: 1140px) {
+
+  .tab {
+    font-size: 17px;
+  }
+  hr{
+    margin: 1.9em 0;
+  }
+
+}
+@media (max-width: 1280px) {
+
+  .tab {
+    font-size: 18px;
+  }
+  hr{
+    margin: 2.3em 0;
+  }
 }
 </style>

@@ -33,6 +33,12 @@ a.blue{
   border: 1px solid var(--deep-blue);
   color: var(--deep-blue);
 }
+@media (max-width: 1140px) {
+  a {
+    font-size: 18px;
+    padding: 14px 30px 13px;
+  }
+}
 
 @media (max-width: 1024px) {
   a{

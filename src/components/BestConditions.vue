@@ -60,11 +60,12 @@ export default {
 .info{
   margin-bottom: 2em;
 }
-.info p{
-  font-size: 25px;
-}
+
 .content a{
   margin-top: 1em;
+}
+img{
+  max-width: 50%;
 }
 
 </style>

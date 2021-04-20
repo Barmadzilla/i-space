@@ -91,6 +91,17 @@ a:hover::before {
 a:hover svg#icon {
   fill: white;
 }
+@media (max-width: 1140px) {
+  a {
+    font-size: 18px;
+    padding: 14px 30px 13px calc(30px + 12px * 2);
+  }
+  a svg {
+    height: 20px;
+    top: calc(50% - 11px);
+    left: 19px;
+  }
+}
 
 @media (max-width: 1024px) {
   a {

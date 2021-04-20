@@ -57,4 +57,10 @@ export default {
 .card h2{
   margin-top: 0;
 }
+
+@media (max-width: 1140px) {
+  .card{
+    padding: 1.8em;
+  }
+}
 </style>

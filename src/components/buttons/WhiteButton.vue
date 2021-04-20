@@ -44,6 +44,12 @@ a:hover{
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
 }
+@media (max-width: 1140px) {
+  a {
+    font-size: 18px;
+    padding: 14px 30px 13px;
+  }
+}
 
 @media (max-width: 1024px) {
   a{

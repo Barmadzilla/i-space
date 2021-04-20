@@ -77,11 +77,10 @@ export default {
 .info .content {
   margin-right: 5em;
 }
-
-.info p {
-  font-size: 25px;
-  font-weight: 300;
+.info .content h2{
+  margin-top: 2em;
 }
+
 .all{
   font-size: 25px;
   text-align: center;

@@ -59,9 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.info p {
-  font-size: 25px;
-}
 
 .info {
   margin-bottom: 3em;
@@ -87,7 +84,7 @@ export default {
 }
 .container{
   position: relative;
-  padding-bottom: 2em;
+  padding: 3em;
 }
 .hand {
   position: absolute;

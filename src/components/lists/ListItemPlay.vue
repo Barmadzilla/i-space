@@ -33,6 +33,21 @@ export default {
   margin-bottom: 1.5em;
 
 }
+@media (max-width: 1140px) {
+  .list-item{
+    margin-bottom: 0.6em;
+  }
+  p{
+    font-size: 14px;
+  }
+  .list-item  img {
+    width: 16px;
+    margin-right: 0.8em;
+    margin-left: 0;
+    margin-top: 0.1em;
+    flex-shrink: 0;
+  }
+}
 @media (max-width: 1280px) {
   .list-item{
     margin-bottom: 0.8em;
