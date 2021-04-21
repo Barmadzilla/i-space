@@ -47,6 +47,7 @@ export default {
           ['Обновление и оптимизация настроек ПО и ОС', true, true, true],
           ['Регулярный отчёт о проделанной работе', true, true, true],
           ['Аудит сервера', true, true, true],
+          ['Удобные каналы коммуникации: Telegram, Zoom, Slack', true, true, true],
           ['<b>ЦЕНА (без НДС)</b>', '<b>19 000 ₽</b>', '<b>49 600 ₽</b>', '<b>По договоренности</b>'],
           ['Дополнительные часы системного администрирования', '<b>1 600 ₽\\час</b>', '', ''],
         ],
@@ -58,6 +59,9 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  padding-top: 3em;
+}
 .bg {
   background: var(--bg-gray);
 }

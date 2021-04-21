@@ -110,24 +110,24 @@ export default {
         words: [
           {
             title: 'Автоматизизация',
-            content: 'DevOps-сопровождение проектов. Строим системы Continuous Integration.'
+            content: 'DevOps сопровождение проектов. Строим системы Continuous Integration'
           },
           {
             title: 'Надежность',
-            content: 'Проектируем отказоустойчивые инфраструктуры любой сложности.'
+            content: 'Проектируем отказоустойчивые инфраструктуры любой сложности'
           },
           {
             title: 'Самостоятельность',
-            content: 'Замечаем неполадки до того, как они вырастают в проблемы.'
+            content: 'Замечаем неполадки до того, как они вырастают в проблемы'
           },
           {
             title: 'Всегда на связи',
-            content: 'Поддержка и администрирование  24/7/365.'
+            content: 'ИТ-поддержка и администрирование 24/7/365'
           }
         ]
       },
       features: [
-        {title: 'Укоряем', content: 'выход програмных релизов'},
+        {title: 'Ускоряем', content: 'выход програмных релизов'},
         {title: 'Повышаем', content: 'стабильность приложений'},
         {title: 'Уменьшаем ', content: 'стоимость инфраструктуры'},
       ],
@@ -142,6 +142,7 @@ export default {
         {name: 'Coin Keeper', logo: 'coin-keeper.svg', url: '#'},
         {name: 'Кошелёк', logo: 'wallet.svg', url: '#'},
         {name: 'HeroCraft', logo: 'herocraft.svg', url: '#'},
+        {name: 'Sum & Substance', logo: 'sum-and-substance.svg', url: '#'},
       ],
       bubbles: [
         'AI', 'FinTech', 'Разработка игр', 'Облачные решения', 'Трейдинг', 'Телеком', 'FoodTech'
@@ -221,7 +222,7 @@ export default {
         {
           name: 'Юра Седов',
           position: 'Руководитель службы системного администрирования',
-          bio: 'Microsoft Certified Professional. Экспертные знания в Powershell. Большой внедрения методологии ITIL. ',
+          bio: 'Microsoft Certified Professional. Экспертные знания в Powershell. Большой опыт внедрения методологии ITIL. ',
           face: 'sedov.jpg'
         },
         {
@@ -233,7 +234,7 @@ export default {
         {
           name: 'Макс Игнатьев',
           position: 'Ведущий DevOps специалист',
-          bio: 'Больше 10 лет опыта в Devops.  Работает над сложными проектами в области комерческой разработки. ',
+          bio: 'Больше 10 лет опыта в Devops. Работает над сложными проектами в области коммерческой разработки.',
           face: 'ignatev.jpg'
         },
         {
@@ -286,6 +287,9 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  padding-top: 3em;
+}
 .info {
   margin-bottom: 3em;
 }
