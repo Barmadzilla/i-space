@@ -10,7 +10,7 @@
           <h4>{{ block.title }}</h4>
           <p>{{ block.content }}</p>
         </div>
-        <solid-button :color="'blue'" :link="'tg://resolve?domain=@i_Space_team'">Написать в телеграм</solid-button>
+        <solid-button :color="'blue'" :link="'https://t.me/i_Space_team'" target="_blank">Написать в телеграм</solid-button>
       </div>
       <img :src="require(`@/assets/images/${dude}`)" alt="">
     </div>
