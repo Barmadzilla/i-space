@@ -4,7 +4,9 @@
 .container {
     padding: 0 3em;
     max-width: 1380px;
-    min-width: 1140px;
+    min-width: 1000px;
+    width: 100%;
+    box-sizing: border-box;
     margin: 0 auto;
     text-align: left;
     height: inherit;
@@ -111,8 +113,6 @@ header a {
     .container {
         max-width: 1280px;
         width: 100%;
-        min-width: unset;
-        box-sizing: border-box;
     }
     h3{
         font-size: 20px;
@@ -139,7 +139,7 @@ header a {
 }
 @media (max-width: 1024px) {
     .container {
-        min-width: 1024px;
+
         width: 100%;
         box-sizing: border-box;
     }

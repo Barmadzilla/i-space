@@ -47,6 +47,7 @@ import GradientBgButton from "@/components/buttons/GradientBgButton";
 
 export default {
   name: "HeaderOffices",
+  props:['info','title'],
   components: {
     Navigation, GradientBgButton, Bubble, TransparentIconButton,
     Overlay, ModalClose, ModalTelegram
@@ -128,8 +129,8 @@ h1 {
 
 .features {
   height: 6em;
-  background: linear-gradient(rgba(255, 255, 255, 0.50) , rgba(255, 255, 255, 1));
-  backdrop-filter: blur(10px);
+  background: linear-gradient(rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 1));
+  /*backdrop-filter: blur(10px);*/
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -141,6 +142,14 @@ h1 {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2em;
 }
+
+@supports (backdrop-filter: none) {
+  .features {
+    background: linear-gradient(rgba(255, 255, 255, 0.10) , rgba(255, 255, 255, 1));
+    backdrop-filter: blur(10px);
+  }
+}
+
 @media (max-width: 1140px) {
   h1 {
     font-size: 30px;

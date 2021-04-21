@@ -144,6 +144,7 @@ p ,a{
 
 input {
   appearance: none;
+  outline: none;
   background: none;
   border: none;
   border-bottom: 1px solid #A5BDD0;

@@ -74,11 +74,6 @@ export default {
   background: var(--bg-green);
   padding: 4em 0;
 }
-
-.info p {
-  font-size: 25px;
-}
-
 .info h2 {
   margin-top: 0;
 }
@@ -87,5 +82,10 @@ export default {
   grid-gap: 1em;
   grid-template-columns: repeat(4,1fr);
   margin: 2em 0;
+}
+@media (max-width: 1140px) {
+  .plans{
+    grid-template-columns: repeat(2,1fr);
+  }
 }
 </style>

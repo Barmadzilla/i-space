@@ -1,5 +1,9 @@
 <template>
-  <header-finances/>
+  <HeaderService
+      :title="'Аутсорсинг бухгалтерии'"
+      :info="header.words"
+      :person="header.person"
+  />
   {{ $route.params.section }}
   <div class="finances">
     <we-work-with
@@ -44,7 +48,6 @@
 </template>
 
 <script>
-import HeaderFinances from "@/components/HeaderFinances";
 import WeWorkWith from "@/components/WeWorkWith";
 import AboutClients from "@/components/AboutClients";
 import CallToAction from "@/components/CallToAction";
@@ -54,6 +57,7 @@ import TeamBlock from "@/components/TeamBlock";
 import BestConditions from "@/components/BestConditions";
 import WeDoItRight from "@/components/WeDoItRight";
 import FinancesPlansTable from "@/components/FinancesPlansTable";
+import HeaderService from "@/components/HeaderService";
 
 export default {
   name: "Finances",
@@ -64,7 +68,7 @@ export default {
     }
   },
   components: {
-    HeaderFinances,
+    HeaderService,
     WeWorkWith,
     AboutClients,
     CallToAction,
@@ -77,6 +81,30 @@ export default {
   },
   data() {
     return {
+      header: {
+        person: {
+          name:'Елена Юманова<br>Руководитель i-Space. Finance',
+          img: 'umanova.png'
+        },
+        words: [
+          {
+            title: 'Все включено',
+            content: 'Бухгалтерия, налоги, кадры, льготы'
+          },
+          {
+            title: 'Индивидуальный подход',
+            content: 'Беремся за нестандартные кейсы'
+          },
+          {
+            title: 'Экспертиза в IT',
+            content: 'Глубоко понимаем специфику IT, говорим на одном языке'
+          },
+          {
+            title: 'Всегда на связи',
+            content: 'Круглосуточная забота о вашем бизнесе. Без отпусков и больничных'
+          }
+        ]
+      },
       weDoIt: {
         info: {
           title: 'За ваше спокойствие отвечаем мы ',

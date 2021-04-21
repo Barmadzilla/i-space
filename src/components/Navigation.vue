@@ -6,7 +6,7 @@
       </div>
       <div id="nav">
         <ul>
-          <li><a href="#" @click.prevent="open = !open" class="sub" :class="classObj">Услуги</a>
+          <li><a href="#" @click.prevent="open = true" class="sub" :class="classObj">Услуги</a>
             <transition name="fade">
               <ul v-if="open" @mouseleave="open = false">
                 <li>
@@ -104,6 +104,11 @@ export default {
 </script>
 
 <style scoped>
+.logo a {
+  margin: 0;
+  display: flex;
+}
+
 header .container {
   display: flex;
   justify-content: space-between;
@@ -205,8 +210,9 @@ header li ul a:hover {
   opacity: 0;
   transform: translateY(-1em);
 }
+
 @media (max-width: 1140px) {
-  header{
+  header {
     padding: 15px 0;
   }
 }

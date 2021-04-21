@@ -92,8 +92,8 @@ export default {
   mounted() {
     this.setTitle()
     let el = document.querySelector('.retype')
-    let text = 'бизнес-процессов'
-    el.innerText += text
+    // let text = 'бизнес-процессов'
+    el.innerText = 'бизнес-процессов'
     // let i = 0
     // this.loop(el, text, i)
   }
@@ -166,7 +166,9 @@ a.link {
 .features {
   padding: 2.5em 0 1em;
   margin-top: -4em;
-  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(rgba(255, 255, 255, 0.30) , rgba(255, 255, 255, 1)50%);
+  position: relative;
+  z-index: 1;
   /*backdrop-filter: blur(10px);*/
 }
 

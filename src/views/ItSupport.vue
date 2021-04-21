@@ -1,5 +1,9 @@
 <template>
-  <HeaderTech/>
+  <HeaderService
+      :title="'Управление IT инфраструктурой DevOps практики, поддержка 24/7'"
+      :info="header.words"
+      :person="header.person"
+  />
   <div class="it-support">
     <we-work-with :title="'Индустрии, с которыми мы работаем'"
                   :subtitle="'Работаем с компаниями из США, России, Европы и Китая.'"
@@ -54,7 +58,6 @@
 </template>
 
 <script>
-import HeaderTech from "@/components/HeaderTech";
 import WeWorkWith from "@/components/WeWorkWith";
 import AboutClients from "@/components/AboutClients";
 import CallToAction from "@/components/CallToAction";
@@ -66,11 +69,12 @@ import BusinessTasksBlock from "@/components/BusinessTasksBlock";
 import HelpDeskConstructor from "@/components/HelpDeskConstructor";
 import TeamBlock from "@/components/TeamBlock";
 import BestConditions from "@/components/BestConditions";
+import HeaderService from "@/components/HeaderService";
 
 export default {
   name: "ItSupport.vue",
   components: {
-    HeaderTech,
+    HeaderService,
     WeWorkWith,
     AboutClients,
     CallToAction,
@@ -98,6 +102,30 @@ export default {
   },
   data() {
     return {
+      header: {
+        person: {
+          name:'Алексей Шонин<br>Технический директор',
+          img: 'Shonin.png'
+        },
+        words: [
+          {
+            title: 'Автоматизизация',
+            content: 'DevOps-сопровождение проектов. Строим системы Continuous Integration.'
+          },
+          {
+            title: 'Надежность',
+            content: 'Проектируем отказоустойчивые инфраструктуры любой сложности.'
+          },
+          {
+            title: 'Самостоятельность',
+            content: 'Замечаем неполадки до того, как они вырастают в проблемы.'
+          },
+          {
+            title: 'Всегда на связи',
+            content: 'Поддержка и администрирование  24/7/365.'
+          }
+        ]
+      },
       features: [
         {title: 'Укоряем', content: 'выход програмных релизов'},
         {title: 'Повышаем', content: 'стабильность приложений'},

@@ -1,5 +1,9 @@
 <template>
-  <HeaderLegal/>
+  <HeaderService
+      :title="'Юридические услуги<br>IT и онлайн бизнесу'"
+      :info="header.words"
+      :person="header.person"
+  />
   <div class="i-legal">
     <we-work-with
         :title="'Индустрии, с которыми мы работаем'"
@@ -37,7 +41,6 @@
 </template>
 
 <script>
-import HeaderLegal from "@/components/HeaderLegal";
 import WeWorkWith from "@/components/WeWorkWith";
 import AboutClients from "@/components/AboutClients";
 import CallToAction from "@/components/CallToAction";
@@ -47,11 +50,12 @@ import TeamBlock from "@/components/TeamBlock";
 import BestConditions from "@/components/BestConditions";
 import TeamPriceBlock from "@/components/TeamPriceBlock";
 import WeDoItRight from "@/components/WeDoItRight";
+import HeaderService from "@/components/HeaderService";
 
 export default {
   name: "iLegal.vue",
   components: {
-    HeaderLegal,
+    HeaderService,
     WeWorkWith,
     AboutClients,
     CallToAction,
@@ -77,6 +81,30 @@ export default {
   },
   data() {
     return {
+      header: {
+        person: {
+          name:'Наталья Юркова<br>Управляющий партнер i-Legal',
+          img: 'yurkova.png'
+        },
+        words: [
+          {
+            title: 'Думаем за клиента ',
+            content: 'Сами подсказываем фаундерам, что требует внимания и доработки'
+          },
+          {
+            title: '10 000+ задач ',
+            content: 'Помогли решить своим клиентам'
+          },
+          {
+            title: '15 лет в бизнесе',
+            content: 'Понимаем процессы разработки, бизнес модели, монетизации сервисов'
+          },
+          {
+            title: 'Опыт и экспертиза',
+            content: 'Знаем бизнес процессы IT компаний от сид раунда до раунда'
+          }
+        ]
+      },
       weDoIt: {
         info: {
           title: 'Все сделаем правильно',
