@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray">
+  <div class="bg-gray mobile-hide">
     <div class="container">
       <div class="info">
         <img src="../assets/images/pro_legals.svg" alt="">

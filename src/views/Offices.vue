@@ -4,6 +4,14 @@
       :info="header.words"
       :person="header.person"
   />
+  <div class="container desktop-hide">
+    <div class="words">
+      <div class="word" v-for="(word,i) in header.words" :key="i">
+        <h3>{{ word.title }}</h3>
+        <p>{{ word.content }}</p>
+      </div>
+    </div>
+  </div>
   <div class="finances">
     <conserje-office
         :title='`<span class="text-gradient">Консьерж</span>–сервис для сотрудников`'
@@ -259,5 +267,14 @@ export default {
 .container.key img {
   flex-shrink: 0;
   margin-bottom: -4em;
+}
+@media (max-width: 420px) {
+  .container.key{
+    flex-direction: column;
+  }
+  .container.key img {
+    flex-shrink: 0;
+    margin-bottom: -7em;
+  }
 }
 </style>

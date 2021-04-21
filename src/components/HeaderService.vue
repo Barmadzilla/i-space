@@ -4,7 +4,7 @@
     <div class="container">
       <div>
         <h1 v-html="title"></h1>
-        <div class="words">
+        <div class="words mobile-hide">
           <div class="word" v-for="(word,i) in info" :key="i">
             <h3>{{ word.title }}</h3>
             <p>{{ word.content }}</p>
@@ -134,6 +134,47 @@ h1 {
 @media (max-width: 1140px) {
   h1 {
     font-size: 30px;
+  }
+}
+@media (max-width: 420px) {
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .container{
+    padding: 4.9em 2em 1em;
+    grid-template-columns: 1fr;
+
+  }
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .buttons .btn,
+  .buttons a{
+    margin: 0 0 0.5em 0;
+    width: 100%;
+  }
+  .buttons a:before {
+    border: none;
+  }
+  .person img{
+    min-height: unset;
+    right: 0;
+    width: 100%;
+    height: unset;
+    top: unset;
+    bottom: 2em;
+  }
+  .bubbles{
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+    bottom: 7em;
+    right: unset;
+  }
+  .slide{
+    /*height: 120vh;*/
   }
 }
 </style>

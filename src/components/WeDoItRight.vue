@@ -1,5 +1,5 @@
 <template>
-  <div class="bg" :class="bg">
+  <div class="bg mobile-hide" :class="bg">
     <div class="container">
       <div>
         <div class="info">

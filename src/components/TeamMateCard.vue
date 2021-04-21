@@ -37,4 +37,10 @@ export default {
 .bio{
 
 }
+@media (max-width: 420px) {
+
+  .card{
+    text-align: center;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mobile-hide">
     <div class="info">
       <div class="content">
         <h2>DevOps и <br><span class="text-gradient">облачные решения</span></h2>

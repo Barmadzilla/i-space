@@ -75,22 +75,36 @@ h2 {
   padding: 0 1.7em;
   /*background: url("../assets/images/arrow-left-alt.svg") no-repeat left bottom 5px, url("../assets/images/arrow-right-alt.svg") no-repeat right bottom 5px;*/
 }
+
 @media (max-width: 1140px) {
-  .team{
+  .team {
     grid-template-columns: repeat(3, 1fr);
   }
-  .card{
+
+  .card {
     min-width: unset;
     width: 85%;
   }
 }
+
 @media (max-width: 1024px) {
   .team {
     grid-gap: 2em;
     grid-template-columns: repeat(3, 1fr);
   }
+
   .card {
 
+  }
+}
+
+@media (max-width: 420px) {
+  .container{
+    padding: 2em;
+  }
+  .team, .team.one, .team.two, .team.tree {
+    grid-gap: 2em;
+    grid-template-columns: repeat(1, 1fr);
   }
 
 }

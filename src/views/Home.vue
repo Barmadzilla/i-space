@@ -21,10 +21,10 @@
         :clients="clients"
         :bubbles="clients_bubbles"
     />
-    <block-legals class="mobile-hide"/>
-    <block-support  class="mobile-hide"/>
-    <block-acountants  class="mobile-hide"/>
-    <block-dev-ops  class="mobile-hide"/>
+    <block-legals/>
+    <block-support />
+    <block-acountants  />
+    <block-dev-ops />
     <two-frames id="test"/>
     <call-to-action
         :actionTitle="'Получите полный список<br> услуг с ценами'"

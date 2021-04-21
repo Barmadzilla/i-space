@@ -80,5 +80,19 @@ export default {
     width: 2.8em;
   }
 }
+@media (max-width: 420px) {
+  .industry-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .sub p{
+    font-size: 16px;
+  }
+  .industry{
+    padding: 0;
+  }
+  .industry img {
+    width: 3.5em;
+  }
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray">
+  <div class="bg-gray mobile-hide">
     <div class="container">
       <div class="info">
         <img src="../assets/images/pro_acountants.svg" alt="">
@@ -119,30 +119,10 @@ h2 {
   padding-bottom: 1em;
 }
 
-.info {
-  display: block;
-}
 
 .buttons {
   margin: 1em 0;
 }
 
-@media (max-width: 420px) {
-  h2 {
-    margin-top: 1em;
-  }
-  .bg-gray {
-    background: var(--bg-gray);
-    padding-bottom: 1em;
-  }
-
-  .info {
-    display: block;
-  }
-
-  .buttons {
-    margin: 1em 0;
-  }
-}
 
 </style>

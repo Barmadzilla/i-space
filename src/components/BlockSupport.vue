@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mobile-hide">
     <div class="info">
       <div class="content">
         <h2>Поддержка<br><span class="text-gradient">IT-инфраструктуры</span></h2>

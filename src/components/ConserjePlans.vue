@@ -88,4 +88,9 @@ export default {
     grid-template-columns: repeat(2,1fr);
   }
 }
+@media (max-width: 420px) {
+  .plans{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
 </style>

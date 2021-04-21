@@ -108,6 +108,9 @@ header a {
 .it-support{
     overflow: hidden;
 }
+.desktop-hide{
+    display: none;
+}
 
 @media (max-width: 1280px) {
     .container {
@@ -159,6 +162,7 @@ header a {
         font-size: 0.75em;
     }
 
+
 }
 
 @media (max-width: 420px) {
@@ -175,7 +179,6 @@ header a {
     .mobile-hide{
         display: none !important;
     }
-
 }
 @media (max-width: 375px){
     h2{

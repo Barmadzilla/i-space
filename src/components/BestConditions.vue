@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mobile-hide">
     <div class="content">
       <div class="info">
         <h2>Лучшие условия для партнёров i-Space</h2>
