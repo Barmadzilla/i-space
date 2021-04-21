@@ -179,4 +179,16 @@ form p {
   color: #A5BDD0;
   font-size: 14px;
 }
+@media (max-width: 420px) {
+  .columns {
+    grid-gap: 3em;
+    grid-template-columns: 1fr;
+  }
+  .container{
+    padding: 0 2em;
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
 </style>

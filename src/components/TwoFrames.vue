@@ -118,5 +118,17 @@ a {
   .frame{
     padding: 1.8em;
   }
+} @media (max-width: 420px) {
+    .frame{
+      padding: 2em;
+    }
+  .container {
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .frame{
+    padding: 1.8em;
+  }
 }
 </style>

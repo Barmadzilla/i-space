@@ -5,7 +5,7 @@
         <h2>Поддержка<br><span class="text-gradient">IT-инфраструктуры</span></h2>
         <p>Наладим бесперебойную работу персональной и серверной техники в офисе. Решим все плановые и экстренные вопросы. </p>
       </div>
-      <review :bg="'gray'" :data="reviews" class="reviews"/>
+      <review :bg="'gray'" :data="reviews" class="reviews mobile-hide"/>
       <img src="../assets/images/pro_it.svg" alt="">
     </div>
     <div class="stack"  v-show="false">
@@ -16,11 +16,11 @@
       <router-link :to="{ name: 'It Support'}">
         <solid-button :color="'green'">Подробнее об IT-поддержке</solid-button>
       </router-link>
-      <transparent-button @click="modal = true">Получить консультацию</transparent-button>
+      <transparent-button class="mobile-hide" @click="modal = true">Получить консультацию</transparent-button>
     </div>
 
   </div>
-  <div class="container">
+  <div class="container mobile-hide">
     <div class="bubbles">
       <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
     </div>
@@ -133,6 +133,21 @@ h2 {
 @media (max-width: 1280px) {
   .buttons {
     margin: 3em 0 ;
+  }
+}
+@media (max-width: 420px){
+  h2 {
+    margin-top: 1em;
+  }
+  .info{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  a{
+    width: 100%;
+  }
+  .buttons{
+    margin: 1em 0;
   }
 }
 </style>

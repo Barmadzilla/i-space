@@ -23,7 +23,7 @@
         <solid-button :color="'blue'">Получить консультацию</solid-button>
         <transparent-icon-button :icon="'telegram'" :link="'tg://resolve?domain=@i_Space_team'">Написать в Телеграм</transparent-icon-button>
       </div>
-      <div class="quotes">
+      <div class="quotes mobile-hide">
         <quote v-for="(quote,i) in quotes" :key="i"
                :title="quote.title"
                :quote="quote.quote"
@@ -65,14 +65,17 @@ export default {
 .container {
   text-align: left;
 }
-.quotes{
+
+.quotes {
   display: flex;
   justify-content: space-between;
   padding-bottom: 4em;
 }
-.quotes .quote{
+
+.quotes .quote {
   width: 50%;
 }
+
 .buttons {
   padding-bottom: 4em;
   margin-bottom: 4em;
@@ -117,8 +120,40 @@ h3 {
 }
 
 @media (max-width: 1280px) {
-  .price{
+  .price {
     font-size: 70px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    display: block;
+  }
+  .content{
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  .content img{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .columns{
+    display: block;
+  }
+  .col {
+    margin-right: 0;
+  }
+  .buttons {
+    padding-bottom: 2em;
+    border-bottom: unset;
+    margin-bottom: unset;
+    margin-top: 2em;
+  }
+  .buttons a:before{
+    border: unset;
+  }
+  .buttons {
+    text-align: center;
   }
 }
 </style>

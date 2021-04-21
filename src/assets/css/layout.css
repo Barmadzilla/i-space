@@ -161,10 +161,24 @@ header a {
 
 }
 
-@media (max-width: 375px) {
+@media (max-width: 420px) {
     .container {
         max-width: unset;
         width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
+        min-width: unset;
+    }
+    .slide{
+        height: 110vh;
+    }
+    .mobile-hide{
+        display: none !important;
     }
 
+}
+@media (max-width: 375px){
+    h2{
+        font-size: 23px;
+    }
 }

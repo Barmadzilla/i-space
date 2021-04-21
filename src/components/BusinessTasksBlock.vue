@@ -10,8 +10,8 @@
                 :tittle="cases.current.case.tittle"
                 :content="cases.current.case.content"
             />
-            <div class="vertical-line"></div>
-            <div class="review">
+            <div class="vertical-line mobile-hide" ></div>
+            <div class="review mobile-hide">
               <div class="header">
                 <div class="face" v-if="cases.current.review.face">
                   <img :src="require(`@/assets/images/faces/${cases.current.review.face}`)" alt="">
@@ -26,6 +26,7 @@
           </div>
         </div>
         <business-task-card
+            class="mobile-hide"
             v-for="(item,i) in cases.tasks"
             :key="i"
             :logo="item.logo"
@@ -133,4 +134,12 @@ h2 {
   width: 100%;
 }
 
+@media (max-width: 420px) {
+  .card{
+    padding: .5em;
+  }
+  .columns{
+    grid-template-columns: 1fr;
+  }
+}
 </style>

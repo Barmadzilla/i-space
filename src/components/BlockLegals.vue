@@ -7,16 +7,16 @@
           <h2>Юристы для <span class="text-gradient">IT-проектов</span></h2>
           <p>Возьмём на себя ежедневные юридические задачи, предотвратим любые риски для бизнеса и защитим ваши интересы и собственность</p>
         </div>
-        <review :bg="'white'" :data="reviews" class="reviews"/>
+        <review :bg="'white'" :data="reviews" class="reviews mobile-hide"/>
       </div>
       <div class="buttons">
         <router-link :to="{ name: 'i-Legal'}">
           <solid-button :color="'blue'">Подробнее о юридическом сопровождении</solid-button>
         </router-link>
-        <transparent-button :color="'blue'" @click="modal = true">Получить консультацию</transparent-button>
+        <transparent-button class="mobile-hide" :color="'blue'" @click="modal = true">Получить консультацию</transparent-button>
       </div>
     </div>
-    <div class="container">
+    <div class="container mobile-hide">
       <div class="bubbles">
         <bubble :bg="'white'" v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
       </div>
@@ -115,5 +115,23 @@ img {
 
 h2 {
   margin-top: 0;
+}
+
+@media (max-width: 420px) {
+  h2 {
+    margin-top: 1em;
+  }
+  .bg-gray {
+    background: var(--bg-gray);
+    padding-bottom: 1em;
+  }
+
+  .info {
+    display: block;
+  }
+
+  .buttons {
+    margin: 1em 0;
+  }
 }
 </style>

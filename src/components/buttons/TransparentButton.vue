@@ -55,5 +55,13 @@ a:hover{
     padding: 12px 30px 11px;
   }
 }
+@media (max-width: 420px) {
+  a{
+    font-size: 15px;
+    width: 100%;
+    margin: 0 0 1em 0;
+  }
+
+}
 
 </style>

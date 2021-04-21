@@ -57,4 +57,16 @@ export default {
     margin-left: 1.1em;
   }
 }
+@media (max-width: 420px) {
+  .bubble{
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.2;
+    max-width: unset;
+  }
+  .bubble img{
+    display: none;
+  }
+}
 </style>

@@ -3,15 +3,15 @@
     <div>
       <h3>{{ title }}</h3>
       <div class="price">от {{ price }}</div>
-      <p class="top-note" v-if="topNote">{{ topNote }}</p>
-      <div class="list" v-if="list">
+      <p class="top-note mobile-hide" v-if="topNote">{{ topNote }}</p>
+      <div class="list mobile-hide" v-if="list">
         <check-list-item
             v-for="(item,i) in list"
             :key="i"
         ><span v-html="item"></span>
         </check-list-item>
       </div>
-      <p class="bottom-note" v-if="bottomNote">{{ bottomNote }}</p>
+      <p class="bottom-note mobile-hide" v-if="bottomNote">{{ bottomNote }}</p>
     </div>
     <router-link v-if="link" :to="link">
       <solid-button :color="'dark'">Посмотреть все услуги и цены</solid-button>
@@ -90,6 +90,19 @@ export default {
 
   .bottom-note {
     font-size: 16px;
+  }
+}
+@media (max-width: 420px) {
+  .card {
+    padding: 1.5em;
+  }
+}
+@media (max-width: 375px){
+  h3{
+    font-size: 18px;
+  }
+  .card {
+    padding: 1.2em;
   }
 }
 </style>

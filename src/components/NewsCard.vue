@@ -77,4 +77,10 @@ h3 {
   font-size: 13px;
   color: red;
 }
+@media (max-width: 420px) {
+  .card{
+    width: 100%;
+    margin-bottom: 2em;
+  }
+}
 </style>

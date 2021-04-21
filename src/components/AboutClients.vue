@@ -77,4 +77,12 @@ img {
     margin: 0.5em 1em;
   }
 }
+
+@media (max-width: 420px) {
+  img {
+    max-height: 30px;
+    width: unset;
+    margin: 0.5em 1em;
+  }
+}
 </style>

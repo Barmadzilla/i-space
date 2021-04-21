@@ -1,13 +1,11 @@
 <template>
   <div class="container">
-
-
     <div class="info">
       <div class="content">
         <h2>DevOps и <br><span class="text-gradient">облачные решения</span></h2>
         <p>Организуем нормальный процесс разработки и запуска продуктов. Перенесём сервисы в облачное пространство.</p>
       </div>
-      <review :bg="'gray'" :data="reviews" class="reviews"/>
+      <review :bg="'gray'" :data="reviews" class="reviews mobile-hide"/>
       <img src="../assets/images/pro_devops.svg" alt="">
     </div>
     <div class="stack" v-show="false">
@@ -18,10 +16,10 @@
       <router-link :to="{ name: 'It Support'}">
         <solid-button :color="'green'">Подробнее о DevOps</solid-button>
       </router-link>
-      <transparent-button @click="modal = true">Получить консультацию</transparent-button>
+      <transparent-button class="mobile-hide" @click="modal = true">Получить консультацию</transparent-button>
     </div>
   </div>
-  <div class="container">
+  <div class="container mobile-hide">
     <div class="bubbles">
       <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
     </div>
@@ -142,6 +140,20 @@ h2 {
   .buttons {
     margin: 3em 0 ;
   }
-
+}
+@media (max-width: 420px){
+  h2 {
+    margin-top: 1em;
+  }
+  .info{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  a{
+    width: 100%;
+  }
+  .buttons{
+    margin: 1em 0;
+  }
 }
 </style>

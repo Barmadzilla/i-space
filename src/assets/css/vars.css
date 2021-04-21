@@ -19,3 +19,10 @@
 .bg-green{
     background: var(--bg-green);
 }
+@media (max-width: 420px) {
+    .text-gradient {
+        background: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+    }
+}

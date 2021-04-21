@@ -1,10 +1,12 @@
 <template>
   <Header/>
   <div class="home">
-    <h2>Как вы решаете <span class="text-gradient">сложные и скучные</span> задачи бизнеса?</h2>
-    <div class="container">
-      <div class="bubbles">
-        <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+    <div class="mobile-hide">
+      <h2>Как вы решаете <span class="text-gradient">сложные и скучные</span> задачи бизнеса?</h2>
+      <div class="container">
+        <div class="bubbles">
+          <bubble v-for="(bubble,i) in bubbles" :key="i">{{ bubble }}</bubble>
+        </div>
       </div>
     </div>
     <about-space id="about"/>
@@ -19,10 +21,10 @@
         :clients="clients"
         :bubbles="clients_bubbles"
     />
-    <block-legals/>
-    <block-support/>
-    <block-acountants/>
-    <block-dev-ops/>
+    <block-legals class="mobile-hide"/>
+    <block-support  class="mobile-hide"/>
+    <block-acountants  class="mobile-hide"/>
+    <block-dev-ops  class="mobile-hide"/>
     <two-frames id="test"/>
     <call-to-action
         :actionTitle="'Получите полный список<br> услуг с ценами'"
@@ -54,6 +56,7 @@
     <communicate-easier/>
     <news-block v-show="hide"/>
     <call-to-action
+        class="mobile-hide"
         :actionTitle="'Полезные статьи<br/> i-Space у вас на почте'"
         :msg="'Оставьте email, мы будем делиться полезным контентом, лайфхаками и новостями. Без рекламы и партнерских писем.'"
         :btn-text="'Подписаться на новости'"

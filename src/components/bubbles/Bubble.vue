@@ -29,4 +29,11 @@ export default {
     font-size: 13px;
   }
 }
+@media (max-width: 420px) {
+  .bubble{
+    font-size: 12px;
+    margin: 0.5em;
+    padding: .5em .9em;
+  }
+}
 </style>

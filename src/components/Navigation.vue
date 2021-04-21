@@ -217,4 +217,14 @@ header li ul a:hover {
   }
 }
 
+
+@media (max-width: 420px) {
+  header {
+    padding: 1em 0;
+    box-sizing: border-box;
+  }
+  header #nav{
+    display: none;
+  }
+}
 </style>

@@ -9,7 +9,7 @@
           </div>
           <img src="../assets/images/services-man.svg" alt="">
         </div>
-        <review :bg="'dark'" :data="reviews" class="reviews"/>
+        <review :bg="'dark'" :data="reviews" class="reviews mobile-hide"/>
       </div>
       <div class="content">
         <price-card
@@ -158,11 +158,6 @@ export default {
   margin-bottom: 1em;
 }
 
-.info p {
-  font-size: 25px;
-  font-weight: 300;
-}
-
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -185,6 +180,34 @@ h2 {
 
   .info {
     width: 60%;
+  }
+}
+
+@media (max-width: 420px) {
+  .reviews {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .info {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .info{
+    flex-direction: column;
+  }
+  .content{
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+  }
+  .container {
+    padding: 1em;
+  }
+}
+@media (max-width: 375px){
+  h3{
+    font-size: 20px;
   }
 }
 </style>

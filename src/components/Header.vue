@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.container {
   padding: 6em 3em 0;
 }
 
@@ -160,13 +160,13 @@ a.link {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 0 ;
+  padding-top: 0;
 }
 
 .features {
   padding: 2.5em 0 1em;
   margin-top: -4em;
-  background: linear-gradient(rgba(255, 255, 255, 0.30) , rgba(255, 255, 255, 1)50%);
+  background: linear-gradient(rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 1) 50%);
   position: relative;
   z-index: 1;
   /*backdrop-filter: blur(10px);*/
@@ -174,7 +174,7 @@ a.link {
 
 @supports (backdrop-filter: none) {
   .features {
-    background: linear-gradient(rgba(255, 255, 255, 0.30) , rgba(255, 255, 255, 1));
+    background: linear-gradient(rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 1));
     backdrop-filter: blur(10px);
   }
 }
@@ -183,19 +183,84 @@ a.link {
   .people {
     width: 90%;
   }
+
   h1 {
     font-size: 35px;
   }
 
 }
+
 @media (max-width: 1140px) {
   h1 {
     font-size: 30px;
   }
 }
+
 @media (max-width: 1024px) {
   h1 {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container{
+    padding-top: 4.9em;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 23px;
+    max-width: unset;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .bubbles {
+    min-width: unset;
+    flex-wrap: nowrap;
+    padding: 0;
+    width: 110%;
+    margin: 0 -5%;
+    bottom: 6em;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .buttons .btn,
+  .buttons a{
+    margin: 0 0 0.5em 0;
+    width: 100%;
+  }
+  .buttons a:before {
+    border: none;
+  }
+  .people-container{
+    width: 160%;
+    margin: 0 -30%;
+  }
+  .people {
+    width: 110%;
+    bottom: -6em;
+  }
+  .features{
+    padding: 1.5em 0 1em;
+  }
+  .features .container{
+    flex-wrap: wrap;
+    padding: 0 1.3em;
+  }
+  .feature{
+    margin: 1em 0;
+  }
+
+}
+@media (max-width: 375px) {
+  .bubbles{
+    bottom: 4.8em;
+  }
+  .people {
+    width: 100%;
+    bottom: -4em;
   }
 }
 </style>

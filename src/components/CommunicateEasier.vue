@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div>
+  <div class="container mobile-hide">
+    <div class="info">
       <h2>Общайтесь с клиентами проще</h2>
       <p>Постройте прочные отношения с клиентами во всех каналах связи с помощью простой платформы. Подтверждайте регистрацию клиентов, оповещайте их о спецпредложениях и
         повышайте продажи.</p>
@@ -60,7 +60,6 @@ export default {
 
 p {
   margin-bottom: 2em;
-  font-size: 25px;
 }
 
 h2 {
@@ -84,5 +83,14 @@ h2 {
 .icon img {
   margin-right: 1em;
 
+}
+@media (max-width: 420px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+  .info{
+    width: 100%;
+  }
 }
 </style>

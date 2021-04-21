@@ -22,7 +22,7 @@
         <div class="info">
           <h2 v-html="processes.title"></h2>
           <div>
-            <list-item-play v-for="(process ,i) in processes.processes" :key="i" >{{ process }}</list-item-play>
+            <list-item-play v-for="(process ,i) in processes.processes" :key="i">{{ process }}</list-item-play>
           </div>
         </div>
       </div>
@@ -32,6 +32,7 @@
 
 <script>
 import ListItemPlay from "@/components/lists/ListItemPlay";
+
 export default {
   name: "AboutSpace",
   components: {ListItemPlay},
@@ -138,44 +139,100 @@ h3 {
   margin-left: 0;
   margin-top: 0.3em;
 }
-.process-info{
+
+.process-info {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.5em;
 
 }
+
 @media (max-width: 1280px) {
   .about .container {
     background: url("../assets/images/bg/dotted_arrow.svg") no-repeat left 1.6em top 12em / 90%;
   }
 
 }
+
 @media (max-width: 1024px) {
-h2 {
-  font-size: unset;
-}
+  h2 {
+    font-size: unset;
+  }
+
   .process img {
     width: 46%;
     margin-right: 3em;
   }
+
   .process {
     margin-top: 4em;
   }
-  .pro img{
+
+  .pro img {
     width: 100%;
   }
-  h3{
+
+  h3 {
     font-size: 18px;
   }
+
   .cloud img {
     width: 259px;
   }
-  .wrap{
+
+  .wrap {
     margin-bottom: 4em;
   }
+
   .about .container {
     background: url("../assets/images/bg/dotted_arrow.svg") no-repeat left 1.6em top 7em / 90%;
   }
 
+}
+
+@media (max-width: 420px) {
+  .pros {
+    display: block;
+  }
+
+  .pro {
+    text-align: center;
+    margin: 0 auto 3em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pro img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .about {
+    margin-top: 2em;
+  }
+
+  .about .container {
+    background: none;
+  }
+
+  .cloud {
+    display: none;
+  }
+
+  .intro {
+    margin-right: unset;
+  }
+  .process{
+    display: block;
+  }
+  .process img{
+    width: 100%;
+    margin: 0 0 1em 0;
+    box-sizing: border-box;
+
+  }
+  .process .info{
+    margin-bottom: 2em;
+  }
 }
 </style>

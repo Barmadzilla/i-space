@@ -200,4 +200,33 @@ a.btn {
     font-size: 0.8em;
   }
 }
+@media (max-width: 420px) {
+  .container {
+    padding: 2em 1em;
+  }
+  .content{
+   grid-template-columns: 1fr;
+   width: 100%;
+ }
+  .board{
+    width: calc(100% + 2em);
+    grid-template-columns: 1fr 1fr;
+    margin: 0 -1em ;
+    box-sizing: border-box;
+    padding: 2em 2em 260px 2em;
+    border-radius: 0;
+    background-size: 115%;
+  }
+  .clients{
+    grid-template-columns: repeat(2, auto);
+    height: unset;
+    margin-bottom: unset;
+    padding: 2em;
+    justify-content: center;
+  }
+  .events{
+    display: block;
+    overflow: unset;
+  }
+}
 </style>

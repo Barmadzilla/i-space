@@ -131,4 +131,14 @@ a {
     font-size: 15px;
   }
 }
+
+@media (max-width: 420px) {
+  .action .container{
+    grid-template-columns: 1fr;
+  }
+  a{
+    width: 100%;
+  }
+}
+
 </style>
