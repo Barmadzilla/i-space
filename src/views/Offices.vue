@@ -107,7 +107,7 @@ export default {
     return {
       header: {
         person: {
-          name:'Юлия Горлина<br>Администратор i-Space',
+          name: 'Юлия Горлина<br>Администратор i-Space',
           img: 'gorlina.png'
         },
         words: [
@@ -268,10 +268,12 @@ export default {
   flex-shrink: 0;
   margin-bottom: -4em;
 }
+
 @media (max-width: 420px) {
-  .container.key{
+  .container.key {
     flex-direction: column;
   }
+
   .container.key img {
     flex-shrink: 0;
     margin-bottom: -7em;

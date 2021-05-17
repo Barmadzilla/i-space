@@ -64,6 +64,7 @@ export default {
 <style scoped>
 .container {
   text-align: left;
+
 }
 
 .quotes {
@@ -117,6 +118,7 @@ export default {
 
 h3 {
   margin-bottom: 2em;
+
 }
 
 @media (max-width: 1280px) {
@@ -126,6 +128,12 @@ h3 {
 }
 
 @media (max-width: 420px) {
+  .container{
+    padding-top: 2em;
+  }
+  h2  {
+    margin-top: unset;
+  }
   .header {
     display: block;
   }

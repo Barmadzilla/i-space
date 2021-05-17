@@ -80,22 +80,25 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.container {
   position: relative;
 }
+
 .bg {
   background: var(--bg-green);
   padding: 4em 0;
 }
-.info{
+
+.info {
   position: absolute;
   left: 3em;
-  width: 33%;
+  width: 30%;
   top: 0;
   margin-bottom: 2em;
+
 }
 .info h2 {
-  margin-top: 0 ;
+  margin-top: 0;
 }
 
 .plans {
@@ -104,13 +107,15 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   align-items: flex-end;
 }
-.all{
+
+.all {
   font-size: 25px;
   text-align: center;
   padding: 2em 0 0;
 }
+
 @media (max-width: 1140px) {
-  .info{
+  .info {
     width: 30%;
   }
 }

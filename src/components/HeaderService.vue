@@ -19,7 +19,7 @@
         <img :src="require(`../assets/images/faces/${person.img}`)">
       </div>
       <div class="bubbles">
-        <Bubble v-html="person.name" />
+        <Bubble v-html="person.name"/>
       </div>
     </div>
     <div class="features">
@@ -46,14 +46,14 @@ import GradientBgButton from "@/components/buttons/GradientBgButton";
 
 export default {
   name: "HeaderService",
-  props:['info','title','person'],
+  props: ['info', 'title', 'person'],
   components: {
     Navigation, GradientBgButton, Bubble, TransparentIconButton,
     Overlay, ModalClose, ModalTelegram
   },
   data() {
     return {
-      modal:false,
+      modal: false,
     }
   }
 }
@@ -85,7 +85,7 @@ export default {
 
 h1 {
   font-size: 39px;
-  margin: 0  0 1em ;
+  margin: 0 0 1em;
 }
 
 .buttons {
@@ -104,6 +104,7 @@ h1 {
   width: 100%;
   box-sizing: border-box;
 }
+
 .bubble {
   max-width: 282px;
 }
@@ -126,7 +127,7 @@ h1 {
 
 @supports (backdrop-filter: none) {
   .features {
-    background: linear-gradient(rgba(255, 255, 255, 0.10) , rgba(255, 255, 255, 1));
+    background: linear-gradient(rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 1));
     backdrop-filter: blur(10px);
   }
 }
@@ -136,45 +137,62 @@ h1 {
     font-size: 30px;
   }
 }
+
 @media (max-width: 420px) {
   h1 {
     font-size: 28px;
     text-align: center;
     line-height: 1.3;
   }
-  .container{
+
+  .container {
     padding: 4.9em 2em 1em;
     grid-template-columns: 1fr;
 
   }
+
   .buttons {
     flex-wrap: wrap;
   }
+
   .buttons .btn,
-  .buttons a{
+  .buttons a {
     margin: 0 0 0.5em 0;
     width: 100%;
   }
+
   .buttons a:before {
     border: none;
   }
-  .person img{
+  .person{
+    display: flex;
+    justify-content: center;
+  }
+  .person img {
     min-height: unset;
-    right: 0;
-    width: 100%;
+    max-height: 65vh;
+    right: unset;
     height: unset;
     top: unset;
-    bottom: 2em;
+    bottom: 0;
+
   }
-  .bubbles{
+
+  .bubbles {
     width: 100%;
     padding: 0;
     justify-content: center;
     bottom: 7em;
     right: unset;
   }
-  .slide{
-    /*height: 120vh;*/
+
+  .slide {
+    height: 115vh;
+  }
+}
+@media (max-width: 375px){
+  .person img {
+    max-height: 56vh;
   }
 }
 </style>
