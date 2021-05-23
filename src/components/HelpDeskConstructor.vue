@@ -119,4 +119,18 @@ export default {
     width: 30%;
   }
 }
+@media (max-width: 420px) {
+  .plans{
+    grid-gap: 1em;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .info{
+    position: relative;
+    left: unset;
+    width: 100%;
+  }
+  .bg{
+    padding: 2em 0;
+  }
+}
 </style>

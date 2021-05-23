@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import('../assets/css/components/industry.css')
 export default {
   name: "WeWorkWith",
   props: ['title', 'subtitle'],
@@ -75,35 +76,5 @@ export default {
 </script>
 
 <style scoped>
-.industry-grid {
-  margin: 4em 0 0;
-  padding-bottom: 4em;
-  border-bottom: 1px solid var(--bg-dark);
-  display: grid;
-  grid-gap: 2.5em;
-  grid-template-columns: repeat(3, 1fr);
-}
 
-.industry {
-  display: flex;
-  align-items: flex-start;
-}
-
-.industry img {
-  margin-right: 1.5em;
-}
-
-.industry h3 {
-  margin-top: .1em;
-}
-
-.info h2 {
-  margin-top: 0;
-}
-
-@media (max-width: 1140px) {
-  .industry img {
-    width: 2.8em;
-  }
-}
 </style>

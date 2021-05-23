@@ -10,7 +10,7 @@
         <p>{{ service.content }}</p>
       </div>
     </div>
-    <img class="hand" src="../assets/images/help-desk-hand.svg" >
+    <img class="hand" src="../assets/images/help-desk-hand.svg">
   </div>
 </template>
 
@@ -78,17 +78,35 @@ export default {
 .service img {
   margin-right: 2em;
 }
+
 .service:nth-child(6),
-.service:nth-child(8){
+.service:nth-child(8) {
   width: 64%;
 }
-.container{
+
+.container {
   position: relative;
   padding: 3em;
 }
+
 .hand {
   position: absolute;
   right: -1em;
   bottom: 0;
+}
+
+@media (max-width: 420px) {
+  .services {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5em;
+  }
+
+  .service:last-child {
+    width: 100%;
+  }
+
+  .container {
+    padding: 2em 1em 16em !important;
+  }
 }
 </style>

@@ -1,10 +1,13 @@
 <template>
   <header>
-    <div class="container">
-      <div class="logo">
+    <div class="container" ref="container" :class="{'open': showMenu}" >
+      <div class="logo" :class="{'right': showMenu}" ref="logo">
         <router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link>
+        <div class="open menu-btn" v-if="mobileDetect" @click="showMenu = !showMenu">
+          <span v-for="i in 3" :key="i" :class="{'ani':showMenu}"></span>
+        </div>
       </div>
-      <div id="nav">
+      <div id="nav" v-if="showMenu" >
         <ul>
           <li><a href="#" @click.prevent="open = true" class="sub" :class="classObj">Услуги</a>
             <transition name="fade">
@@ -24,14 +27,16 @@
               </ul>
             </transition>
           </li>
-          <li><a href="#" @click.prevent="toSection('price')">Тарифы</a></li>
-          <li><a href="#" @click.prevent="toSection('clients')">Клиенты</a></li>
-          <li v-if="$route.path==='/'"><a href="#" @click.prevent="toSection('about')">О компании</a></li>
-          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('cases')">Кейсы</a></li>
-          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('team')">Команда</a></li>
+          <li><a href="#" @click.prevent="toSection('price') ; showMenu = !showMenu">Тарифы</a></li>
+          <li><a href="#" @click.prevent="toSection('clients'); showMenu = !showMenu">Клиенты</a></li>
+          <li v-if="$route.path==='/'"><a href="#" @click.prevent="toSection('about'); showMenu = !showMenu">О компании</a></li>
+          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('cases'); showMenu = !showMenu">Кейсы</a></li>
+          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('team'); showMenu = !showMenu">Команда</a></li>
         </ul>
+
         <LocaleSwitcher v-show="false"/>
       </div>
+
     </div>
   </header>
 </template>
@@ -72,23 +77,40 @@ export default {
             }
         )
       }
+    },
+    onResize() {
+      this.windowWidth = window.innerWidth
+    },
+    newLogoLeft() {
+      let logoWidth = this.$refs.logo.offsetWidth
+      return this.windowWidth - logoWidth * 2 - 18
+    },
+    closeMenu(){
+      this.showMenu = this.mobileDetect ? false : true
     }
   },
   mounted() {
     setTimeout(this.toSection, 40)
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+    this.showMenu = !this.mobileDetect
   },
   data() {
     return {
-      open: false
+      open: false,
+      showMenu: true,
+      logoLeft: 0,
+      windowWidth: window.innerWidth,
     }
   },
   computed: {
     logotype() {
-      if (this.logo === 'it') {
+      if (this.$route.path === '/it-support') {
         return 'logo-ispace-tech.svg'
-      } else if (this.logo === 'legal') {
+      } else if (this.$route.path === '/i-legal') {
         return 'logo-ispace-legal.svg'
-      } else if (this.logo === 'finances') {
+      } else if (this.$route.path === 'finances') {
         return 'logo-ispace-finances.svg'
       } else {
         return 'logo-ispace.svg'
@@ -98,7 +120,22 @@ export default {
       return {
         active: !!this.open
       }
+    },
+    mobileDetect() {
+      return this.windowWidth < 780
+    },
+
+  },
+  watch: {
+    windowWidth(newW) {
+      this.windowWidth = newW;
+      this.newLogoLeft()
+
     }
+
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
   }
 }
 </script>
@@ -113,6 +150,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 200ms;
 }
 
 header {
@@ -223,8 +261,118 @@ header li ul a:hover {
     padding: 1em 0;
     box-sizing: border-box;
   }
-  header #nav{
+
+  header #nav {
+    /*display: none;*/
+  }
+
+  header li {
+    display: block;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  a.sub {
+    padding-right: 0;
+  }
+
+  a.sub:after {
     display: none;
   }
+
+  header ul {
+    /*padding: 2em 0 0;*/
+  }
+
+  header li ul {
+    position: relative;
+    background: none;
+    box-shadow: unset;
+    top: 0;
+    right: 0;
+    padding: 0 .6em 0;
+    margin: 0 1.5em 0 2em;
+    border-right: 1px solid lightgray;
+    border-radius: unset;
+    box-sizing: border-box;
+  }
+
+  #nav {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  #nav.hide {
+    display: none;
+  }
+
+  header li {
+    margin: .6em 0;
+  }
+
+  header li ul li {
+    text-transform: none;
+    font-size: 0.9em;
+  }
+
+  .container.open {
+    flex-direction: column;
+    position: relative;
+    align-items: flex-end;
+  }
+
+  .logo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu-btn {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    z-index: 400;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    /*top: 20px;*/
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .menu-btn span {
+    background: var(--text-gray);
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    display: block;
+    transition: all 200ms;
+    transform-origin: left;
+    transition-delay: 160ms;
+    top: 3px;
+    pointer-events: none;
+  }
+
+  .menu-btn span:nth-child(2) {
+    top: 14px;
+    transition-delay: 0ms;
+  }
+
+  .menu-btn span:nth-child(3) {
+    top: 25px;
+  }
+
+  .menu-btn span:nth-child(2).ani {
+    transform: translateX(60px);
+  }
+
+  .menu-btn span.ani {
+    transform: rotate(45deg);
+  }
+
+  .menu-btn span:nth-child(3).ani {
+    transform: rotate(-45deg);
+  }
+
 }
 </style>

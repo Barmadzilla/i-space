@@ -37,7 +37,7 @@ export default {
           ['Ведение расчетных счетов', 1, 2, 2],
           ['Операции по внешнеэкономической деятельности ', 0, 2, 5],
           ['Ведение операционного учета', true, true, true],
-          ['Обработка первичных документов', 80, 120,80],
+          ['Обработка первичных документов', 80, 120, 80],
           ['Методология и отчетность', true, true, true],
           ['Обработка первичных документов', 0, 5, 10],
         ],
@@ -77,13 +77,25 @@ export default {
 .info .content {
   margin-right: 5em;
 }
-.info .content h2{
+
+.info .content h2 {
   margin-top: 2em;
 }
 
-.all{
+.all {
   font-size: 25px;
   text-align: center;
   padding: 2em;
+}
+
+@media (max-width: 420px) {
+  .info {
+    flex-direction: column;
+  }
+
+  .info .content {
+    margin-right: unset;
+  }
+
 }
 </style>

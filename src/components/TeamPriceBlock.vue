@@ -74,10 +74,6 @@ export default {
   background: var(--bg-blue);
 }
 
-.container {
-  text-align: left;
-  padding: 3em 0;
-}
 
 .info {
   display: flex;
@@ -90,7 +86,9 @@ export default {
 }
 
 .container {
+  text-align: left;
   padding: 3em;
+
 }
 
 .header {
@@ -115,5 +113,33 @@ img {
   margin-bottom: -1.8em;
   height: calc(350px + 2em);
   flex-shrink: 0;
+}
+
+@media (max-width: 420px) {
+  img{
+    height: unset;
+    width: 100%;
+  }
+  .info {
+    flex-direction: column;
+  }
+
+  .info .content {
+    margin-right: unset;
+  }
+
+  .info p {
+    font-size: 1em;
+    font-weight: 300;
+  }
+
+  .container {
+    padding: 2em 1em;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+  }
 }
 </style>

@@ -56,7 +56,6 @@
     <communicate-easier/>
     <news-block v-show="hide"/>
     <call-to-action
-        class="mobile-hide"
         :actionTitle="'Полезные статьи<br/> i-Space у вас на почте'"
         :msg="'Оставьте email, мы будем делиться полезным контентом, лайфхаками и новостями. Без рекламы и партнерских писем.'"
         :btn-text="'Подписаться на новости'"

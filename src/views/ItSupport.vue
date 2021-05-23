@@ -313,4 +313,19 @@ export default {
 .feature img {
   margin-top: 1.5em;
 }
+@media (max-width: 420px) {
+  .features {
+    flex-direction: column;
+  }
+  .info p {
+    font-size: 1em;
+    font-weight: 300;
+  }
+  .feature{
+    flex-direction: column-reverse;
+  }
+  .feature img {
+    margin-bottom: 2em;
+  }
+}
 </style>

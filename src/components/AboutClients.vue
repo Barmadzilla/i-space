@@ -79,10 +79,21 @@ img {
 }
 
 @media (max-width: 420px) {
+  .clients{
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 1fr;
+    padding: 1em;
+  }
   img {
-    max-height: 30px;
-    width: unset;
-    margin: 0.5em 1em;
+    max-height: 2em;
+    margin: 0;
+    display: flex;
+  }
+  .reverse .bubbles{
+    padding-bottom: 0;
+    margin: 2em 0;
+
   }
 }
 </style>

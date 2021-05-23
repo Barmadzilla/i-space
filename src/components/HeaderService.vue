@@ -192,7 +192,7 @@ h1 {
 }
 @media (max-width: 375px){
   .person img {
-    max-height: 56vh;
+    max-height: 51vh;
   }
 }
 </style>

@@ -88,4 +88,20 @@ export default {
   text-align: center;
   padding: 2em;
 }
+@media(max-width: 420px){
+  .container{
+    padding-top: 2em;
+  }
+  .info{
+    flex-direction: column;
+    padding: 0;
+  }
+  .info p{
+    font-size: 1.1em;
+    hyphens: auto;
+  }
+  .info .content  {
+    margin-right: unset;
+  }
+}
 </style>

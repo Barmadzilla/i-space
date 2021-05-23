@@ -1,19 +1,20 @@
 <template>
   <div class="bg">
-    <div class="container">
+    <div ref="container" class="container">
       <div class="navigation">
         <h2>{{ title }}</h2>
-        <div class="tabs">
+        <div ref="tabs" class="tabs">
           <div class="tab"
                @click="currentSlide = i"
-               :class="{active: currentSlide===i }"
+               :ref="'tab_'+i"
+               :class="{ active: currentSlide === i }"
                v-for="(slide,i) in data"
                :key="i">
             {{ slide.title }}
           </div>
         </div>
       </div>
-      <div class="content">
+      <div ref="slide" class="content">
         <div class="sticky">
           <h2>{{ content.title }}</h2>
           <p>{{ content.subtitle }}</p>
@@ -45,13 +46,15 @@ import Overlay from "@/components/Overlay";
 import ModalTelegram from "@/components/ModalTelegram";
 import ModalClose from "@/components/ModalClose";
 
+
 export default {
   name: "HelpSlider",
   components: {ModalClose, ModalTelegram, Overlay, ListItemPlay, TransparentButton},
   props: ['title', 'data'],
   data() {
     return {
-      modal:false,
+      windowWidth: window.innerWidth,
+      modal: false,
       currentSlide: 0,
       content: {
         title: 'Наша экспертиза',
@@ -97,8 +100,69 @@ export default {
   computed: {
     getSlide() {
       return this.data[this.currentSlide]
+    },
+    mobileDetect() {
+      return this.windowWidth < 780
     }
-  }
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth
+    },
+    moveContent() {
+      let slide = this.currentSlide + 1
+      let target = this.$refs['tab_' + slide]
+      let len = document.querySelectorAll('.tabs .tab').length - 1
+
+      this.mobileDetect ?
+          this.$refs.tabs.insertBefore(this.$refs.slide, target)
+          : this.$refs.container.appendChild(this.$refs.slide)
+
+      setTimeout(() => {
+        let contentHeight = this.$refs.slide.offsetHeight
+
+        let destination = len !== this.currentSlide
+            ? this.$refs['tab_' + slide].getBoundingClientRect().top + document.documentElement.scrollTop - contentHeight - 180
+            : this.$refs['tab_' + len].getBoundingClientRect().top + document.documentElement.scrollTop  - 180
+
+        console.log('len-' + len + " " + "slide-" + slide)
+
+        window.scrollTo({
+          top: destination,
+          behavior: "smooth"
+        })
+      }, 50)
+    }
+  },
+  updated() {
+    this.moveContent()
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
+    })
+    this.mobileDetect ?
+        this.$refs.tabs.insertBefore(this.$refs.slide, this.$refs.tabs.childNodes[2])
+        : this.$refs.container.appendChild(this.$refs.slide)
+
+
+    // let content = document.getElementById('slide-content')
+    // content.remove()
+    // let tabs = document.querySelectorAll('#tabs .tab')
+    // let test = document.createElement('div')
+    // test.style.height = 2 + 'px'
+    // test.style.backgroundColor = 'red'
+    // this.mobileDetect && document.getElementById('tabs').insertBefore(test, tabs[this.currentSlide + 1])
+
+  },
+  watch: {
+    windowWidth(newW) {
+      this.windowWidth = newW;
+    }
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  },
 }
 </script>
 
@@ -112,6 +176,7 @@ export default {
   color: white;
   width: 45%;
 }
+
 .navigation h2 {
   margin-right: 1em;
 }
@@ -196,28 +261,96 @@ hr {
   opacity: 0;
   transform: translatex(-1em);
 }
-.sticky{
+
+.sticky {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
 }
+
 @media (max-width: 1140px) {
 
   .tab {
     font-size: 17px;
   }
-  hr{
+
+  hr {
     margin: 1.9em 0;
   }
 
 }
+
 @media (max-width: 1280px) {
 
   .tab {
     font-size: 18px;
   }
-  hr{
+
+  hr {
     margin: 2.3em 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 2em 1em;
+  }
+
+  .navigation {
+    width: 100%;
+  }
+
+  .tabs {
+    width: 100%;
+  }
+
+  .tab {
+    background: none;
+    padding: 0;
+    margin: .5em 0;
+    width: 100%;
+  }
+
+  .tab.active {
+    padding-left: unset;
+    border-left: none;
+    margin-bottom: unset;
+    padding-bottom: 1em;
+    position: relative;
+    font-weight: bold;
+    background-image: none;
+  }
+
+  .tab.active:before {
+    content: '';
+    height: 2em;
+    width: 2em;
+    background: url("../assets/images/white-arrow.svg") bottom / contain no-repeat !important;
+    bottom: -0.7em;
+    left: calc(50% - 1em);
+    position: absolute;
+    transform: rotate(90deg);
+  }
+
+  .tabs .content h2 {
+    color: black;
+  }
+
+  .tabs .content {
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    background: white;
+    margin: 0 auto 1em;
+    border-radius: 20px;
+  }
+
+  hr {
+    margin: 1em 0;
+  }
+
+  .tabs .content:before {
+    display: none;
   }
 }
 </style>

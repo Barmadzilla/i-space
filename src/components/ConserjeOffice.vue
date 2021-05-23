@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import('../assets/css/components/industry.css')
+
 export default {
   name: "ConserjeOffice",
   props: ['title', 'subtitle'],
@@ -51,48 +53,6 @@ export default {
 </script>
 
 <style scoped>
-.industry-grid {
-  margin: 4em 0 0;
-  padding-bottom: 4em;
-  display: grid;
-  grid-gap: 2.5em;
-  grid-template-columns: repeat(2, 1fr);
-}
 
-.content p {
-
-}
-
-.industry {
-  display: flex;
-  padding: 0 2em;
-}
-
-.industry img {
-  margin-right: 1.5em;
-}
-
-.industry h3 {
-  margin-top: .1em;
-}
-@media (max-width: 1140px) {
-  .industry img {
-    width: 2.8em;
-  }
-}
-@media (max-width: 420px) {
-  .industry-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .sub p{
-    font-size: 16px;
-  }
-  .industry{
-    padding: 0;
-  }
-  .industry img {
-    width: 3.5em;
-  }
-}
 
 </style>

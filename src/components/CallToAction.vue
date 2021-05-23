@@ -1,5 +1,5 @@
 <template>
-  <div class="action">
+  <div class="action" v-if="!hide">
     <div class="container">
       <h2 v-html="actionTitle"></h2>
       <div class="info">
@@ -33,7 +33,7 @@ import ModalSubscribe from "@/components/ModalSubscribe";
 
 export default {
   name: "CallToAction",
-  props: ['btnText', 'type', 'actionTitle', 'msg', 'formCredits'],
+  props: ['btnText', 'type', 'actionTitle', 'msg', 'formCredits', 'hide'],
   components: {ModalSubscribe, ModalTelegram, SolidButton, Overlay, ModalClose},
   data() {
     return {

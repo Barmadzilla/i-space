@@ -9,6 +9,7 @@
           :price="data.price"
           :bottom-note="data.bottomNote"
           :top-note="data.topNote"
+          :no-background="true"
       />
       <div class="cloud-container">
         <div class="cloud">
@@ -117,6 +118,33 @@ img {
   }
   img {
     max-width: 23em;
+  }
+}
+@media (max-width: 420px) {
+  .container{
+    flex-direction: column-reverse;
+    padding: 1em;
+  }
+  .cloud-container{
+    width: calc(100% + 2em);
+    background: white;
+    margin: -1em -1em 0 -1em;
+    overflow: hidden;
+  }
+  .cloud:after{
+    display: none;
+  }
+  .cloud {
+    font-size: 15px;
+    margin-left: unset;
+    margin-bottom: -1.5em;
+    /*padding: 0;*/
+
+  }
+  img {
+    max-width: 23em;
+    bottom: -1.9em;
+    right: unset;
   }
 }
 </style>

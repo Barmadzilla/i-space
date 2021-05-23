@@ -177,7 +177,7 @@ export default {
 
 .events {
   display: flex;
-  overflow: scroll;
+  overflow: auto;
   width: 100%;
   padding-bottom: 2em;
 }
