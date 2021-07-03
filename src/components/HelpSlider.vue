@@ -43,8 +43,8 @@
 import ListItemPlay from "@/components/lists/ListItemPlay";
 import TransparentButton from "@/components/buttons/TransparentButton";
 import Overlay from "@/components/Overlay";
-import ModalTelegram from "@/components/ModalTelegram";
-import ModalClose from "@/components/ModalClose";
+import ModalTelegram from "@/components/modals/ModalTelegram";
+import ModalClose from "@/components/modals/ModalClose";
 
 
 export default {

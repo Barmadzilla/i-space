@@ -48,8 +48,8 @@ import TransparentIconButton from "@/components/buttons/TransparentIconButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
 import Feature from "@/components/Feature";
 import Overlay from "@/components/Overlay";
-import ModalClose from "@/components/ModalClose";
-import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/modals/ModalClose";
+import ModalTelegram from "@/components/modals/ModalTelegram";
 
 export default {
   name: "Header",

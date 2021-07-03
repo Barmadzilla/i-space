@@ -15,10 +15,12 @@
             <router-link :to="{name:'Privacy',params:{section:'top'}}">соглашения и обработки персональных данных</router-link>
           </small>
         </form>
-        <div class="msg" v-if="submitted">
-          <h2>Уважаемый {{ senderName }},</h2>
-          <p>Мы уже получили Ваш запрос. <br> В ближайшие время наш менеджер свяжется с вами. Спасибо!</p>
-        </div>
+        <AfterSendMsg :name="senderName"  v-if="submitted"/>
+<!--        <div class="msg" v-if="submitted">-->
+<!--          <h2>{{ senderName }}.</h2>-->
+<!--          <p>Мы уже получили Ваш запрос. <br> В ближайшие время наш менеджер свяжется с вами.</p>-->
+<!--          <p>Спасибо!</p>-->
+<!--        </div>-->
         <div class="steps">
           <div class="step" v-for="(step,i) in steps" :key="i">
             <h3>{{ step.title }}</h3>
@@ -33,10 +35,11 @@
 
 <script>
 import GradientBgButton from "@/components/buttons/GradientBgButton";
+import AfterSendMsg from "@/components/modals/AfterSendMsg";
 const axios = require('axios')
 export default {
   name: "Footer",
-  components: {GradientBgButton},
+  components: {AfterSendMsg, GradientBgButton},
   computed: {
     valid() {
       return !!this.name && !!this.phone && !!this.email

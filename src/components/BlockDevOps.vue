@@ -39,8 +39,8 @@ import TransparentButton from "@/components/buttons/TransparentButton";
 import Bubble from "@/components/bubbles/Bubble";
 import Review from "@/components/review/Review";
 import Overlay from "@/components/Overlay";
-import ModalClose from "@/components/ModalClose";
-import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/modals/ModalClose";
+import ModalTelegram from "@/components/modals/ModalTelegram";
 
 export default {
   name: "BlockLegals",

@@ -15,22 +15,20 @@
         <router-link :to="{name:'Privacy',params:{section:'top'}}">соглашения и обработки персональных данных</router-link>
       </small>
     </form>
-    <div class="msg" v-if="submitted">
-      <h2>{{ senderName }},</h2>
-      <p>Мы уже получили Ваш запрос. <br> В ближайшие время наш менеджер свяжется с вами. Спасибо!</p>
-    </div>
+   <after-send-msg :name="senderName" v-if="submitted"/>
   </div>
 </template>
 
 <script>
 import GradientBgButton from "@/components/buttons/GradientBgButton"
+import AfterSendMsg from "@/components/modals/AfterSendMsg";
 
 const axios = require('axios')
 
 export default {
   name: "ModalTelegram",
   props: ['title', 'subtitle', 'type'],
-  components: {GradientBgButton},
+  components: {AfterSendMsg, GradientBgButton},
   computed: {
     valid() {
       return !!this.name && !!this.phone && !!this.email

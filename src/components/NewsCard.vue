@@ -20,8 +20,8 @@
 
 <script>
 import Overlay from "@/components/Overlay";
-import ModalClose from "@/components/ModalClose";
-import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/modals/ModalClose";
+import ModalTelegram from "@/components/modals/ModalTelegram";
 import TransparentButton from "@/components/buttons/TransparentButton";
 
 export default {

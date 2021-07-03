@@ -39,8 +39,8 @@ import Navigation from "@/components/Navigation";
 import TransparentIconButton from "@/components/buttons/TransparentIconButton";
 import Bubble from "@/components/bubbles/BubbleHeader";
 import Overlay from "@/components/Overlay";
-import ModalClose from "@/components/ModalClose";
-import ModalTelegram from "@/components/ModalTelegram";
+import ModalClose from "@/components/modals/ModalClose";
+import ModalTelegram from "@/components/modals/ModalTelegram";
 import GradientBgButton from "@/components/buttons/GradientBgButton";
 
 
