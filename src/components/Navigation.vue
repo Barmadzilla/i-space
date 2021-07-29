@@ -1,19 +1,34 @@
 <template>
   <header>
-    <div class="container" ref="container" :class="{'open': showMenu}" >
-      <div class="logo" :class="{'right': showMenu}" ref="logo">
-        <router-link :to="'/'"><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"></router-link>
-        <div class="open menu-btn" v-if="mobileDetect" @click="showMenu = !showMenu">
-          <span v-for="i in 3" :key="i" :class="{'ani':showMenu}"></span>
+    <div class="container" ref="container" :class="{ open: showMenu }">
+      <div class="logo" :class="{ right: showMenu }" ref="logo">
+        <router-link :to="'/'"
+          ><img :src="require(`../assets/${logotype}`)" alt="iSpace логотип"
+        /></router-link>
+        <div
+          class="open menu-btn"
+          v-if="mobileDetect"
+          @click="showMenu = !showMenu"
+        >
+          <span v-for="i in 3" :key="i" :class="{ ani: showMenu }"></span>
         </div>
       </div>
-      <div id="nav" v-if="showMenu" >
+      <div id="nav" v-if="showMenu">
         <ul>
-          <li><a href="#" @click.prevent="open = true" class="sub" :class="classObj">Услуги</a>
+          <li>
+            <a
+              href="#"
+              @click.prevent="open = true"
+              class="sub"
+              :class="classObj"
+              >Услуги</a
+            >
             <transition name="fade">
               <ul v-if="open" @mouseleave="open = false">
                 <li>
-                  <router-link :to="'/i-legal'">Юридическое сопровождение</router-link>
+                  <router-link :to="'/i-legal'"
+                    >Юридическое сопровождение</router-link
+                  >
                 </li>
                 <li>
                   <router-link :to="'/finances'">Финансовый учет</router-link>
@@ -27,74 +42,119 @@
               </ul>
             </transition>
           </li>
-          <li><a href="#" @click.prevent="toSection('price') ; showMenu = !showMenu">Тарифы</a></li>
-          <li><a href="#" @click.prevent="toSection('clients'); showMenu = !showMenu">Клиенты</a></li>
-          <li v-if="$route.path==='/'"><a href="#" @click.prevent="toSection('about'); showMenu = !showMenu">О компании</a></li>
-          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('cases'); showMenu = !showMenu">Кейсы</a></li>
-          <li v-if="$route.path!=='/'"><a href="#" @click.prevent="toSection('team'); showMenu = !showMenu">Команда</a></li>
+          <li>
+            <a
+              href="#"
+              @click.prevent="
+                toSection('price');
+                showMenu = !showMenu;
+              "
+              >Тарифы</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              @click.prevent="
+                toSection('clients');
+                showMenu = !showMenu;
+              "
+              >Клиенты</a
+            >
+          </li>
+          <li v-if="$route.path === '/'">
+            <a
+              href="#"
+              @click.prevent="
+                toSection('about');
+                showMenu = !showMenu;
+              "
+              >О компании</a
+            >
+          </li>
+          <li v-if="$route.path !== '/'">
+            <a
+              href="#"
+              @click.prevent="
+                toSection('cases');
+                showMenu = !showMenu;
+              "
+              >Кейсы</a
+            >
+          </li>
+          <li v-if="$route.path !== '/'">
+            <a
+              href="#"
+              @click.prevent="
+                toSection('team');
+                showMenu = !showMenu;
+              "
+              >Команда</a
+            >
+          </li>
         </ul>
 
-        <LocaleSwitcher v-show="false"/>
+        <LocaleSwitcher v-show="false" />
+        <Social />
       </div>
-
     </div>
   </header>
 </template>
 
 <script>
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import Social from "@/components/Social";
 
 export default {
   name: "Navigation",
-  components: {LocaleSwitcher},
-  props: ['logo'],
+  components: { LocaleSwitcher, Social },
+  props: ["logo"],
   methods: {
     toSection(section) {
-      let params
+      let params;
       if (section) {
-        params = section
+        params = section;
       } else {
-        params = this.$route.params.section
+        params = this.$route.params.section;
       }
       if (params) {
-        let target = document.getElementById(`${params}`)
-        let currentY = window.pageYOffset
+        let target = document.getElementById(`${params}`);
+        let currentY = window.pageYOffset;
         // console.log(target)
-        target = target.getBoundingClientRect().top
+        target = target.getBoundingClientRect().top;
         // console.log(target)
         // console.log(currentY)
-        let destination = currentY >= 0 ? target + currentY - 85 : target - 85
+        let destination = currentY >= 0 ? target + currentY - 85 : target - 85;
         // console.log(destination)
 
         window.scrollTo({
           top: destination,
-          behavior: "smooth"
-        })
+          behavior: "smooth",
+        });
       } else {
         window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            }
-        )
+          top: 0,
+          behavior: "smooth",
+        });
       }
     },
     onResize() {
-      this.windowWidth = window.innerWidth
+      this.windowWidth = window.innerWidth;
     },
     newLogoLeft() {
-      let logoWidth = this.$refs.logo.offsetWidth
-      return this.windowWidth - logoWidth * 2 - 18
+      let logoWidth = this.$refs.logo.offsetWidth;
+      return this.windowWidth - logoWidth * 2 - 18;
     },
-    closeMenu(){
-      this.showMenu = this.mobileDetect ? false : true
-    }
+    closeMenu() {
+      this.showMenu = this.mobileDetect ? false : true;
+    },
   },
   mounted() {
-    setTimeout(this.toSection, 40)
+    setTimeout(this.toSection, 40);
     this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize);
-    })
-    this.showMenu = !this.mobileDetect
+      window.addEventListener("resize", this.onResize);
+    });
+    this.showMenu = !this.mobileDetect;
   },
   data() {
     return {
@@ -102,42 +162,39 @@ export default {
       showMenu: true,
       logoLeft: 0,
       windowWidth: window.innerWidth,
-    }
+    };
   },
   computed: {
     logotype() {
-      if (this.$route.path === '/it-support') {
-        return 'logo-ispace-tech.svg'
-      } else if (this.$route.path === '/i-legal') {
-        return 'logo-ispace-legal.svg'
-      } else if (this.$route.path === 'finances') {
-        return 'logo-ispace-finances.svg'
+      if (this.$route.path === "/it-support") {
+        return "logo-ispace-tech.svg";
+      } else if (this.$route.path === "/i-legal") {
+        return "logo-ispace-legal.svg";
+      } else if (this.$route.path === "finances") {
+        return "logo-ispace-finances.svg";
       } else {
-        return 'logo-ispace.svg'
+        return "logo-ispace.svg";
       }
     },
     classObj() {
       return {
-        active: !!this.open
-      }
+        active: !!this.open,
+      };
     },
     mobileDetect() {
-      return this.windowWidth < 780
+      return this.windowWidth < 780;
     },
-
   },
   watch: {
     windowWidth(newW) {
       this.windowWidth = newW;
-      this.newLogoLeft()
-
-    }
-
+      this.newLogoLeft();
+    },
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.onResize);
-  }
-}
+    window.removeEventListener("resize", this.onResize);
+  },
+};
 </script>
 
 <style scoped>
@@ -165,7 +222,7 @@ header {
 
 @supports (backdrop-filter: none) {
   header {
-    background: rgba(255, 255, 255, 0.70);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
   }
 }
@@ -196,7 +253,7 @@ header li ul {
 
 header li ul li {
   margin-left: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   display: list-item;
 }
 
@@ -216,7 +273,7 @@ a.sub {
 }
 
 a.sub:after {
-  content: '';
+  content: "";
   background: url("../assets/images/sub-arr.svg") no-repeat center;
   width: 10px;
   height: 10px;
@@ -255,16 +312,15 @@ header li ul a:hover {
   }
 }
 
-
 @media (max-width: 420px) {
   header {
     padding: 1em 0;
     box-sizing: border-box;
   }
 
-  header #nav {
-    /*display: none;*/
-  }
+  /* header #nav {
+    display: none;
+  } */
 
   header li {
     display: block;
@@ -280,9 +336,9 @@ header li ul a:hover {
     display: none;
   }
 
-  header ul {
-    /*padding: 2em 0 0;*/
-  }
+  /* header ul {
+    padding: 2em 0 0;
+  } */
 
   header li ul {
     position: relative;
@@ -290,7 +346,7 @@ header li ul a:hover {
     box-shadow: unset;
     top: 0;
     right: 0;
-    padding: 0 .6em 0;
+    padding: 0 0.6em 0;
     margin: 0 1.5em 0 2em;
     border-right: 1px solid lightgray;
     border-radius: unset;
@@ -307,7 +363,7 @@ header li ul a:hover {
   }
 
   header li {
-    margin: .6em 0;
+    margin: 0.6em 0;
   }
 
   header li ul li {
@@ -373,6 +429,5 @@ header li ul a:hover {
   .menu-btn span:nth-child(3).ani {
     transform: rotate(-45deg);
   }
-
 }
 </style>
