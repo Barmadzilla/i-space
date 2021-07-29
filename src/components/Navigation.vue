@@ -356,6 +356,7 @@ header li ul a:hover {
   #nav {
     width: 100%;
     justify-content: flex-end;
+    flex-direction: column;
   }
 
   #nav.hide {
