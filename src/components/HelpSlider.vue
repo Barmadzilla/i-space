@@ -122,7 +122,7 @@ export default {
         let contentHeight = this.$refs.slide.offsetHeight
 
         let destination = len !== this.currentSlide
-            ? this.$refs['tab_' + slide].getBoundingClientRect().top + document.documentElement.scrollTop - contentHeight - 180
+            ? this.$refs['tab_' + slide].getBoundingClientRect().top + document.documentElement.scrollTop - contentHeight -180
             : this.$refs['tab_' + len].getBoundingClientRect().top + document.documentElement.scrollTop  - 180
 
         console.log('len-' + len + " " + "slide-" + slide)

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import('../assets/css/components/industry.css')
+
 
 export default {
   name: "ConserjeOffice",
@@ -54,5 +54,54 @@ export default {
 
 <style scoped>
 
+.industry-grid {
+  --spacer: 4em;
+  margin: var(--spacer) 0 0;
+  padding-bottom: var(--spacer);
+  display: grid;
+  grid-gap: 2.5em;
+  grid-template-columns: repeat(2, 1fr);
+}
 
+.industry {
+  display: flex;
+  padding: 0 2em;
+}
+
+.industry img {
+  margin-right: 1.5em;
+}
+
+.industry h3 {
+  margin-top: .1em;
+}
+
+@media (max-width: 1140px) {
+  .industry img {
+    width: 2.8em;
+  }
+}
+
+@media (max-width: 420px) {
+  .industry-grid {
+    --spacer: 2em;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1.7em;
+  }
+
+  .sub p {
+    font-size: 16px;
+  }
+
+  .industry {
+    padding: 0;
+  }
+
+  .industry h3 {
+    font-size: 1em;
+  }
+  .industry img {
+    width: 2.4em;
+  }
+}
 </style>
