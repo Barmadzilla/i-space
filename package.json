@@ -5,13 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "./deploy.sh"
   },
   "resolutions": {
     "electron": "^11.0.1"
   },
   "dependencies": {
-    "@vue/devtools": "^5.3.4",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "debug": "^4.3.1",
@@ -29,6 +29,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "@vue/devtools": "v6.0.0-beta.18",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0"

@@ -4,12 +4,14 @@
       <div class="navigation">
         <h2>{{ title }}</h2>
         <div ref="tabs" class="tabs">
-          <div class="tab"
-               @click="currentSlide = i"
-               :ref="'tab_'+i"
-               :class="{ active: currentSlide === i }"
-               v-for="(slide,i) in data"
-               :key="i">
+          <div
+            class="tab"
+            @click="currentSlide = i"
+            :ref="'tab_' + i"
+            :class="{ active: currentSlide === i }"
+            v-for="(slide, i) in data"
+            :key="i"
+          >
             {{ slide.title }}
           </div>
         </div>
@@ -18,14 +20,20 @@
         <div class="sticky">
           <h2>{{ content.title }}</h2>
           <p>{{ content.subtitle }}</p>
-          <hr>
+          <hr />
           <transition name="anim">
             <div class="slide-content" v-if="getSlide">
               <h2>{{ getSlide.title }}</h2>
-              <list-item-play v-for="(item,i) in getSlide.content.list" :key="i">{{ item }}</list-item-play>
+              <list-item-play
+                v-for="(item, i) in getSlide.content.list"
+                :key="i"
+                >{{ item }}</list-item-play
+              >
             </div>
           </transition>
-          <transparent-button class="btn" @click="modal = true">Интересно! Хочу подробностей!</transparent-button>
+          <transparent-button class="btn" @click="modal = true"
+            >Интересно! Хочу подробностей!</transparent-button
+          >
         </div>
       </div>
     </div>
@@ -46,124 +54,138 @@ import Overlay from "@/components/Overlay";
 import ModalTelegram from "@/components/modals/ModalTelegram";
 import ModalClose from "@/components/modals/ModalClose";
 
-
 export default {
   name: "HelpSlider",
-  components: {ModalClose, ModalTelegram, Overlay, ListItemPlay, TransparentButton},
-  props: ['title', 'data'],
+  components: {
+    ModalClose,
+    ModalTelegram,
+    Overlay,
+    ListItemPlay,
+    TransparentButton,
+  },
+  props: ["title", "data"],
   data() {
     return {
       windowWidth: window.innerWidth,
       modal: false,
       currentSlide: 0,
       content: {
-        title: 'Наша экспертиза',
-        subtitle: 'Каждый день решаем ваши задачи не зависимо от их количества, размера и особенностей вашего бизнеса'
+        title: "Наша экспертиза",
+        subtitle:
+          "Каждый день решаем ваши задачи не зависимо от их количества, размера и особенностей вашего бизнеса",
       },
       slides: [
         {
-          title: 'Непрерывная интеграция, доставка и развертывание',
+          title: "Непрерывная интеграция, доставка и развертывание",
           content: {
             list: [
-              'Подготовка инфраструктуры для конвейеров CI/ CD',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              "Подготовка инфраструктуры для конвейеров CI/ CD",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
             ],
-          }
+          },
         },
         {
-          title: 'Непрерывная интеграция, доставка и развертывание 88',
+          title: "Непрерывная интеграция, доставка и развертывание 88",
           content: {
             list: [
-              'Подготовка инфраструктуры для конвейеров CI/ CD2',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              "Подготовка инфраструктуры для конвейеров CI/ CD2",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
             ],
-          }
+          },
         },
         {
-          title: 'Непрерывная интеграция, доставка и развертывание 3',
+          title: "Непрерывная интеграция, доставка и развертывание 3",
           content: {
             list: [
-              'Подготовка инфраструктуры для конвейеров CI/ CD3',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
-              'Создание конвейеров для интеграции, доставки и развертывания приложений',
+              "Подготовка инфраструктуры для конвейеров CI/ CD3",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
+              "Создание конвейеров для интеграции, доставки и развертывания приложений",
             ],
-          }
+          },
         },
-      ]
-    }
+      ],
+    };
   },
   computed: {
     getSlide() {
-      return this.data[this.currentSlide]
+      return this.data[this.currentSlide];
     },
     mobileDetect() {
-      return this.windowWidth < 780
-    }
+      return this.windowWidth < 780;
+    },
   },
   methods: {
     onResize() {
-      this.windowWidth = window.innerWidth
+      this.windowWidth = window.innerWidth;
     },
     moveContent() {
-      let slide = this.currentSlide + 1
-      let target = this.$refs['tab_' + slide]
-      let len = document.querySelectorAll('.tabs .tab').length - 1
-
-      this.mobileDetect ?
-          this.$refs.tabs.insertBefore(this.$refs.slide, target)
-          : this.$refs.container.appendChild(this.$refs.slide)
-
       setTimeout(() => {
-        let contentHeight = this.$refs.slide.offsetHeight
+        // вычитаем куда скролить это верхние координаты блока с контентом + офсет окна -140 корректировка на блок меню
+        let scrollTo =
+          this.$refs.slide.getBoundingClientRect().top +
+          window.pageYOffset -
+          140;
+        // задаем номер слайда для выбора рефа в мобильноверсии
+        let slide =
+          this.currentSlide + 1 !== this.data.length
+            ? this.currentSlide + 1
+            : this.currentSlide;
+        let target = this.$refs["tab_" + slide]; // определяем таб перед которым будет вставлен блок с контентом для моб версии
 
-        let destination = len !== this.currentSlide
-            ? this.$refs['tab_' + slide].getBoundingClientRect().top + document.documentElement.scrollTop - contentHeight -180
-            : this.$refs['tab_' + len].getBoundingClientRect().top + document.documentElement.scrollTop  - 180
+        let tabHeight = target.offsetHeight; // вычитаем высоту этого блока чтобы сдвинуть скролл
 
-        console.log('len-' + len + " " + "slide-" + slide)
-
+        if (this.mobileDetect) {
+          if (this.currentSlide + 1 !== this.data.length) {
+            // если таб не последний в списке вставляем перед ним слайд
+            this.$refs.tabs.insertBefore(this.$refs.slide, target);
+          } else {
+            //если таб последний в списке вставляем после него  слайд
+            this.$refs.tabs.appendChild(this.$refs.slide);
+          }
+          //так как мобильная версия добавляем к координатам скроллинга высоту таба
+          scrollTo =
+            this.$refs.slide.getBoundingClientRect().top +
+            window.pageYOffset -
+            tabHeight -
+            140;
+        }
+        //Исполняем скроллинг на выбранные координаты которые записаны в scrollTo
         window.scrollTo({
-          top: destination,
-          behavior: "smooth"
-        })
-      }, 50)
-    }
+          top: scrollTo,
+          behavior: "smooth",
+        });
+      }, 50);
+    },
   },
+
   updated() {
-    this.moveContent()
+    this.moveContent();
   },
   mounted() {
     this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize);
-    })
-    this.mobileDetect ?
-        this.$refs.tabs.insertBefore(this.$refs.slide, this.$refs.tabs.childNodes[2])
-        : this.$refs.container.appendChild(this.$refs.slide)
-
-
-    // let content = document.getElementById('slide-content')
-    // content.remove()
-    // let tabs = document.querySelectorAll('#tabs .tab')
-    // let test = document.createElement('div')
-    // test.style.height = 2 + 'px'
-    // test.style.backgroundColor = 'red'
-    // this.mobileDetect && document.getElementById('tabs').insertBefore(test, tabs[this.currentSlide + 1])
-
+      window.addEventListener("resize", this.onResize);
+    });
+    this.mobileDetect
+      ? this.$refs.tabs.insertBefore(
+          this.$refs.slide,
+          this.$refs.tabs.childNodes[2]
+        )
+      : this.$refs.container.appendChild(this.$refs.slide);
   },
   watch: {
     windowWidth(newW) {
       this.windowWidth = newW;
-    }
+    },
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener("resize", this.onResize);
   },
-}
+};
 </script>
 
 <style scoped>
@@ -195,7 +217,6 @@ export default {
   margin-top: 1em;
 }
 
-
 .tab {
   margin: 0.4em 0;
   padding: 5px 3em 0 0;
@@ -211,7 +232,6 @@ export default {
   min-height: 2em;
   padding-left: 1em;
   border-left: 3px solid black;
-
 }
 
 h2:first-child {
@@ -231,7 +251,7 @@ h2:first-child {
 }
 
 .content:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -241,7 +261,6 @@ h2:first-child {
   height: 100%;
   z-index: -1;
 }
-
 
 hr {
   margin: 3em 0;
@@ -269,7 +288,6 @@ hr {
 }
 
 @media (max-width: 1140px) {
-
   .tab {
     font-size: 17px;
   }
@@ -277,11 +295,9 @@ hr {
   hr {
     margin: 1.9em 0;
   }
-
 }
 
 @media (max-width: 1280px) {
-
   .tab {
     font-size: 18px;
   }
@@ -307,7 +323,7 @@ hr {
   .tab {
     background: none;
     padding: 0;
-    margin: .5em 0;
+    margin: 0.5em 0;
     width: 100%;
   }
 
@@ -322,10 +338,11 @@ hr {
   }
 
   .tab.active:before {
-    content: '';
+    content: "";
     height: 2em;
     width: 2em;
-    background: url("../assets/images/white-arrow.svg") bottom / contain no-repeat !important;
+    background: url("../assets/images/white-arrow.svg") bottom / contain
+      no-repeat !important;
     bottom: -0.7em;
     left: calc(50% - 1em);
     position: absolute;

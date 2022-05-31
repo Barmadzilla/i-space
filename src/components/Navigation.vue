@@ -43,54 +43,19 @@
             </transition>
           </li>
           <li>
-            <a
-              href="#"
-              @click.prevent="
-                toSection('price');
-                showMenu = !showMenu;
-              "
-              >Тарифы</a
-            >
+            <a href="#" @click.prevent="toSection('price')">Тарифы</a>
           </li>
           <li>
-            <a
-              href="#"
-              @click.prevent="
-                toSection('clients');
-                showMenu = !showMenu;
-              "
-              >Клиенты</a
-            >
+            <a href="#" @click.prevent="toSection('clients')">Клиенты</a>
           </li>
           <li v-if="$route.path === '/'">
-            <a
-              href="#"
-              @click.prevent="
-                toSection('about');
-                showMenu = !showMenu;
-              "
-              >О компании</a
-            >
+            <a href="#" @click.prevent="toSection('about')">О компании</a>
           </li>
           <li v-if="$route.path !== '/'">
-            <a
-              href="#"
-              @click.prevent="
-                toSection('cases');
-                showMenu = !showMenu;
-              "
-              >Кейсы</a
-            >
+            <a href="#" @click.prevent="toSection('cases')">Кейсы</a>
           </li>
           <li v-if="$route.path !== '/'">
-            <a
-              href="#"
-              @click.prevent="
-                toSection('team');
-                showMenu = !showMenu;
-              "
-              >Команда</a
-            >
+            <a href="#" @click.prevent="toSection('team')">Команда</a>
           </li>
         </ul>
 
@@ -111,6 +76,12 @@ export default {
   props: ["logo"],
   methods: {
     toSection(section) {
+      //* Проверяем что у нас мобила или нет
+      if (this.mobileDetect) {
+        //** Прячем меню после клика */
+        this.showMenu = false;
+      }
+
       let params;
       if (section) {
         params = section;

@@ -1,2 +1,2 @@
 #!/bin/bash
-scp -r dist/. reg.ru:i-space.pro/
+yarn build && scp -r dist/* reg.ru:i-space.pro/
