@@ -44,13 +44,13 @@
         :msg="'Проанализируем ваши задачи, подскажем оптимальную структуру и обеспечим организацию пространств для решения всех ваших задач под ключ.'"
         :btn-text="'Получить консультацию'"
     />
-    <team-block
+    <!-- <team-block
         id="team"
         :title='`Команда, которая <span class="text-gradient">умеет всё</span>`'
         :subtitle="'Команда во многом определяет успех компании. Лучший показатель качества нашей работы — повторное обращение, рекомендация друзьям и коллегам. Почти 90% новых клиентов приходят к нам по рекомендации.'"
         :team="team"
         :team-name="'support'"
-    />
+    /> -->
     <business-tasks-block id="cases" :cases="cases"/>
     <best-conditions/>
 
@@ -67,7 +67,7 @@ import Automatization from "@/components/Automatization";
 import HelpDeskServices from "@/components/HelpDeskServices";
 import BusinessTasksBlock from "@/components/BusinessTasksBlock";
 import HelpDeskConstructor from "@/components/HelpDeskConstructor";
-import TeamBlock from "@/components/TeamBlock";
+// import TeamBlock from "@/components/TeamBlock";
 import BestConditions from "@/components/BestConditions";
 import HeaderService from "@/components/HeaderService";
 
@@ -84,7 +84,7 @@ export default {
     HelpDeskServices,
     BusinessTasksBlock,
     HelpDeskConstructor,
-    TeamBlock,
+    // TeamBlock,
     BestConditions
   },
   methods: {
@@ -104,7 +104,7 @@ export default {
     return {
       header: {
         person: {
-          name:'Алексей Шонин<br>Технический директор',
+          name: false,
           img: 'Shonin.png'
         },
         words: [

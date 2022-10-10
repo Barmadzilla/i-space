@@ -19,7 +19,7 @@
         <img :src="require(`../assets/images/faces/${person.img}`)">
       </div>
       <div class="bubbles">
-        <Bubble v-html="person.name"/>
+        <Bubble v-show="!!person.name" v-html="person.name"/>
       </div>
     </div>
     <div class="features">
